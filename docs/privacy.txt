@@ -1,0 +1,190 @@
+PRIVACYVERKLARING LUCENT
+Versie 1.0 | Ingangsdatum: [DATUM]
+
+Lucent ("wij", "ons", "onze") hecht groot belang aan de bescherming van jouw persoonsgegevens. In deze privacyverklaring leggen wij uit welke gegevens wij verzamelen, waarom wij dat doen, hoe wij ze beschermen, en welke rechten jij hebt.
+
+Deze verklaring is van toepassing op de Lucent-app en de bijbehorende website (www.lucent.you).
+
+---
+
+1. WIE IS VERANTWOORDELIJK VOOR JOUW GEGEVENS?
+
+Lucent
+Contactpersoon: Martijn Rutten
+E-mailadres: privacy@lucent.you
+Website: www.lucent.you
+
+Wij zijn de verwerkingsverantwoordelijke in de zin van de Algemene Verordening Gegevensbescherming (AVG/GDPR).
+
+---
+
+2. WELKE PERSOONSGEGEVENS VERZAMELEN WIJ?
+
+2.1 Accountgegevens
+- E-mailadres (bij registratie via e-mail)
+- Google-accountgegevens (naam, e-mailadres) bij aanmelding via Google
+
+2.2 Profielgegevens
+- Voornaam
+- Geboortedatum
+- Geslacht
+- Land en stad
+- Opleidingsniveau
+- Beroep/werk
+- Biografie (vrije tekst)
+
+2.3 Persoonlijkheidsgegevens
+- Vijf persoonlijkheidswaarden op een schaal van 0-100:
+  Sociale batterij, Logica-Emotie, Structuur-Spontaniteit, Openheid, Hechting
+- Kernwaarden: relatiedoel, kinderwens, politieke oriëntatie, alcoholgebruik, dieetkeuze, religie, rookgedrag
+
+2.4 Locatiegegevens
+- Precieze GPS-coördinaten (breedte- en lengtegraad) bij het aanmaken van je account
+- Deze worden gebruikt om de afstand tot andere gebruikers te berekenen
+
+2.5 Foto's
+- Profielfoto (selfie, gemaakt via de camera in de app)
+- Optionele persoonlijke foto
+
+2.6 Communicatiegegevens
+- Inhoud van berichten die je via de app verstuurt en ontvangt
+- Tijdstip van berichten
+
+2.7 Gebruiksgegevens
+- Beoordelingen die je geeft aan andere profielen
+- Matchverzoeken die je verstuurt of ontvangt
+- Meldingen die je indient
+
+2.8 Technische gegevens
+- Expo Push Token (voor pushmeldingen)
+- Taal- en berichtgevingsvoorkeuren
+- Premiumstatus en abonnementsgegevens
+- Tijdstip van akkoord gaan met deze voorwaarden
+
+2.9 Moderatiegegevens
+- Eventuele foto-overtredingen en de bijbehorende reden
+- Ban-status en duur (indien van toepassing)
+
+---
+
+3. WAAROM VERZAMELEN WIJ JOUW GEGEVENS EN WAT IS DE RECHTSGROND?
+
+Doel                                           | Rechtsgrond
+-----------------------------------------------|--------------------------------------------------
+Account aanmaken en authenticatie              | Uitvoering overeenkomst (art. 6 lid 1 b AVG)
+Profielen tonen aan andere gebruikers          | Uitvoering overeenkomst
+Berekenen van afstand en matchaanbevelingen    | Uitvoering overeenkomst
+Versturen van berichten tussen gebruikers      | Uitvoering overeenkomst
+Pushmeldingen sturen                           | Toestemming (art. 6 lid 1 a AVG)
+Moderatie van foto's via AI                    | Gerechtvaardigd belang (art. 6 lid 1 f AVG) - veiligheid platform
+Opslaan van e-mailhash na accountverwijdering  | Gerechtvaardigd belang - fraudepreventie
+Verwerken van betalingen en premium-abonnement | Uitvoering overeenkomst
+Sturen van rapportageberichten aan ons team    | Gerechtvaardigd belang - veiligheid platform
+Verbetering van het matchingalgoritme          | Gerechtvaardigd belang
+
+Bijzondere categorieën persoonsgegevens:
+Op grond van artikel 9 AVG verwerken wij bijzondere categorieën van persoonsgegevens, namelijk
+gegevens over politieke opvattingen, religieuze of levensbeschouwelijke overtuigingen en mogelijk
+gezondheids-gerelateerde informatie (rookgedrag, dieet). Dit doen wij uitsluitend op basis van jouw
+uitdrukkelijke toestemming, die je verleent bij het invullen van je profiel.
+
+---
+
+4. MET WIE DELEN WIJ JOUW GEGEVENS?
+
+4.1 Andere gebruikers
+Jouw profielfoto, voornaam, leeftijd, stad, bio, persoonlijkheidswaarden en kernwaarden zijn zichtbaar
+voor andere gebruikers van de app conform de normale werking van het platform.
+
+4.2 Externe dienstverleners
+Wij maken gebruik van de volgende dienstverleners die persoonsgegevens verwerken namens ons:
+
+- Supabase Inc. (VS) — database, opslag, authenticatie en realtime communicatie
+  Gegevensoverdracht buiten de EU vindt plaats op basis van standaard contractsbepalingen (SCC)
+
+- Anthropic PBC (VS) — AI-analyse van foto's en generatie van compatibiliteitsteksten
+  Verwerkt: foto's, voornamen, geslacht, persoonlijkheidswaarden
+  Gegevensoverdracht buiten de EU vindt plaats op basis van SCC
+
+- RevenueCat Inc. (VS) — verwerking van premiumabonnementen
+  Gegevensoverdracht buiten de EU vindt plaats op basis van SCC
+
+- Resend Inc. (VS) — verzending van e-mailmeldingen bij rapporten
+  Verwerkt: voornamen en gebruikers-ID's van melder en gemelde gebruiker
+
+- Expo (Expo Technology Inc., VS) — verzending van pushmeldingen
+
+4.3 Wettelijke verplichtingen
+Wij kunnen gegevens verstrekken aan bevoegde autoriteiten indien wij daartoe wettelijk verplicht zijn.
+
+---
+
+5. HOE LANG BEWAREN WIJ JOUW GEGEVENS?
+
+- Accountgegevens en profielgegevens: zolang je account actief is
+- Berichten: zolang het gesprek actief is
+- Beoordelingen: tot verwijdering van je account
+- E-mailhash na accountverwijdering: maximaal 2 jaar (voor fraudepreventie en score-herstel)
+- Foto-overtredingslogboek: 90 dagen na de overtreding
+- Abonnementsgegevens: 7 jaar (wettelijke bewaarplicht)
+
+---
+
+6. BEVEILIGING VAN JOUW GEGEVENS
+
+Wij nemen passende technische en organisatorische maatregelen ter beveiliging van jouw gegevens,
+waaronder:
+- Versleutelde verbindingen (HTTPS/TLS)
+- Toegangsbeheer via Row Level Security (RLS) in de database
+- Wachtwoordloze authenticatie (OTP/OAuth)
+- AI-moderatie van foto's vóór publicatie
+- Gehashte e-mailopslag bij accountverwijdering
+
+---
+
+7. JOUW RECHTEN
+
+Op grond van de AVG heb je de volgende rechten:
+
+- Recht op inzage: je kunt opvragen welke gegevens wij van je verwerken
+- Recht op rectificatie: je kunt onjuiste gegevens laten corrigeren
+- Recht op verwijdering ("recht op vergetelheid"): je kunt vragen om verwijdering van je gegevens
+- Recht op beperking van de verwerking
+- Recht op dataportabiliteit: je kunt een kopie van je gegevens opvragen
+- Recht van bezwaar: je kunt bezwaar maken tegen verwerking op basis van gerechtvaardigd belang
+- Recht om toestemming in te trekken: voor verwerkingen op basis van toestemming
+
+Je kunt je rechten uitoefenen door een e-mail te sturen naar privacy@lucent.you.
+Wij reageren binnen 30 dagen.
+
+Je hebt ook het recht om een klacht in te dienen bij de Autoriteit Persoonsgegevens
+(www.autoriteitpersoonsgegevens.nl).
+
+---
+
+8. ACCOUNTVERWIJDERING
+
+Je kunt je account op elk moment verwijderen via Instellingen > Account > Account verwijderen.
+Je profiel, foto's en berichten worden dan permanent verwijderd. Alleen een gehashte versie van je
+e-mailadres wordt bewaard voor fraudepreventie.
+
+---
+
+9. KINDEREN
+
+Lucent is niet bedoeld voor personen jonger dan 18 jaar. Wij verzamelen niet bewust gegevens van
+minderjarigen. Indien wij hiervan kennis nemen, verwijderen wij het account onmiddellijk.
+
+---
+
+10. WIJZIGINGEN IN DEZE VERKLARING
+
+Wij kunnen deze privacyverklaring van tijd tot tijd aanpassen. Bij wezenlijke wijzigingen informeren
+wij je via de app of per e-mail. De meest recente versie is altijd te vinden op www.lucent.you/privacy.
+
+---
+
+11. CONTACT
+
+Voor vragen over deze privacyverklaring kun je contact opnemen via:
+privacy@lucent.you
