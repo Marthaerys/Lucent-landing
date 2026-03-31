@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucent | Ontdek je League</title>
+    <style>
+        :root {
+            --primary-color: #6A5ACD;
+            --text-color: #333;
+            --bg-color: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+
+        header {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(106, 90, 205, 0.3);
+        }
+
+        h1 { margin-top: 10px; font-size: 1.5rem; color: #555; }
+
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 100px;
+            padding: 40px;
+            font-size: 0.8rem;
+            border-top: 1px solid #eee;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Preview van de Leagues */
+        .leagues {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+        .league-box {
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LUCENT</div>
+        <h1>Find your league. Spark the connection.</h1>
+        <br>
+        <a href="#" class="cta-button">Binnenkort in de App Store</a>
+    </header>
+
+    <div class="content">
+        <h2>Een nieuwe manier van matchen</h2>
+        <p>Bij Lucent draait het niet om eindeloos swipen, maar om authenticiteit en het vinden van mensen die echt bij je passen.</p>
+        
+        <div class="leagues">
+            <div class="league-box">🚢<br>Boot</div>
+            <div class="league-box">🕊️<br>Vogel</div>
+            <div class="league-box">🏀<br>Bal</div>
+            <div class="league-box">🐟<br>Vis</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Lucent. Alle rechten voorbehouden.</p>
+        <a href="privacy.html">Privacybeleid</a> | 
+        <a href="#">Gebruiksvoorwaarden</a>
+    </div>
+
+</body>
+</html>
