@@ -1,7 +1,7 @@
 PRIVACYVERKLARING LUCENT
-Versie 1.0 | Ingangsdatum: [DATUM]
+Versie 1.0 | Ingangsdatum: 1-Apr-2026
 
-Lucent ("wij", "ons", "onze") hecht groot belang aan de bescherming van jouw persoonsgegevens. In deze privacyverklaring leggen wij uit welke gegevens wij verzamelen, waarom wij dat doen, hoe wij ze beschermen, en welke rechten jij hebt.
+Lucent hecht groot belang aan de bescherming van jouw persoonsgegevens. In deze privacyverklaring leggen wij uit welke gegevens wij verzamelen, waarom wij dat doen, hoe wij ze beschermen, en welke rechten jij hebt.
 
 Deze verklaring is van toepassing op de Lucent-app en de bijbehorende website (www.lucent.you).
 
@@ -9,8 +9,7 @@ Deze verklaring is van toepassing op de Lucent-app en de bijbehorende website (w
 
 1. WIE IS VERANTWOORDELIJK VOOR JOUW GEGEVENS?
 
-Lucent
-Contactpersoon: Martijn Rutten
+Rechtspersoon: Lucent Dating
 E-mailadres: privacy@lucent.you
 Website: www.lucent.you
 
@@ -23,6 +22,7 @@ Wij zijn de verwerkingsverantwoordelijke in de zin van de Algemene Verordening G
 2.1 Accountgegevens
 - E-mailadres (bij registratie via e-mail)
 - Google-accountgegevens (naam, e-mailadres) bij aanmelding via Google
+- Apple-accountgegevens (naam, e-mailadres) bij aanmelding via Apple
 
 2.2 Profielgegevens
 - Voornaam
