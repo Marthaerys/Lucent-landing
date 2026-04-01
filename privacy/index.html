@@ -1,24 +1,583 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacybeleid | Lucent</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 40px; color: #333; background: #f9fafc; }
-        .container { max-width: 700px; margin: 0 auto; }
-        h1 { color: #6A5ACD; }
-        p { line-height: 1.6; }
-        a { color: #6A5ACD; text-decoration: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacyverklaring | Lucent</title>
+  <meta name="description" content="Lees onze privacyverklaring om te begrijpen hoe Lucent jouw persoonsgegevens beschermt en gebruikt." />
+  <link rel="icon" href="../assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:        #6A5ACD;
+      --primary-dark:   #5846B8;
+      --primary-light:  #8B7FD9;
+      --primary-faint:  #F0EDFA;
+      --bg:             #F3F0F7;
+      --surface:        #FFFFFF;
+      --text:           #2C2C2C;
+      --text-sec:       #666666;
+      --text-dis:       #999999;
+      --border:         #E6E6E6;
+      --success:        #1abc9c;
+      --radius-sm:      8px;
+      --radius-md:      14px;
+      --radius-lg:      20px;
+      --radius-xl:      28px;
+      --radius-full:    9999px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ── */
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+    /* ════════════════════════════════
+       NAV
+    ════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,230,230,0.6);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(106,90,205,0.08); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon img { width: 22px; height: 22px; object-fit: contain; }
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-sec);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 700 !important;
+      box-shadow: 0 4px 14px rgba(106,90,205,0.3);
+      transition: transform .2s, box-shadow .2s !important;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(106,90,205,0.4) !important; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+    }
+
+    /* ════════════════════════════════
+       CONTENT
+    ════════════════════════════════ */
+    .content-section {
+      padding: 120px 24px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .content-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .content-meta {
+      font-size: 16px;
+      color: var(--text-sec);
+      margin-bottom: 32px;
+    }
+
+    .content-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    .content-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .content-body p {
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .content-body ul, .content-body ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    .content-body li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .content-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .content-body th, .content-body td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .content-body th {
+      background: var(--primary-faint);
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .content-body .highlight {
+      background: var(--primary-faint);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary);
+      margin: 20px 0;
+    }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 24px;
+      margin-top: 80px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 720px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .footer-brand-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+    }
+
+    .footer-links-list li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links-list a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links-list a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacybeleid placeholder</h1>
-        <p>Welkom bij Lucent! Dit is een tijdelijke privacy-pagina op <strong>https://www.lucent.you/privacy</strong>.</p>
-        <p>Hier komt later informatie over welke gegevens we verzamelen, waarom we dat doen en hoe we je privacy beschermen.</p>
-        <p>Voor nu is dit een placeholder, maar je kunt via de link hieronder terug naar de hoofdpagina.</p>
-        <p><a href="/">← Terug naar Lucent</a></p>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="Lucent home">
+    <div class="nav-logo-icon">
+      <img src="../assets/images/favicon.png" alt="" />
     </div>
+    <span class="nav-logo-text">Lucent</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
+    <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
+    <li><a href="/#league">De League</a></li>
+    <li><a href="/#premium">Premium</a></li>
+    <li><a href="#" class="nav-cta">Download de app</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════════════════════
+     CONTENT
+════════════════════════════════ -->
+<section class="content-section">
+  <div class="content-header">
+    <h1 class="content-title">Privacyverklaring</h1>
+    <div class="content-meta">Versie 1.0 | Ingangsdatum: [DATUM]</div>
+  </div>
+
+  <div class="content-body">
+    <p>Lucent ("wij", "ons", "onze") hecht groot belang aan de bescherming van jouw persoonsgegevens. In deze privacyverklaring leggen wij uit welke gegevens wij verzamelen, waarom wij dat doen, hoe wij ze beschermen, en welke rechten jij hebt.</p>
+    <p>Deze verklaring is van toepassing op de Lucent-app en de bijbehorende website (www.lucent.you).</p>
+
+    <h2>1. WIE IS VERANTWOORDELIJK VOOR JOUW GEGEVENS?</h2>
+    <p>Lucent<br>
+    Contactpersoon: Martijn Rutten<br>
+    E-mailadres: privacy@lucent.you<br>
+    Website: www.lucent.you</p>
+    <p>Wij zijn de verwerkingsverantwoordelijke in de zin van de Algemene Verordening Gegevensbescherming (AVG/GDPR).</p>
+
+    <h2>2. WELKE PERSOONSGEGEVENS VERZAMELEN WIJ?</h2>
+
+    <h3>2.1 Accountgegevens</h3>
+    <ul>
+      <li>E-mailadres (bij registratie via e-mail)</li>
+      <li>Google-accountgegevens (naam, e-mailadres) bij aanmelding via Google</li>
+    </ul>
+
+    <h3>2.2 Profielgegevens</h3>
+    <ul>
+      <li>Voornaam</li>
+      <li>Geboortedatum</li>
+      <li>Geslacht</li>
+      <li>Land en stad</li>
+      <li>Opleidingsniveau</li>
+      <li>Beroep/werk</li>
+      <li>Biografie (vrije tekst)</li>
+    </ul>
+
+    <h3>2.3 Persoonlijkheidsgegevens</h3>
+    <ul>
+      <li>Vijf persoonlijkheidswaarden op een schaal van 0-100:
+        <ul>
+          <li>Sociale batterij, Logica-Emotie, Structuur-Spontaniteit, Openheid, Hechting</li>
+        </ul>
+      </li>
+      <li>Kernwaarden: relatiedoel, kinderwens, politieke oriëntatie, alcoholgebruik, dieetkeuze, religie, rookgedrag</li>
+    </ul>
+
+    <h3>2.4 Locatiegegevens</h3>
+    <ul>
+      <li>Precieze GPS-coördinaten (breedte- en lengtegraad) bij het aanmaken van je account</li>
+      <li>Deze worden gebruikt om de afstand tot andere gebruikers te berekenen</li>
+    </ul>
+
+    <h3>2.5 Foto's</h3>
+    <ul>
+      <li>Profielfoto (selfie, gemaakt via de camera in de app)</li>
+      <li>Optionele persoonlijke foto</li>
+    </ul>
+
+    <h3>2.6 Communicatiegegevens</h3>
+    <ul>
+      <li>Inhoud van berichten die je via de app verstuurt en ontvangt</li>
+      <li>Tijdstip van berichten</li>
+    </ul>
+
+    <h3>2.7 Gebruiksgegevens</h3>
+    <ul>
+      <li>Beoordelingen die je geeft aan andere profielen</li>
+      <li>Matchverzoeken die je verstuurt of ontvangt</li>
+      <li>Meldingen die je indient</li>
+    </ul>
+
+    <h3>2.8 Technische gegevens</h3>
+    <ul>
+      <li>Expo Push Token (voor pushmeldingen)</li>
+      <li>Taal- en berichtgevingsvoorkeuren</li>
+      <li>Premiumstatus en abonnementsgegevens</li>
+      <li>Tijdstip van akkoord gaan met deze voorwaarden</li>
+    </ul>
+
+    <h3>2.9 Moderatiegegevens</h3>
+    <ul>
+      <li>Eventuele foto-overtredingen en de bijbehorende reden</li>
+      <li>Ban-status en duur (indien van toepassing)</li>
+    </ul>
+
+    <h2>3. WAAROM VERZAMELEN WIJ JOUW GEGEVENS EN WAT IS DE RECHTSGROND?</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Doel</th>
+          <th>Rechtsgrond</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Account aanmaken en authenticatie</td>
+          <td>Uitvoering overeenkomst (art. 6 lid 1 b AVG)</td>
+        </tr>
+        <tr>
+          <td>Profielen tonen aan andere gebruikers</td>
+          <td>Uitvoering overeenkomst</td>
+        </tr>
+        <tr>
+          <td>Berekenen van afstand en matchaanbevelingen</td>
+          <td>Uitvoering overeenkomst</td>
+        </tr>
+        <tr>
+          <td>Versturen van berichten tussen gebruikers</td>
+          <td>Uitvoering overeenkomst</td>
+        </tr>
+        <tr>
+          <td>Pushmeldingen sturen</td>
+          <td>Toestemming (art. 6 lid 1 a AVG)</td>
+        </tr>
+        <tr>
+          <td>Moderatie van foto's via AI</td>
+          <td>Gerechtvaardigd belang (art. 6 lid 1 f AVG) - veiligheid platform</td>
+        </tr>
+        <tr>
+          <td>Opslaan van e-mailhash na accountverwijdering</td>
+          <td>Gerechtvaardigd belang - fraudepreventie</td>
+        </tr>
+        <tr>
+          <td>Verwerken van betalingen en premium-abonnement</td>
+          <td>Uitvoering overeenkomst</td>
+        </tr>
+        <tr>
+          <td>Sturen van rapportageberichten aan ons team</td>
+          <td>Gerechtvaardigd belang - veiligheid platform</td>
+        </tr>
+        <tr>
+          <td>Verbetering van het matchingalgoritme</td>
+          <td>Gerechtvaardigd belang</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight">
+      <strong>Op grond van artikel 9 AVG verwerken wij bijzondere categorieën van persoonsgegevens, namelijk gegevens over politieke opvattingen, religieuze of levensbeschouwelijke overtuigingen en mogelijk gezondheids-gerelateerde informatie (rookgedrag, dieet). Dit doen wij uitsluitend op basis van jouw uitdrukkelijke toestemming, die je verleent bij het invullen van je profiel.</strong>
+    </div>
+
+    <h2>4. MET WIE DELEN WIJ JOUW GEGEVENS?</h2>
+
+    <h3>4.1 Andere gebruikers</h3>
+    <p>Jouw profielfoto, voornaam, leeftijd, stad, bio, persoonlijkheidswaarden en kernwaarden zijn zichtbaar voor andere gebruikers van de app conform de normale werking van het platform.</p>
+
+    <h3>4.2 Externe dienstverleners</h3>
+    <p>Wij maken gebruik van de volgende dienstverleners die persoonsgegevens verwerken namens ons:</p>
+    <ul>
+      <li><strong>Supabase Inc. (VS)</strong> — database, opslag, authenticatie en realtime communicatie<br>
+        Gegevensoverdracht buiten de EU vindt plaats op basis van standaard contractsbepalingen (SCC)</li>
+      <li><strong>Anthropic PBC (VS)</strong> — AI-analyse van foto's en generatie van compatibiliteitsteksten<br>
+        Verwerkt: foto's, voornamen, geslacht, persoonlijkheidswaarden<br>
+        Gegevensoverdracht buiten de EU vindt plaats op basis van SCC</li>
+      <li><strong>RevenueCat Inc. (VS)</strong> — verwerking van premiumabonnementen<br>
+        Gegevensoverdracht buiten de EU vindt plaats op basis van SCC</li>
+      <li><strong>Resend Inc. (VS)</strong> — verzending van e-mailmeldingen bij rapporten<br>
+        Verwerkt: voornamen en gebruikers-ID's van melder en gemelde gebruiker</li>
+      <li><strong>Expo (Expo Technology Inc., VS)</strong> — verzending van pushmeldingen</li>
+    </ul>
+
+    <h3>4.3 Wettelijke verplichtingen</h3>
+    <p>Wij kunnen gegevens verstrekken aan bevoegde autoriteiten indien wij daartoe wettelijk verplicht zijn.</p>
+
+    <h2>5. HOE LANG BEWAREN WIJ JOUW GEGEVENS?</h2>
+    <ul>
+      <li><strong>Accountgegevens en profielgegevens:</strong> zolang je account actief is</li>
+      <li><strong>Berichten:</strong> zolang het gesprek actief is</li>
+      <li><strong>Beoordelingen:</strong> tot verwijdering van je account</li>
+      <li><strong>E-mailhash na accountverwijdering:</strong> maximaal 2 jaar (voor fraudepreventie en score-herstel)</li>
+      <li><strong>Foto-overtredingslogboek:</strong> 90 dagen na de overtreding</li>
+      <li><strong>Abonnementsgegevens:</strong> 7 jaar (wettelijke bewaarplicht)</li>
+    </ul>
+
+    <h2>6. BEVEILIGING VAN JOUW GEGEVENS</h2>
+    <p>Wij nemen passende technische en organisatorische maatregelen ter beveiliging van jouw gegevens, waaronder:</p>
+    <ul>
+      <li>Versleutelde verbindingen (HTTPS/TLS)</li>
+      <li>Toegangsbeheer via Row Level Security (RLS) in de database</li>
+      <li>Wachtwoordloze authenticatie (OTP/OAuth)</li>
+      <li>AI-moderatie van foto's vóór publicatie</li>
+      <li>Gehashte e-mailopslag bij accountverwijdering</li>
+    </ul>
+
+    <h2>7. JOUW RECHTEN</h2>
+    <p>Op grond van de AVG heb je de volgende rechten:</p>
+    <ul>
+      <li><strong>Recht op inzage:</strong> je kunt opvragen welke gegevens wij van je verwerken</li>
+      <li><strong>Recht op rectificatie:</strong> je kunt onjuiste gegevens laten corrigeren</li>
+      <li><strong>Recht op verwijdering ("recht op vergetelheid"):</strong> je kunt vragen om verwijdering van je gegevens</li>
+      <li><strong>Recht op beperking van de verwerking</strong></li>
+      <li><strong>Recht op dataportabiliteit:</strong> je kunt een kopie van je gegevens opvragen</li>
+      <li><strong>Recht van bezwaar:</strong> je kunt bezwaar maken tegen verwerking op basis van gerechtvaardigd belang</li>
+      <li><strong>Recht om toestemming in te trekken:</strong> voor verwerkingen op basis van toestemming</li>
+    </ul>
+    <p>Je kunt je rechten uitoefenen door een e-mail te sturen naar privacy@lucent.you. Wij reageren binnen 30 dagen.</p>
+    <p>Je hebt ook het recht om een klacht in te dienen bij de Autoriteit Persoonsgegevens (www.autoriteitpersoonsgegevens.nl).</p>
+
+    <h2>8. ACCOUNTVERWIJDERING</h2>
+    <p>Je kunt je account op elk moment verwijderen via Instellingen > Account > Account verwijderen. Je profiel, foto's en berichten worden dan permanent verwijderd. Alleen een gehashte versie van je e-mailadres wordt bewaard voor fraudepreventie.</p>
+
+    <h2>9. KINDEREN</h2>
+    <p>Lucent is niet bedoeld voor personen jonger dan 18 jaar. Wij verzamelen niet bewust gegevens van minderjarigen. Indien wij hiervan kennis nemen, verwijderen wij het account onmiddellijk.</p>
+
+    <h2>10. WIJZIGINGEN IN DEZE VERKLARING</h2>
+    <p>Wij kunnen deze privacyverklaring van tijd tot tijd aanpassen. Bij wezenlijke wijzigingen informeren wij je via de app of per e-mail. De meest recente versie is altijd te vinden op www.lucent.you/privacy.</p>
+
+    <h2>11. CONTACT</h2>
+    <p>Voor vragen over deze privacyverklaring kun je contact opnemen via:<br>
+    privacy@lucent.you</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Lucent</div>
+        <p class="footer-brand-desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">App</div>
+        <ul class="footer-links-list">
+          <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
+          <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
+          <li><a href="/#league">De League</a></li>
+          <li><a href="/#premium">Premium</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Juridisch</div>
+        <ul class="footer-links-list">
+          <li><a href="/privacy">Privacyverklaring</a></li>
+          <li><a href="/terms">Gebruiksvoorwaarden</a></li>
+          <li><a href="mailto:info@lucent.you">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Lucent. Alle rechten voorbehouden.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Voorwaarden</a>
+        <a href="mailto:info@lucent.you">info@lucent.you</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
 </body>
 </html>

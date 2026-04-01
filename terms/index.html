@@ -1,24 +1,503 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gebruiksvoorwaarden | Lucent</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 40px; color: #333; background: #f9fafc; }
-        .container { max-width: 700px; margin: 0 auto; }
-        h1 { color: #6A5ACD; }
-        p { line-height: 1.6; }
-        a { color: #6A5ACD; text-decoration: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gebruiksvoorwaarden | Lucent</title>
+  <meta name="description" content="Lees onze gebruiksvoorwaarden om te begrijpen hoe je Lucent veilig en respectvol kunt gebruiken." />
+  <link rel="icon" href="../assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:        #6A5ACD;
+      --primary-dark:   #5846B8;
+      --primary-light:  #8B7FD9;
+      --primary-faint:  #F0EDFA;
+      --bg:             #F3F0F7;
+      --surface:        #FFFFFF;
+      --text:           #2C2C2C;
+      --text-sec:       #666666;
+      --text-dis:       #999999;
+      --border:         #E6E6E6;
+      --success:        #1abc9c;
+      --radius-sm:      8px;
+      --radius-md:      14px;
+      --radius-lg:      20px;
+      --radius-xl:      28px;
+      --radius-full:    9999px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ── */
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+    /* ════════════════════════════════
+       NAV
+    ════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,230,230,0.6);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(106,90,205,0.08); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon img { width: 22px; height: 22px; object-fit: contain; }
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-sec);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 700 !important;
+      box-shadow: 0 4px 14px rgba(106,90,205,0.3);
+      transition: transform .2s, box-shadow .2s !important;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(106,90,205,0.4) !important; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+    }
+
+    /* ════════════════════════════════
+       CONTENT
+    ════════════════════════════════ */
+    .content-section {
+      padding: 120px 24px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .content-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .content-meta {
+      font-size: 16px;
+      color: var(--text-sec);
+      margin-bottom: 32px;
+    }
+
+    .content-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    .content-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .content-body p {
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .content-body ul, .content-body ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    .content-body li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .content-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .content-body th, .content-body td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .content-body th {
+      background: var(--primary-faint);
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .content-body .highlight {
+      background: var(--primary-faint);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary);
+      margin: 20px 0;
+    }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 24px;
+      margin-top: 80px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 720px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .footer-brand-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+    }
+
+    .footer-links-list li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links-list a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links-list a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Gebruiksvoorwaarden placeholder</h1>
-        <p>Welkom bij Lucent! Dit is een tijdelijke voorwaarden-pagina op <strong>https://www.lucent.you/terms</strong>.</p>
-        <p>Hier komt later informatie over gebruiksregels, aansprakelijkheid en aansprakelijkheidsbeperking.</p>
-        <p>Voor nu is dit een placeholder, maar je kunt via de link hieronder terug naar de hoofdpagina.</p>
-        <p><a href="/">← Terug naar Lucent</a></p>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="Lucent home">
+    <div class="nav-logo-icon">
+      <img src="../assets/images/favicon.png" alt="" />
     </div>
+    <span class="nav-logo-text">Lucent</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
+    <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
+    <li><a href="/#league">De League</a></li>
+    <li><a href="/#premium">Premium</a></li>
+    <li><a href="#" class="nav-cta">Download de app</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════════════════════
+     CONTENT
+════════════════════════════════ -->
+<section class="content-section">
+  <div class="content-header">
+    <h1 class="content-title">Gebruiksvoorwaarden</h1>
+    <div class="content-meta">Versie 1.0 | Ingangsdatum: [DATUM]</div>
+  </div>
+
+  <div class="content-body">
+    <p>Welkom bij Lucent. Door gebruik te maken van onze app en diensten ga je akkoord met deze gebruiksvoorwaarden. Lees ze zorgvuldig door.</p>
+
+    <h2>1. OVER LUCENT</h2>
+    <p>Lucent is een datingplatform gebaseerd op persoonlijkheidscompatibiliteit. De dienst wordt aangeboden door:</p>
+    <p>Lucent<br>
+    Contactpersoon: Martijn Rutten<br>
+    E-mailadres: info@lucent.you<br>
+    Website: www.lucent.you</p>
+
+    <h2>2. AANVAARDING VAN DE VOORWAARDEN</h2>
+    <p>Door een account aan te maken en te bevestigen dat je akkoord gaat met deze voorwaarden, sluit je een overeenkomst met ons. Als je niet akkoord gaat, kun je geen gebruik maken van Lucent.</p>
+
+    <h2>3. VEREISTEN OM LUCENT TE GEBRUIKEN</h2>
+    <p>Om Lucent te gebruiken moet je:</p>
+    <ul>
+      <li>Ten minste 18 jaar oud zijn</li>
+      <li>Een geldig e-mailadres of Google-account hebben</li>
+      <li>Handelen in overeenstemming met deze voorwaarden en alle toepasselijke wet- en regelgeving</li>
+      <li>Één account hebben (meerdere accounts zijn niet toegestaan)</li>
+    </ul>
+
+    <h2>4. JE ACCOUNT</h2>
+
+    <h3>4.1 Je bent verantwoordelijk voor de juistheid van de informatie in je profiel.</h3>
+    <h3>4.2 Je bent verantwoordelijk voor alle activiteiten die plaatsvinden via jouw account.</h3>
+    <h3>4.3 Deel je inloggegevens nooit met anderen.</h3>
+    <h3>4.4 Meld beveiligingsincidenten direct aan info@lucent.you.</h3>
+    <h3>4.5 Wij behouden ons het recht voor om accounts te verwijderen die inactief zijn of in strijd handelen met deze voorwaarden.</h3>
+
+    <h2>5. GEDRAGSREGELS</h2>
+    <p>Het is niet toegestaan om via Lucent:</p>
+    <ul>
+      <li>Valse of misleidende informatie te verstrekken in je profiel</li>
+      <li>Foto's of informatie van andere personen te gebruiken</li>
+      <li>Andere gebruikers te intimideren, bedreigen of pesten</li>
+      <li>Ongewenste seksuele of aanstootgevende berichten te versturen</li>
+      <li>Commerciële activiteiten te ontplooien (spam, reclame, escortdiensten e.d.)</li>
+      <li>Minderjarigen te benaderen of aan te zetten tot seksuele gesprekken</li>
+      <li>Het platform te gebruiken voor oplichting of fraude</li>
+      <li>Technische systemen van Lucent te hacken, scrapen of te manipuleren</li>
+      <li>Nep-accounts aan te maken om het scoresysteem te beïnvloeden</li>
+      <li>Inhoud te plaatsen die naakt, geweld, drugs of wapens bevat</li>
+      <li>Inhoud te plaatsen die discriminerend is op basis van ras, geslacht, religie of andere kenmerken</li>
+    </ul>
+    <p>Overtredingen kunnen leiden tot een tijdelijk of permanent accountverbod.</p>
+
+    <h2>6. PROFIELFOTO'S EN INHOUD</h2>
+
+    <h3>6.1 Profielfoto's worden automatisch gemodereerd via AI.</h3>
+    <h3>6.2 Je dient zelf zichtbaar te zijn in je profielfoto.</h3>
+    <h3>6.3 Je foto's mogen geen andere personen tonen zonder hun toestemming.</h3>
+    <h3>6.4 Bij herhaalde overtredingen wordt je account tijdelijk of permanent geblokkeerd:</h3>
+    <ul>
+      <li>3 lichte overtredingen in 24 uur: 1 uur uploadverbod</li>
+      <li>Matige overtreding: 24 uur uploadverbod</li>
+      <li>Ernstige overtreding: 7 dagen accountverbod</li>
+    </ul>
+    <h3>6.5 Je verleent Lucent een niet-exclusieve licentie om je geplaatste inhoud te gebruiken voor het leveren van de dienst.</h3>
+
+    <h2>7. SCORESYSTEEM EN MATCHING</h2>
+
+    <h3>7.1 Het Lucent-scoresysteem is gebaseerd op beoordelingen door andere gebruikers ("hoger/lager"). Scores variëren van 4 tot 10.</h3>
+    <h3>7.2 Wij garanderen geen specifiek aantal matches of gesprekken.</h3>
+    <h3>7.3 Het manipuleren van het scoresysteem (o.a. via meerdere accounts of gecoördineerde beoordelingen) is verboden.</h3>
+    <h3>7.4 Wij behouden het recht voor het scoresysteem op elk moment aan te passen.</h3>
+
+    <h2>8. PREMIUM ABONNEMENT EN BETALINGEN</h2>
+
+    <h3>8.1 Lucent biedt een gratis basisversie en een betaalde premiumversie.</h3>
+    <h3>8.2 Premiumfuncties omvatten o.a. meer dagelijkse matchverzoeken, uitgebreide inzichten en het sturen van directe "brieven".</h3>
+    <h3>8.3 Abonnementen worden verwerkt via Apple App Store of Google Play Store. De betalingsvoorwaarden van die platforms zijn van toepassing.</h3>
+    <h3>8.4 Abonnementen worden automatisch verlengd tenzij je het abonnement ten minste 24 uur vóór de verlengingsdatum opzegt.</h3>
+    <h3>8.5 Restitutie is niet mogelijk voor gedeeltelijk gebruikte abonnementsperioden, tenzij wettelijk verplicht.</h3>
+    <h3>8.6 Prijzen kunnen worden aangepast. Bestaande abonnees worden minimaal 30 dagen van tevoren geïnformeerd.</h3>
+
+    <h2>9. MELDEN VAN MISBRUIK</h2>
+
+    <h3>9.1 Als je een gebruiker tegenkomt die zich niet houdt aan deze voorwaarden, kun je die persoon melden via de app.</h3>
+    <h3>9.2 Wij nemen alle meldingen serieus en onderzoeken deze zorgvuldig.</h3>
+    <h3>9.3 Misbruik van het meldsysteem (valse meldingen) kan leiden tot accountmaatregelen.</h3>
+
+    <h2>10. INTELLECTUEEL EIGENDOM</h2>
+
+    <h3>10.1 De Lucent-app, het logo, de naam en alle bijbehorende content zijn eigendom van Lucent en zijn beschermd door auteursrecht en andere intellectuele eigendomsrechten.</h3>
+    <h3>10.2 Je mag de app of enig deel ervan niet kopiëren, verspreiden of aanpassen zonder onze uitdrukkelijke toestemming.</h3>
+    <h3>10.3 De inhoud die jij plaatst (foto's, bio, berichten) blijft jouw eigendom. Je verleent ons een licentie om deze inhoud te gebruiken voor het leveren van de dienst.</h3>
+
+    <h2>11. DISCLAIMERS EN AANSPRAKELIJKHEID</h2>
+
+    <h3>11.1 Lucent biedt de dienst aan op een "as is" basis. Wij geven geen garanties over de beschikbaarheid, nauwkeurigheid of resultaten van de dienst.</h3>
+    <h3>11.2 Wij zijn niet aansprakelijk voor:</h3>
+    <ul>
+      <li>Ontmoetingen tussen gebruikers in de echte wereld</li>
+      <li>Gedrag van andere gebruikers</li>
+      <li>Verlies van data door technische storingen</li>
+      <li>Indirecte schade of gevolgschade</li>
+    </ul>
+    <h3>11.3 Onze aansprakelijkheid is in alle gevallen beperkt tot het bedrag dat je in de afgelopen 12 maanden aan ons hebt betaald.</h3>
+    <h3>11.4 Lucent is geen partij bij ontmoetingen of afspraken die via het platform worden gemaakt. Gebruikers zijn zelf verantwoordelijk voor hun veiligheid.</h3>
+
+    <h2>12. VEILIGHEIDSADVIES</h2>
+    <p>Wij raden je aan:</p>
+    <ul>
+      <li>Geen persoonlijke contactgegevens (adres, telefoonnummer) te delen vóór je de andere persoon vertrouwt</li>
+      <li>Eerste ontmoetingen op een openbare plek te plannen</li>
+      <li>Iemand die je vertrouwt te informeren over je plannen</li>
+    </ul>
+
+    <h2>13. BEËINDIGING</h2>
+
+    <h3>13.1 Je kunt je account op elk moment verwijderen via de app.</h3>
+    <h3>13.2 Wij behouden ons het recht voor om je account te beëindigen als je deze voorwaarden schendt, zonder voorafgaande kennisgeving.</h3>
+    <h3>13.3 Bij ernstige overtredingen (misbruik, fraude, bedreigingen) kunnen wij aangifte doen bij de bevoegde autoriteiten.</h3>
+
+    <h2>14. WIJZIGINGEN</h2>
+    <p>Wij kunnen deze gebruiksvoorwaarden op elk moment wijzigen. Bij wezenlijke wijzigingen word je via de app of per e-mail geïnformeerd. Voortgezet gebruik van Lucent na de ingangsdatum van de wijzigingen geldt als aanvaarding van de nieuwe voorwaarden.</p>
+
+    <h2>15. TOEPASSELIJK RECHT EN GESCHILLEN</h2>
+    <p>Op deze voorwaarden is Nederlands recht van toepassing. Eventuele geschillen worden voorgelegd aan de bevoegde rechter in Nederland. Als consument heb je ook de mogelijkheid gebruik te maken van het Europese ODR-platform (ec.europa.eu/consumers/odr).</p>
+
+    <h2>16. CONTACT</h2>
+    <p>Voor vragen over deze gebruiksvoorwaarden:<br>
+    info@lucent.you</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Lucent</div>
+        <p class="footer-brand-desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">App</div>
+        <ul class="footer-links-list">
+          <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
+          <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
+          <li><a href="/#league">De League</a></li>
+          <li><a href="/#premium">Premium</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Juridisch</div>
+        <ul class="footer-links-list">
+          <li><a href="/privacy">Privacyverklaring</a></li>
+          <li><a href="/terms">Gebruiksvoorwaarden</a></li>
+          <li><a href="mailto:info@lucent.you">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Lucent. Alle rechten voorbehouden.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Voorwaarden</a>
+        <a href="mailto:info@lucent.you">info@lucent.you</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
 </body>
 </html>
