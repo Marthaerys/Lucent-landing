@@ -294,6 +294,16 @@
         gap: 12px;
       }
     }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; gap: 4px; align-items: center; margin-left: 12px; }
+    .lang-btn {
+      background: none; border: none; font-size: 1.3rem; cursor: pointer;
+      opacity: 0.4; transition: opacity .2s, transform .2s; line-height: 1;
+      padding: 2px;
+    }
+    .lang-btn.active { opacity: 1; transform: scale(1.15); }
+    .lang-btn:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
@@ -307,12 +317,16 @@
     <span class="nav-logo-text">Lucent</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
-    <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
-    <li><a href="/#league">De League</a></li>
-    <li><a href="/#premium">Premium</a></li>
-    <li><a href="#" class="nav-cta">Download de app</a></li>
+    <li><a href="/#hoe-werkt-het" data-i18n="nav_how">Hoe het werkt</a></li>
+    <li><a href="/#persoonlijkheid" data-i18n="nav_personality">Persoonlijkheid</a></li>
+    <li><a href="/#league" data-i18n="nav_league">De League</a></li>
+    <li><a href="/#premium" data-i18n="nav_premium">Premium</a></li>
+    <li><a href="#" class="nav-cta" data-i18n="nav_download">Download de app</a></li>
   </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-nl" onclick="setLang('nl')" title="Nederlands">🇳🇱</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
+  </div>
 </nav>
 
 <!-- ════════════════════════════════
@@ -320,11 +334,11 @@
 ════════════════════════════════ -->
 <section class="content-section">
   <div class="content-header">
-    <h1 class="content-title">Privacyverklaring</h1>
-    <div class="content-meta">Versie 1.0 | Ingangsdatum: 1-Apr-2026</div>
+    <h1 class="content-title" data-i18n="page_title">Privacyverklaring</h1>
+    <div class="content-meta" data-i18n="page_meta">Versie 1.0 | Ingangsdatum: 1-Apr-2026</div>
   </div>
 
-  <div class="content-body">
+  <div class="content-body" data-i18n-html="content_body">
     <p>Lucent hecht groot belang aan de bescherming van jouw persoonsgegevens. In deze privacyverklaring leggen wij uit welke gegevens wij verzamelen, waarom wij dat doen, hoe wij ze beschermen, en welke rechten jij hebt.</p>
     <p>Deze verklaring is van toepassing op de Lucent-app en de bijbehorende website (www.lucent.you).</p>
 
@@ -548,32 +562,32 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand-name">Lucent</div>
-        <p class="footer-brand-desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+        <p class="footer-brand-desc" data-i18n="footer_brand_desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
       </div>
       <div>
-        <div class="footer-col-title">App</div>
+        <div class="footer-col-title" data-i18n="footer_app_title">App</div>
         <ul class="footer-links-list">
-          <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
-          <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
-          <li><a href="/#league">De League</a></li>
-          <li><a href="/#premium">Premium</a></li>
+          <li><a href="/#hoe-werkt-het" data-i18n="footer_app_1">Hoe het werkt</a></li>
+          <li><a href="/#persoonlijkheid" data-i18n="footer_app_2">Persoonlijkheid</a></li>
+          <li><a href="/#league" data-i18n="footer_app_3">De League</a></li>
+          <li><a href="/#premium" data-i18n="footer_app_4">Premium</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Juridisch</div>
+        <div class="footer-col-title" data-i18n="footer_legal_title">Juridisch</div>
         <ul class="footer-links-list">
-          <li><a href="/privacy">Privacyverklaring</a></li>
-          <li><a href="/terms">Gebruiksvoorwaarden</a></li>
-          <li><a href="mailto:info@lucent.you">Contact</a></li>
+          <li><a href="/privacy" data-i18n="footer_priv">Privacyverklaring</a></li>
+          <li><a href="/terms" data-i18n="footer_terms">Gebruiksvoorwaarden</a></li>
+          <li><a href="mailto:info@lucent.you" data-i18n="footer_contact">Contact</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 Lucent. Alle rechten voorbehouden.</span>
+      <span data-i18n="footer_copy">© 2026 Lucent. Alle rechten voorbehouden.</span>
       <div style="display:flex;gap:20px;">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Voorwaarden</a>
+        <a href="/privacy" data-i18n="footer_priv_link">Privacy</a>
+        <a href="/terms" data-i18n="footer_terms_link">Voorwaarden</a>
         <a href="mailto:info@lucent.you">info@lucent.you</a>
       </div>
     </div>
@@ -586,6 +600,272 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   });
+
+  // ── i18n ──
+  const NL_CONTENT = document.querySelector('[data-i18n-html="content_body"]').innerHTML;
+
+  const TRANSLATIONS = {
+    nl: {
+      nav_how: 'Hoe het werkt', nav_personality: 'Persoonlijkheid',
+      nav_league: 'De League', nav_premium: 'Premium', nav_download: 'Download de app',
+      page_title: 'Privacyverklaring', page_meta: 'Versie 1.0 | Ingangsdatum: 1-Apr-2026',
+      footer_brand_desc: 'Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.',
+      footer_app_title: 'App', footer_app_1: 'Hoe het werkt', footer_app_2: 'Persoonlijkheid',
+      footer_app_3: 'De League', footer_app_4: 'Premium',
+      footer_legal_title: 'Juridisch', footer_priv: 'Privacyverklaring',
+      footer_terms: 'Gebruiksvoorwaarden', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. Alle rechten voorbehouden.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Voorwaarden',
+      content_body: NL_CONTENT,
+    },
+    en: {
+      nav_how: 'How it works', nav_personality: 'Personality',
+      nav_league: 'The League', nav_premium: 'Premium', nav_download: 'Download the app',
+      page_title: 'Privacy Policy', page_meta: 'Version 1.0 | Effective date: 1-Apr-2026',
+      footer_brand_desc: 'Dating without swiping. Discover real matches based on personality, values and your position in the League.',
+      footer_app_title: 'App', footer_app_1: 'How it works', footer_app_2: 'Personality',
+      footer_app_3: 'The League', footer_app_4: 'Premium',
+      footer_legal_title: 'Legal', footer_priv: 'Privacy Policy',
+      footer_terms: 'Terms of Service', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. All rights reserved.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Terms',
+      content_body: `
+    <p>Lucent values the protection of your personal data. In this privacy policy, we explain what data we collect, why we collect it, how we protect it, and what rights you have.</p>
+    <p>This policy applies to the Lucent app and the associated website (www.lucent.you).</p>
+
+    <h2>1. WHO IS RESPONSIBLE FOR YOUR DATA?</h2>
+    <p>
+      Contact: Lucent Dating<br>
+      Chamber of Commerce number: 42031421<br>
+      Registered office: The Hague<br>
+      Email address: privacy@lucent.you<br>
+      Website: www.lucent.you
+    </p>
+    <p>We are the data controller within the meaning of the General Data Protection Regulation (GDPR).</p>
+
+    <h2>2. WHAT PERSONAL DATA DO WE COLLECT?</h2>
+
+    <h3>2.1 Account data</h3>
+    <ul>
+      <li>Email address (upon registration via email)</li>
+      <li>Google account data (name, email address) when signing in via Google</li>
+      <li>Apple account data (name, email address) when signing in via Apple</li>
+    </ul>
+
+    <h3>2.2 Profile data</h3>
+    <ul>
+      <li>First name</li>
+      <li>Date of birth</li>
+      <li>Gender</li>
+      <li>Country and city</li>
+      <li>Education level</li>
+      <li>Occupation/work</li>
+      <li>Biography (free text)</li>
+    </ul>
+
+    <h3>2.3 Personality data</h3>
+    <ul>
+      <li>Five personality values on a scale of 0–100:
+        <ul>
+          <li>Social battery, Logic-Emotion, Structure-Spontaneity, Openness, Attachment</li>
+        </ul>
+      </li>
+      <li>Core values: relationship goal, desire for children, political orientation, alcohol use, dietary choice, religion, smoking behaviour</li>
+    </ul>
+
+    <h3>2.4 Location data</h3>
+    <ul>
+      <li>Precise GPS coordinates (latitude and longitude) when creating your account</li>
+      <li>These are used to determine your city during registration and to calculate the distance to other users</li>
+    </ul>
+    <p>After registration, we no longer actively use your location for tracking or further processing in the app.</p>
+
+    <h3>2.5 Photos</h3>
+    <ul>
+      <li>Profile photo (selfie, taken via the camera in the app)</li>
+      <li>Optional personal photo</li>
+    </ul>
+
+    <h3>2.6 Communication data</h3>
+    <ul>
+      <li>Content of messages you send and receive via the app</li>
+      <li>Timestamp of messages</li>
+    </ul>
+
+    <h3>2.7 Usage data</h3>
+    <ul>
+      <li>Ratings you give to other profiles</li>
+      <li>Match requests you send or receive</li>
+      <li>Reports you submit</li>
+    </ul>
+
+    <h3>2.8 Technical data</h3>
+    <ul>
+      <li>Expo Push Token (for push notifications)</li>
+      <li>Language and notification preferences</li>
+      <li>Premium status and subscription data</li>
+      <li>Timestamp of agreement to these terms</li>
+    </ul>
+
+    <h3>2.9 Moderation data</h3>
+    <ul>
+      <li>Any photo violations and the associated reason</li>
+      <li>Ban status and duration (if applicable)</li>
+    </ul>
+
+    <h3>2.10 Profiling</h3>
+    <p>We use an algorithm (the League system) to determine visibility and compatibility between users. Your score within this system is influenced in two ways: by how others rate you in the app, and by how accurately you estimate the scores of others. This algorithm aims to improve the user experience by showing relevant matches, and has no legal consequences or similar significant effects outside the platform.</p>
+
+    <h2>3. WHY DO WE COLLECT YOUR DATA AND WHAT IS THE LEGAL BASIS?</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Purpose</th>
+          <th>Legal basis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Creating an account and authentication</td>
+          <td>Performance of contract (Art. 6(1)(b) GDPR)</td>
+        </tr>
+        <tr>
+          <td>Showing profiles to other users</td>
+          <td>Performance of contract</td>
+        </tr>
+        <tr>
+          <td>Calculating distance and match recommendations</td>
+          <td>Performance of contract</td>
+        </tr>
+        <tr>
+          <td>Sending messages between users</td>
+          <td>Performance of contract</td>
+        </tr>
+        <tr>
+          <td>Sending push notifications</td>
+          <td>Consent (Art. 6(1)(a) GDPR)</td>
+        </tr>
+        <tr>
+          <td>Moderating photos via AI</td>
+          <td>Legitimate interest (Art. 6(1)(f) GDPR) - platform safety</td>
+        </tr>
+        <tr>
+          <td>Storing email hash after account deletion</td>
+          <td>Legitimate interest - fraud prevention</td>
+        </tr>
+        <tr>
+          <td>Processing payments and premium subscription</td>
+          <td>Performance of contract</td>
+        </tr>
+        <tr>
+          <td>Sending report notifications to our team</td>
+          <td>Legitimate interest - platform safety</td>
+        </tr>
+        <tr>
+          <td>Improving the matching algorithm</td>
+          <td>Legitimate interest</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight">
+      <strong>Pursuant to Article 9 GDPR, we process special categories of personal data, namely data on political opinions, religious or philosophical beliefs and possibly health-related information (smoking behaviour, diet). We do this exclusively on the basis of your explicit consent, which you grant when filling in your profile.</strong>
+    </div>
+
+    <h2>4. WITH WHOM DO WE SHARE YOUR DATA?</h2>
+
+    <h3>4.1 Other users</h3>
+    <p>Your profile photo, first name, age, city, bio, personality values and core values are visible to other users of the app in accordance with the normal functioning of the platform.</p>
+
+    <h3>4.2 External service providers</h3>
+    <p>We use the following service providers who process personal data on our behalf:</p>
+    <ul>
+      <li><strong>Supabase Inc. (US)</strong> — database, storage, authentication and real-time communication<br>
+        Data transfer outside the EU takes place on the basis of standard contractual clauses (SCC)</li>
+      <li><strong>Anthropic PBC (US)</strong> — AI analysis of photos and generation of compatibility texts<br>
+        Processes: photos, first names, gender, personality values<br>
+        Data transfer outside the EU takes place on the basis of SCC</li>
+      <li><strong>RevenueCat Inc. (US)</strong> — processing of premium subscriptions<br>
+        Data transfer outside the EU takes place on the basis of SCC</li>
+      <li><strong>Resend Inc. (US)</strong> — sending email notifications for reports<br>
+        Processes: first names and user IDs of the reporting and reported user</li>
+      <li><strong>Expo (Expo Technology Inc., US)</strong> — sending push notifications</li>
+    </ul>
+
+    <h3>4.3 Legal obligations</h3>
+    <p>We may provide data to competent authorities if we are legally required to do so.</p>
+
+    <h2>5. HOW LONG DO WE RETAIN YOUR DATA?</h2>
+    <ul>
+      <li><strong>Account data and profile data:</strong> for as long as your account is active</li>
+      <li><strong>Messages:</strong> for as long as the conversation is active</li>
+      <li><strong>Ratings:</strong> until deletion of your account</li>
+      <li><strong>Email hash after account deletion:</strong> maximum 2 years (for fraud prevention and score recovery)</li>
+      <li><strong>Photo violation log:</strong> 90 days after the violation</li>
+      <li><strong>Subscription data:</strong> 7 years (statutory retention obligation)</li>
+    </ul>
+
+    <h2>6. SECURITY OF YOUR DATA</h2>
+    <p>We take appropriate technical and organisational measures to secure your data, including:</p>
+    <ul>
+      <li>Encrypted connections (HTTPS/TLS)</li>
+      <li>Access control via Row Level Security (RLS) in the database</li>
+      <li>Passwordless authentication (OTP/OAuth)</li>
+      <li>AI moderation of photos before publication</li>
+      <li>Hashed email storage upon account deletion</li>
+    </ul>
+
+    <h2>7. YOUR RIGHTS</h2>
+    <p>Under the GDPR you have the following rights:</p>
+    <ul>
+      <li><strong>Right of access:</strong> you can request what data we process about you</li>
+      <li><strong>Right to rectification:</strong> you can have incorrect data corrected</li>
+      <li><strong>Right to erasure ("right to be forgotten"):</strong> you can request the deletion of your data</li>
+      <li><strong>Right to restriction of processing</strong></li>
+      <li><strong>Right to data portability:</strong> you can request a copy of your data</li>
+      <li><strong>Right to object:</strong> you can object to processing based on legitimate interest</li>
+      <li><strong>Right to withdraw consent:</strong> for processing based on consent</li>
+    </ul>
+    <p>You can exercise your rights by sending an email to privacy@lucent.you. We will respond within 30 days.</p>
+    <p>If you do not have a dedicated button in the app to request your data, you can request a machine-readable file of your data by emailing privacy@lucent.you.</p>
+    <p>You also have the right to lodge a complaint with your national data protection authority.</p>
+
+    <h2>8. ACCOUNT DELETION</h2>
+    <p>You can delete your account at any time via Settings > Account > Delete account. Your profile, photos and messages will then be permanently deleted. Only a hashed version of your email address will be retained for fraud prevention.</p>
+
+    <h2>9. CHILDREN</h2>
+    <p>Lucent is not intended for persons under the age of 18. We do not knowingly collect data from minors. If we become aware of this, we will delete the account immediately.</p>
+
+    <h2>10. CHANGES TO THIS POLICY</h2>
+    <p>We may update this privacy policy from time to time. For material changes, we will notify you via the app or by email. The most recent version is always available at www.lucent.you/privacy.</p>
+
+    <h2>11. CONTACT</h2>
+    <p>For questions about this privacy policy, please contact us at:<br>
+    privacy@lucent.you</p>
+`,
+    }
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (TRANSLATIONS[lang][key] !== undefined) el.textContent = TRANSLATIONS[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (TRANSLATIONS[lang][key] !== undefined) el.innerHTML = TRANSLATIONS[lang][key];
+    });
+    document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('lucent_lang', lang);
+    applyLang(lang);
+  }
+
+  applyLang(localStorage.getItem('lucent_lang') || 'nl');
 </script>
 
 </body>

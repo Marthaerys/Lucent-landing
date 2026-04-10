@@ -294,6 +294,16 @@
         gap: 12px;
       }
     }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; gap: 4px; align-items: center; margin-left: 12px; }
+    .lang-btn {
+      background: none; border: none; font-size: 1.3rem; cursor: pointer;
+      opacity: 0.4; transition: opacity .2s, transform .2s; line-height: 1;
+      padding: 2px;
+    }
+    .lang-btn.active { opacity: 1; transform: scale(1.15); }
+    .lang-btn:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
@@ -307,12 +317,16 @@
     <span class="nav-logo-text">Lucent</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
-    <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
-    <li><a href="/#league">De League</a></li>
-    <li><a href="/#premium">Premium</a></li>
-    <li><a href="#" class="nav-cta">Download de app</a></li>
+    <li><a href="/#hoe-werkt-het" data-i18n="nav_how">Hoe het werkt</a></li>
+    <li><a href="/#persoonlijkheid" data-i18n="nav_personality">Persoonlijkheid</a></li>
+    <li><a href="/#league" data-i18n="nav_league">De League</a></li>
+    <li><a href="/#premium" data-i18n="nav_premium">Premium</a></li>
+    <li><a href="#" class="nav-cta" data-i18n="nav_download">Download de app</a></li>
   </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-nl" onclick="setLang('nl')" title="Nederlands">🇳🇱</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
+  </div>
 </nav>
 
 <!-- ════════════════════════════════
@@ -320,11 +334,11 @@
 ════════════════════════════════ -->
 <section class="content-section">
   <div class="content-header">
-    <h1 class="content-title">Gebruiksvoorwaarden</h1>
-    <div class="content-meta">Versie 1.0 | Ingangsdatum: [DATUM]</div>
+    <h1 class="content-title" data-i18n="page_title">Gebruiksvoorwaarden</h1>
+    <div class="content-meta" data-i18n="page_meta">Versie 1.0 | Ingangsdatum: [DATUM]</div>
   </div>
 
-  <div class="content-body">
+  <div class="content-body" data-i18n-html="content_body">
     <p>Welkom bij Lucent. Door gebruik te maken van onze app en diensten ga je akkoord met deze gebruiksvoorwaarden. Lees ze zorgvuldig door.</p>
 
     <h2>1. OVER LUCENT</h2>
@@ -466,32 +480,32 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand-name">Lucent</div>
-        <p class="footer-brand-desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+        <p class="footer-brand-desc" data-i18n="footer_brand_desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
       </div>
       <div>
-        <div class="footer-col-title">App</div>
+        <div class="footer-col-title" data-i18n="footer_app_title">App</div>
         <ul class="footer-links-list">
-          <li><a href="/#hoe-werkt-het">Hoe het werkt</a></li>
-          <li><a href="/#persoonlijkheid">Persoonlijkheid</a></li>
-          <li><a href="/#league">De League</a></li>
-          <li><a href="/#premium">Premium</a></li>
+          <li><a href="/#hoe-werkt-het" data-i18n="footer_app_1">Hoe het werkt</a></li>
+          <li><a href="/#persoonlijkheid" data-i18n="footer_app_2">Persoonlijkheid</a></li>
+          <li><a href="/#league" data-i18n="footer_app_3">De League</a></li>
+          <li><a href="/#premium" data-i18n="footer_app_4">Premium</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Juridisch</div>
+        <div class="footer-col-title" data-i18n="footer_legal_title">Juridisch</div>
         <ul class="footer-links-list">
-          <li><a href="/privacy">Privacyverklaring</a></li>
-          <li><a href="/terms">Gebruiksvoorwaarden</a></li>
-          <li><a href="mailto:info@lucent.you">Contact</a></li>
+          <li><a href="/privacy" data-i18n="footer_priv">Privacyverklaring</a></li>
+          <li><a href="/terms" data-i18n="footer_terms">Gebruiksvoorwaarden</a></li>
+          <li><a href="mailto:info@lucent.you" data-i18n="footer_contact">Contact</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 Lucent. Alle rechten voorbehouden.</span>
+      <span data-i18n="footer_copy">© 2026 Lucent. Alle rechten voorbehouden.</span>
       <div style="display:flex;gap:20px;">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Voorwaarden</a>
+        <a href="/privacy" data-i18n="footer_priv_link">Privacy</a>
+        <a href="/terms" data-i18n="footer_terms_link">Voorwaarden</a>
         <a href="mailto:info@lucent.you">info@lucent.you</a>
       </div>
     </div>
@@ -504,6 +518,190 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   });
+
+  // ── i18n ──
+  const NL_CONTENT = document.querySelector('[data-i18n-html="content_body"]').innerHTML;
+
+  const TRANSLATIONS = {
+    nl: {
+      nav_how: 'Hoe het werkt', nav_personality: 'Persoonlijkheid',
+      nav_league: 'De League', nav_premium: 'Premium', nav_download: 'Download de app',
+      page_title: 'Gebruiksvoorwaarden', page_meta: 'Versie 1.0 | Ingangsdatum: [DATUM]',
+      footer_brand_desc: 'Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.',
+      footer_app_title: 'App', footer_app_1: 'Hoe het werkt', footer_app_2: 'Persoonlijkheid',
+      footer_app_3: 'De League', footer_app_4: 'Premium',
+      footer_legal_title: 'Juridisch', footer_priv: 'Privacyverklaring',
+      footer_terms: 'Gebruiksvoorwaarden', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. Alle rechten voorbehouden.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Voorwaarden',
+      content_body: NL_CONTENT,
+    },
+    en: {
+      nav_how: 'How it works', nav_personality: 'Personality',
+      nav_league: 'The League', nav_premium: 'Premium', nav_download: 'Download the app',
+      page_title: 'Terms of Service', page_meta: 'Version 1.0 | Effective date: [DATE]',
+      footer_brand_desc: 'Dating without swiping. Discover real matches based on personality, values and your position in the League.',
+      footer_app_title: 'App', footer_app_1: 'How it works', footer_app_2: 'Personality',
+      footer_app_3: 'The League', footer_app_4: 'Premium',
+      footer_legal_title: 'Legal', footer_priv: 'Privacy Policy',
+      footer_terms: 'Terms of Service', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. All rights reserved.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Terms',
+      content_body: `
+    <p>Welcome to Lucent. By using our app and services, you agree to these terms of service. Please read them carefully.</p>
+
+    <h2>1. ABOUT LUCENT</h2>
+    <p>Lucent is a dating platform based on personality compatibility and community feedback. The service is provided by:</p>
+    <p>
+    Company name: Lucent Dating<br>
+    Chamber of Commerce number: 42031421<br>
+    Registered office: The Hague<br>
+    Email address: info@lucent.you<br>
+    Website: www.lucent.you</p>
+
+    <h2>2. ACCEPTANCE OF TERMS</h2>
+    <p>By creating an account and confirming that you agree to these terms, you enter into an agreement with us. If you do not agree, you may not use Lucent.</p>
+
+    <h2>3. REQUIREMENTS TO USE LUCENT</h2>
+    <p>To use Lucent you must:</p>
+    <ul>
+      <li>Be at least 18 years old</li>
+      <li>Have a valid email address, Google account or Apple account</li>
+      <li>Act in accordance with these terms and all applicable laws and regulations</li>
+      <li>Have one account (multiple accounts are not permitted)</li>
+    </ul>
+
+    <h2>4. YOUR ACCOUNT</h2>
+
+    <h3>4.1 You are responsible for the accuracy of the information in your profile.</h3>
+    <h3>4.2 You are responsible for all activities that take place via your account.</h3>
+    <h3>4.3 Never share your login credentials with others.</h3>
+    <h3>4.4 Report security incidents immediately to info@lucent.you.</h3>
+    <h3>4.5 We reserve the right to remove accounts that are inactive or act in violation of these terms.</h3>
+
+    <h2>5. CODE OF CONDUCT</h2>
+    <p>It is not permitted to use Lucent to:</p>
+    <ul>
+      <li>Provide false or misleading information in your profile</li>
+      <li>Use photos or information of other persons</li>
+      <li>Intimidate, threaten or bully other users</li>
+      <li>Send unwanted sexual or offensive messages</li>
+      <li>Engage in commercial activities (spam, advertising, escort services, etc.)</li>
+      <li>Approach minors or encourage sexual conversations</li>
+      <li>Use the platform for fraud or scams</li>
+      <li>Hack, scrape or manipulate Lucent's technical systems</li>
+      <li>Create fake accounts to influence the scoring system</li>
+      <li>Post content containing nudity, violence, drugs or weapons</li>
+      <li>Post content that discriminates based on race, gender, religion or other characteristics</li>
+    </ul>
+    <p>Violations may result in a temporary or permanent account ban.</p>
+
+    <h2>6. PROFILE PHOTOS AND CONTENT</h2>
+
+    <h3>6.1 Profile photos are automatically moderated via AI.</h3>
+    <h3>6.2 You must be clearly visible in your profile photo.</h3>
+    <h3>6.3 Your photos may not show other persons without their consent.</h3>
+    <h3>6.4 In case of repeated violations, temporary restrictions may be imposed:</h3>
+    <ul>
+      <li>3 minor violations within 24 hours: an upload ban of at least 1 hour</li>
+      <li>Moderate violation: an upload ban of at least 24 hours</li>
+      <li>Serious violation: an account ban of at least 7 days</li>
+    </ul>
+    <h3>6.5 You grant Lucent a non-exclusive licence to use your posted content for the purpose of providing the service.</h3>
+
+    <h2>7. SCORING SYSTEM AND MATCHING (LEAGUES)</h2>
+
+    <h3>7.1 The Lucent scoring system is a dynamic system based on aggregated and anonymised ratings by other users.</h3>
+    <h3>7.2 The classification into "Leagues" (displayed via icons such as the boat, bird, ball and fish) is a result of this system and may fluctuate. The specific hierarchy and calculation of the Leagues are part of Lucent's proprietary logic.</h3>
+    <h3>7.3 Users accept that their score and League classification depend on the perception of the community. Lucent is not liable for the emotional or social consequences of a specific classification.</h3>
+    <h3>7.4 There is no right to a specific League. The classification is dynamic and may change based on the behaviour, feedback and interactions of users.</h3>
+    <h3>7.5 We do not guarantee a specific number of matches or conversations; the effectiveness of the app also depends on the quality of your own profile and community interaction.</h3>
+    <h3>7.6 Manipulating the scoring system (e.g. via multiple accounts or coordinated ratings) is prohibited.</h3>
+    <h3>7.7 We reserve the right to modify the scoring system at any time.</h3>
+
+    <h2>8. PREMIUM SUBSCRIPTION AND PAYMENTS</h2>
+
+    <h3>8.1 Lucent offers a free basic version and a paid premium version.</h3>
+    <h3>8.2 Premium features include, among others, more daily match requests, extended insights and the ability to send direct "letters". The code of conduct in Section 5 applies in full to these letters.</h3>
+    <h3>8.3 Subscriptions are processed via the Apple App Store or Google Play Store. The payment terms of those platforms apply.</h3>
+    <h3>8.4 Subscriptions renew automatically unless you cancel at least 24 hours before the renewal date.</h3>
+    <h3>8.5 Refunds are not possible for partially used subscription periods, unless legally required. If you are banned due to misconduct in a (paid) letter or due to violation of the code of conduct, you are not entitled to a refund for the cost of that letter or the subscription.</h3>
+    <h3>8.6 Prices may be adjusted. Existing subscribers will be informed at least 30 days in advance.</h3>
+
+    <h2>9. REPORTING ABUSE</h2>
+
+    <h3>9.1 If you encounter a user who does not comply with these terms, you can report that person via the app.</h3>
+    <h3>9.2 We take all reports seriously and investigate them carefully.</h3>
+    <h3>9.3 Abuse of the reporting system (false reports) may result in account measures.</h3>
+
+    <h2>10. INTELLECTUAL PROPERTY</h2>
+
+    <h3>10.1 The Lucent app, logo, name and all associated content are the property of Lucent and are protected by copyright and other intellectual property rights.</h3>
+    <h3>10.2 You may not copy, distribute or modify the app or any part of it without our explicit permission.</h3>
+    <h3>10.3 The content you post (photos, bio, messages) remains your property. You grant us a licence to use this content for the purpose of providing the service.</h3>
+    <h3>10.4 AI-generated compatibility texts and analyses are part of the Lucent service. The intellectual property rights to this Lucent-generated service content vest in Lucent.</h3>
+
+    <h2>11. DISCLAIMERS AND LIABILITY</h2>
+
+    <h3>11.1 Lucent provides the service on an "as is" basis. We make no warranties regarding the availability, accuracy or results of the service.</h3>
+    <h3>11.2 We are not liable for:</h3>
+    <ul>
+      <li>Meetings between users in the real world</li>
+      <li>Behaviour of other users</li>
+      <li>Loss of data due to technical failures</li>
+      <li>Indirect or consequential damages</li>
+    </ul>
+    <h3>11.3 Our liability is in all cases limited to the amount you have paid to us in the past 12 months.</h3>
+    <h3>11.4 Lucent is not a party to meetings or appointments made via the platform. Users are responsible for their own safety.</h3>
+
+    <h2>12. SAFETY ADVICE</h2>
+    <p>We recommend that you:</p>
+    <ul>
+      <li>Do not share personal contact details (address, phone number) before you trust the other person</li>
+      <li>Plan first meetings in a public place</li>
+      <li>Inform someone you trust about your plans</li>
+    </ul>
+
+    <h2>13. TERMINATION</h2>
+
+    <h3>13.1 You can delete your account at any time via the app.</h3>
+    <h3>13.2 We reserve the right to terminate your account if you violate these terms, without prior notice.</h3>
+    <h3>13.3 Lucent reserves the right to adjust the visibility of profiles or other account features based on user interactions and compliance with the code of conduct.</h3>
+    <h3>13.4 In case of serious violations (abuse, fraud, threats), we may report the matter to the competent authorities.</h3>
+
+    <h2>14. CHANGES</h2>
+    <p>We may modify these terms of service at any time. For material changes, you will be notified via the app or by email. Continued use of Lucent after the effective date of the changes constitutes acceptance of the new terms.</p>
+
+    <h2>15. APPLICABLE LAW AND DISPUTES</h2>
+    <p>These terms are governed by Dutch law. Any disputes will be submitted to the competent court in the Netherlands. As a consumer, you may also use the European ODR platform (ec.europa.eu/consumers/odr).</p>
+
+    <h2>16. CONTACT</h2>
+    <p>For questions about these terms of service:<br>
+    info@lucent.you</p>
+`,
+    }
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (TRANSLATIONS[lang][key] !== undefined) el.textContent = TRANSLATIONS[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (TRANSLATIONS[lang][key] !== undefined) el.innerHTML = TRANSLATIONS[lang][key];
+    });
+    document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('lucent_lang', lang);
+    applyLang(lang);
+  }
+
+  applyLang(localStorage.getItem('lucent_lang') || 'nl');
 </script>
 
 </body>

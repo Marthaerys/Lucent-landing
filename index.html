@@ -890,6 +890,16 @@
       .hero-buttons { flex-direction: column; align-items: center; }
       .hero-stats { gap: 24px; }
     }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; gap: 4px; align-items: center; margin-left: 12px; }
+    .lang-btn {
+      background: none; border: none; font-size: 1.3rem; cursor: pointer;
+      opacity: 0.4; transition: opacity .2s, transform .2s; line-height: 1;
+      padding: 2px;
+    }
+    .lang-btn.active { opacity: 1; transform: scale(1.15); }
+    .lang-btn:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
@@ -903,34 +913,38 @@
     <span class="nav-logo-text">Lucent</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#hoe-werkt-het">Hoe het werkt</a></li>
-    <li><a href="#persoonlijkheid">Persoonlijkheid</a></li>
-    <li><a href="#league">De League</a></li>
-    <li><a href="#premium">Premium</a></li>
-    <li><a href="#" class="nav-cta">Download de app</a></li>
+    <li><a href="#hoe-werkt-het" data-i18n="nav_how">Hoe het werkt</a></li>
+    <li><a href="#persoonlijkheid" data-i18n="nav_personality">Persoonlijkheid</a></li>
+    <li><a href="#league" data-i18n="nav_league">De League</a></li>
+    <li><a href="#premium" data-i18n="nav_premium">Premium</a></li>
+    <li><a href="#" class="nav-cta" data-i18n="nav_download">Download de app</a></li>
   </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-nl" onclick="setLang('nl')" title="Nederlands">🇳🇱</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
+  </div>
 </nav>
 
 <!-- ════════════════════════════════
      HERO
 ════════════════════════════════ -->
 <section class="hero" id="home">
-  <div class="hero-badge">
+  <div class="hero-badge" data-i18n="hero_badge">
     <span class="hero-badge-dot"></span>
     Nu beschikbaar op Android
   </div>
 
-  <h1>Dating zonder swipen.<br><span class="accent">Match op karakter.</span></h1>
+  <h1 data-i18n-html="hero_title">Dating zonder swipen.<br><span class="accent">Match op karakter.</span></h1>
 
-  <p class="hero-sub">
+  <p class="hero-sub" data-i18n="hero_sub">
     Lucent koppelt je aan mensen die écht bij je passen — op basis van persoonlijkheid, waarden en jouw positie in de League.
   </p>
 
   <div class="hero-buttons">
-    <a href="#" class="btn-primary">
+    <a href="#" class="btn-primary" data-i18n="hero_btn_android">
       📱 &nbsp;Download voor Android
     </a>
-    <a href="#hoe-werkt-het" class="btn-secondary">
+    <a href="#hoe-werkt-het" class="btn-secondary" data-i18n="hero_btn_how">
       Hoe werkt het? &nbsp;↓
     </a>
   </div>
@@ -942,10 +956,10 @@
       🎯 &nbsp;<span>87% match!</span>
     </div>
     <div class="hero-float hero-float-2">
-      ⬆️ &nbsp;<span>Score +0.3 vandaag</span>
+      ⬆️ &nbsp;<span data-i18n="hero_float2">Score +0.3 vandaag</span>
     </div>
     <div class="hero-float hero-float-3">
-      💜 &nbsp;<span>Nieuw matchverzoek</span>
+      💜 &nbsp;<span data-i18n="hero_float3">Nieuw matchverzoek</span>
     </div>
 
     <div class="mockup-phone">
@@ -958,17 +972,17 @@
           <div class="mockup-card-img">🧑</div>
           <div class="mockup-card-body">
             <div class="mockup-card-name">Lisa, 26</div>
-            <div class="mockup-card-sub">Amsterdam · Kunst & Cultuur</div>
+            <div class="mockup-card-sub" data-i18n="mockup_card_sub">Amsterdam · Kunst & Cultuur</div>
             <div class="mockup-card-vibe">
-              <span class="vibe-tag">Creatief</span>
-              <span class="vibe-tag">Introvert</span>
-              <span class="vibe-tag">Serieus</span>
+              <span class="vibe-tag" data-i18n="mockup_vibe1">Creatief</span>
+              <span class="vibe-tag" data-i18n="mockup_vibe2">Introvert</span>
+              <span class="vibe-tag" data-i18n="mockup_vibe3">Serieus</span>
             </div>
           </div>
         </div>
         <div class="mockup-buttons">
-          <div class="mockup-btn mockup-btn-lower">👇 Lager</div>
-          <div class="mockup-btn mockup-btn-higher">👆 Hoger</div>
+          <div class="mockup-btn mockup-btn-lower" data-i18n="mockup_lower">👇 Lager</div>
+          <div class="mockup-btn mockup-btn-higher" data-i18n="mockup_higher">👆 Hoger</div>
         </div>
       </div>
     </div>
@@ -978,19 +992,19 @@
   <div class="hero-stats">
     <div class="stat-item">
       <span class="stat-number">5</span>
-      <span class="stat-label">Persoonlijkheidsdimensies</span>
+      <span class="stat-label" data-i18n="stat_1">Persoonlijkheidsdimensies</span>
     </div>
     <div class="stat-item">
       <span class="stat-number">4</span>
-      <span class="stat-label">League niveaus</span>
+      <span class="stat-label" data-i18n="stat_2">League niveaus</span>
     </div>
     <div class="stat-item">
       <span class="stat-number">18+</span>
-      <span class="stat-label">Leeftijd vereist</span>
+      <span class="stat-label" data-i18n="stat_3">Leeftijd vereist</span>
     </div>
     <div class="stat-item">
       <span class="stat-number">100%</span>
-      <span class="stat-label">Geverifieerde foto's</span>
+      <span class="stat-label" data-i18n="stat_4">Geverifieerde foto's</span>
     </div>
   </div>
 </section>
@@ -1001,35 +1015,35 @@
 <section class="how-section" id="hoe-werkt-het">
   <div class="section-inner">
     <div class="section-header center">
-      <span class="section-tag">Hoe het werkt</span>
-      <h2 class="section-title">Vier stappen naar een echte klik</h2>
-      <p class="section-sub">Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid en een slim scoremodel.</p>
+      <span class="section-tag" data-i18n="how_tag">Hoe het werkt</span>
+      <h2 class="section-title" data-i18n="how_title">Vier stappen naar een echte klik</h2>
+      <p class="section-sub" data-i18n="how_sub">Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid en een slim scoremodel.</p>
     </div>
 
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-number">Stap 01</div>
+        <div class="step-number" data-i18n="step1_num">Stap 01</div>
         <div class="step-icon">🧬</div>
-        <div class="step-title">Bouw je profiel</div>
-        <p class="step-desc">Maak een selfie en vul je vijf persoonlijkheidswaarden in. Geen filters, geen poses — jij zoals je bent.</p>
+        <div class="step-title" data-i18n="step1_title">Bouw je profiel</div>
+        <p class="step-desc" data-i18n="step1_desc">Maak een selfie en vul je vijf persoonlijkheidswaarden in. Geen filters, geen poses — jij zoals je bent.</p>
       </div>
       <div class="step-card">
-        <div class="step-number">Stap 02</div>
+        <div class="step-number" data-i18n="step2_num">Stap 02</div>
         <div class="step-icon">⚡</div>
-        <div class="step-title">Doe mee aan de League</div>
-        <p class="step-desc">Beoordeel dagelijks profielen op aantrekkelijkheid. Je eigen score wordt bepaald door anderen — eerlijk en transparant.</p>
+        <div class="step-title" data-i18n="step2_title">Doe mee aan de League</div>
+        <p class="step-desc" data-i18n="step2_desc">Beoordeel dagelijks profielen op aantrekkelijkheid. Je eigen score wordt bepaald door anderen — eerlijk en transparant.</p>
       </div>
       <div class="step-card">
-        <div class="step-number">Stap 03</div>
+        <div class="step-number" data-i18n="step3_num">Stap 03</div>
         <div class="step-icon">🎯</div>
-        <div class="step-title">Ontdek matches</div>
-        <p class="step-desc">Zie mensen in jouw score-bereik die compatibel zijn op persoonlijkheid. Stuur een matchverzoek en start een gesprek.</p>
+        <div class="step-title" data-i18n="step3_title">Ontdek matches</div>
+        <p class="step-desc" data-i18n="step3_desc">Zie mensen in jouw score-bereik die compatibel zijn op persoonlijkheid. Stuur een matchverzoek en start een gesprek.</p>
       </div>
       <div class="step-card">
-        <div class="step-number">Stap 04</div>
+        <div class="step-number" data-i18n="step4_num">Stap 04</div>
         <div class="step-icon">📊</div>
-        <div class="step-title">Leer jezelf kennen</div>
-        <p class="step-desc">Bekijk inzichten over wie jou het hoogst beoordeelt en ontdek je perfecte match op basis van data.</p>
+        <div class="step-title" data-i18n="step4_title">Leer jezelf kennen</div>
+        <p class="step-desc" data-i18n="step4_desc">Bekijk inzichten over wie jou het hoogst beoordeelt en ontdek je perfecte match op basis van data.</p>
       </div>
     </div>
   </div>
@@ -1044,71 +1058,71 @@
 
       <!-- Visual -->
       <div class="features-visual">
-        <div class="vibe-title">Jouw Vibe Profiel</div>
+        <div class="vibe-title" data-i18n="vibe_profile_title">Jouw Vibe Profiel</div>
 
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span>Introvert</span><span>Extravert</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim1_l">Introvert</span><span data-i18n="dim1_r">Extravert</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:35%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span>Logisch</span><span>Emotioneel</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim2_l">Logisch</span><span data-i18n="dim2_r">Emotioneel</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:70%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span>Gestructureerd</span><span>Spontaan</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim3_l">Gestructureerd</span><span data-i18n="dim3_r">Spontaan</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:80%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span>Traditioneel</span><span>Avontuurlijk</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim4_l">Traditioneel</span><span data-i18n="dim4_r">Avontuurlijk</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:60%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span>Zelfstandig</span><span>Verbonden</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim5_l">Zelfstandig</span><span data-i18n="dim5_r">Verbonden</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:50%"></div></div>
         </div>
 
         <div class="compat-card">
           <div class="compat-pct">87%</div>
           <div>
-            <div class="compat-label">Sterke match 🎉</div>
-            <div class="compat-sub">Jullie vullen elkaar perfect aan op spontaniteit en openheid.</div>
+            <div class="compat-label" data-i18n="compat_label">Sterke match 🎉</div>
+            <div class="compat-sub" data-i18n="compat_sub">Jullie vullen elkaar perfect aan op spontaniteit en openheid.</div>
           </div>
         </div>
       </div>
 
       <!-- Text -->
       <div>
-        <span class="section-tag">Persoonlijkheid</span>
-        <h2 class="section-title">Meer dan alleen een foto</h2>
-        <p class="section-sub" style="margin-bottom:32px;">Lucent gebruikt vijf wetenschappelijk onderbouwde dimensies om echte compatibiliteit te berekenen — niet alleen uiterlijk.</p>
+        <span class="section-tag" data-i18n="pers_tag">Persoonlijkheid</span>
+        <h2 class="section-title" data-i18n="pers_title">Meer dan alleen een foto</h2>
+        <p class="section-sub" style="margin-bottom:32px;" data-i18n="pers_sub">Lucent gebruikt vijf wetenschappelijk onderbouwde dimensies om echte compatibiliteit te berekenen — niet alleen uiterlijk.</p>
 
         <ul class="feature-list">
           <li class="feature-item">
             <div class="feature-icon-wrap">🔋</div>
             <div>
-              <div class="feature-item-title">Sociale Batterij</div>
-              <div class="feature-item-desc">Hoe laad jij op? Alleen of samen met anderen? We matchen introvert met introvert en extravert met extravert.</div>
+              <div class="feature-item-title" data-i18n="feat1_title">Sociale Batterij</div>
+              <div class="feature-item-desc" data-i18n="feat1_desc">Hoe laad jij op? Alleen of samen met anderen? We matchen introvert met introvert en extravert met extravert.</div>
             </div>
           </li>
           <li class="feature-item">
             <div class="feature-icon-wrap">🧠</div>
             <div>
-              <div class="feature-item-title">Logica vs. Emotie</div>
-              <div class="feature-item-desc">Neem jij beslissingen met je hoofd of je hart? Complementaire stijlen zorgen voor de mooiste gesprekken.</div>
+              <div class="feature-item-title" data-i18n="feat2_title">Logica vs. Emotie</div>
+              <div class="feature-item-desc" data-i18n="feat2_desc">Neem jij beslissingen met je hoofd of je hart? Complementaire stijlen zorgen voor de mooiste gesprekken.</div>
             </div>
           </li>
           <li class="feature-item">
             <div class="feature-icon-wrap">🗓️</div>
             <div>
-              <div class="feature-item-title">Structuur vs. Spontaniteit</div>
-              <div class="feature-item-desc">Plan jij alles van tevoren, of ga je gewoon? Wij weten welke combinatie werkt.</div>
+              <div class="feature-item-title" data-i18n="feat3_title">Structuur vs. Spontaniteit</div>
+              <div class="feature-item-desc" data-i18n="feat3_desc">Plan jij alles van tevoren, of ga je gewoon? Wij weten welke combinatie werkt.</div>
             </div>
           </li>
           <li class="feature-item">
             <div class="feature-icon-wrap">🌍</div>
             <div>
-              <div class="feature-item-title">Openheid & Hechting</div>
-              <div class="feature-item-desc">Avontuur zoeken of comfort? Verbondenheid of vrijheid? Jouw ideale balans staat centraal.</div>
+              <div class="feature-item-title" data-i18n="feat4_title">Openheid & Hechting</div>
+              <div class="feature-item-desc" data-i18n="feat4_desc">Avontuur zoeken of comfort? Verbondenheid of vrijheid? Jouw ideale balans staat centraal.</div>
             </div>
           </li>
         </ul>
@@ -1124,9 +1138,9 @@
 <section class="league-section" id="league">
   <div class="section-inner">
     <div class="section-header center">
-      <span class="section-tag">De League</span>
-      <h2 class="section-title">Jouw plek in de League</h2>
-      <p class="section-sub">Jouw score wordt bepaald door anderen en vertelt waar je staat. Eerlijk, transparant en altijd in beweging.</p>
+      <span class="section-tag" data-i18n="league_tag">De League</span>
+      <h2 class="section-title" data-i18n="league_title">Jouw plek in de League</h2>
+      <p class="section-sub" data-i18n="league_sub">Jouw score wordt bepaald door anderen en vertelt waar je staat. Eerlijk, transparant en altijd in beweging.</p>
     </div>
   </div>
 </section>
@@ -1137,43 +1151,43 @@
 <section class="premium-section" id="premium">
   <div class="section-inner">
     <div class="section-header center">
-      <span class="section-tag">Lucent Premium</span>
-      <h2 class="section-title">Zet jezelf op de kaart</h2>
-      <p class="section-sub">Ontgrendel alle functies en vergroot je kansen op een echte match.</p>
+      <span class="section-tag" data-i18n="prem_tag">Lucent Premium</span>
+      <h2 class="section-title" data-i18n="prem_title">Zet jezelf op de kaart</h2>
+      <p class="section-sub" data-i18n="prem_sub">Ontgrendel alle functies en vergroot je kansen op een echte match.</p>
     </div>
 
     <div class="pricing-wrap">
       <!-- Free -->
       <div class="pricing-card">
-        <div class="pricing-name">Gratis</div>
+        <div class="pricing-name" data-i18n="free_name">Gratis</div>
         <div class="pricing-price"><sup>€</sup>0<sub>/mnd</sub></div>
-        <div class="pricing-per">Altijd gratis</div>
+        <div class="pricing-per" data-i18n="free_always">Altijd gratis</div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> 5 matchverzoeken per dag</li>
-          <li><span class="check">✓</span> 20 profielen per dag</li>
-          <li><span class="check">✓</span> League score & positie</li>
-          <li><span class="check">✓</span> Persoonlijkheidsprofiel</li>
-          <li><span class="check">✓</span> Realtime chat</li>
+          <li><span class="check">✓</span> <span data-i18n="free_f1">5 matchverzoeken per dag</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f2">20 profielen per dag</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f3">League score & positie</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f4">Persoonlijkheidsprofiel</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f5">Realtime chat</span></li>
         </ul>
-        <a href="#" class="pricing-btn pricing-btn-outline">Begin gratis</a>
+        <a href="#" class="pricing-btn pricing-btn-outline" data-i18n="free_btn">Begin gratis</a>
       </div>
 
       <!-- Premium -->
       <div class="pricing-card featured">
-        <div class="pricing-badge">⭐ Meest gekozen</div>
+        <div class="pricing-badge" data-i18n="prem_badge">⭐ Meest gekozen</div>
         <div class="pricing-name">Premium</div>
         <div class="pricing-price"><sup>€</sup>6<sub>/mnd</sub></div>
-        <div class="pricing-per">Jaarlijks gefactureerd — of €8/mnd</div>
+        <div class="pricing-per" data-i18n="prem_price_per">Jaarlijks gefactureerd — of €8/mnd</div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> 15 matchverzoeken per dag</li>
-          <li><span class="check">✓</span> 60 profielen per dag</li>
-          <li><span class="check">✓</span> Directe brieven sturen</li>
-          <li><span class="check">✓</span> Voorrang in het overzicht</li>
-          <li><span class="check">✓</span> Inzichten: wie beoordeelt jou het hoogst?</li>
-          <li><span class="check">✓</span> Uitgebreide data & analyses</li>
-          <li><span class="check">✓</span> Geen advertenties</li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f1">15 matchverzoeken per dag</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f2">60 profielen per dag</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f3">Directe brieven sturen</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f4">Voorrang in het overzicht</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f5">Inzichten: wie beoordeelt jou het hoogst?</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f6">Uitgebreide data & analyses</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f7">Geen advertenties</span></li>
         </ul>
-        <a href="#" class="pricing-btn pricing-btn-solid">Start Premium</a>
+        <a href="#" class="pricing-btn pricing-btn-solid" data-i18n="prem_btn">Start Premium</a>
       </div>
     </div>
   </div>
@@ -1185,31 +1199,31 @@
 <section class="safety-section">
   <div class="section-inner">
     <div class="section-header center">
-      <span class="section-tag">Veiligheid & Vertrouwen</span>
-      <h2 class="section-title">Jouw veiligheid staat voorop</h2>
-      <p class="section-sub">Lucent is gebouwd met meerdere lagen van bescherming, zodat jij zorgeloos kunt daten.</p>
+      <span class="section-tag" data-i18n="safety_tag">Veiligheid & Vertrouwen</span>
+      <h2 class="section-title" data-i18n="safety_title">Jouw veiligheid staat voorop</h2>
+      <p class="section-sub" data-i18n="safety_sub">Lucent is gebouwd met meerdere lagen van bescherming, zodat jij zorgeloos kunt daten.</p>
     </div>
 
     <div class="safety-grid">
       <div class="safety-card">
         <span class="safety-icon">📸</span>
-        <div class="safety-title">AI-geverifieerde foto's</div>
-        <p class="safety-desc">Elke profielfoto wordt automatisch gemodereerd door AI voordat hij zichtbaar is. Geen nep, geen ongewenste inhoud.</p>
+        <div class="safety-title" data-i18n="safety1_title">AI-geverifieerde foto's</div>
+        <p class="safety-desc" data-i18n="safety1_desc">Elke profielfoto wordt automatisch gemodereerd door AI voordat hij zichtbaar is. Geen nep, geen ongewenste inhoud.</p>
       </div>
       <div class="safety-card">
         <span class="safety-icon">🔒</span>
-        <div class="safety-title">Privacybescherming</div>
-        <p class="safety-desc">Jouw locatie is nooit zichtbaar voor anderen. We tonen alleen de afstand, niet je exacte positie.</p>
+        <div class="safety-title" data-i18n="safety2_title">Privacybescherming</div>
+        <p class="safety-desc" data-i18n="safety2_desc">Jouw locatie is nooit zichtbaar voor anderen. We tonen alleen de afstand, niet je exacte positie.</p>
       </div>
       <div class="safety-card">
         <span class="safety-icon">🚫</span>
-        <div class="safety-title">Blokkeren & melden</div>
-        <p class="safety-desc">Eén tik om iemand te blokkeren of te melden. Ons team behandelt elke melding serieus en snel.</p>
+        <div class="safety-title" data-i18n="safety3_title">Blokkeren & melden</div>
+        <p class="safety-desc" data-i18n="safety3_desc">Eén tik om iemand te blokkeren of te melden. Ons team behandelt elke melding serieus en snel.</p>
       </div>
       <div class="safety-card">
         <span class="safety-icon">🛡️</span>
-        <div class="safety-title">AVG-compliant</div>
-        <p class="safety-desc">Jouw gegevens worden beschermd conform de Europese privacywetgeving. Inzage en verwijdering altijd mogelijk.</p>
+        <div class="safety-title" data-i18n="safety4_title">AVG-compliant</div>
+        <p class="safety-desc" data-i18n="safety4_desc">Jouw gegevens worden beschermd conform de Europese privacywetgeving. Inzage en verwijdering altijd mogelijk.</p>
       </div>
     </div>
   </div>
@@ -1220,9 +1234,9 @@
 ════════════════════════════════ -->
 <section class="cta-section">
   <div class="section-inner">
-    <h2>Klaar voor een echte match?</h2>
-    <p>Download Lucent en ontdek wie er echt bij jou past — op basis van wie je bent, niet hoe je eruitziet.</p>
-    <a href="#" class="btn-white">
+    <h2 data-i18n="cta_title">Klaar voor een echte match?</h2>
+    <p data-i18n="cta_sub">Download Lucent en ontdek wie er echt bij jou past — op basis van wie je bent, niet hoe je eruitziet.</p>
+    <a href="#" class="btn-white" data-i18n="cta_btn">
       📱 &nbsp;Download voor Android
     </a>
   </div>
@@ -1236,32 +1250,32 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand-name">Lucent</div>
-        <p class="footer-brand-desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+        <p class="footer-brand-desc" data-i18n="footer_brand_desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
       </div>
       <div>
-        <div class="footer-col-title">App</div>
+        <div class="footer-col-title" data-i18n="footer_app_title">App</div>
         <ul class="footer-links-list">
-          <li><a href="#hoe-werkt-het">Hoe het werkt</a></li>
-          <li><a href="#persoonlijkheid">Persoonlijkheid</a></li>
-          <li><a href="#league">De League</a></li>
-          <li><a href="#premium">Premium</a></li>
+          <li><a href="#hoe-werkt-het" data-i18n="footer_app_1">Hoe het werkt</a></li>
+          <li><a href="#persoonlijkheid" data-i18n="footer_app_2">Persoonlijkheid</a></li>
+          <li><a href="#league" data-i18n="footer_app_3">De League</a></li>
+          <li><a href="#premium" data-i18n="footer_app_4">Premium</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Juridisch</div>
+        <div class="footer-col-title" data-i18n="footer_legal_title">Juridisch</div>
         <ul class="footer-links-list">
-          <li><a href="/privacy">Privacyverklaring</a></li>
-          <li><a href="/terms">Gebruiksvoorwaarden</a></li>
-          <li><a href="mailto:info@lucent.you">Contact</a></li>
+          <li><a href="/privacy" data-i18n="footer_priv">Privacyverklaring</a></li>
+          <li><a href="/terms" data-i18n="footer_terms">Gebruiksvoorwaarden</a></li>
+          <li><a href="mailto:info@lucent.you" data-i18n="footer_contact">Contact</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 Lucent. Alle rechten voorbehouden.</span>
+      <span data-i18n="footer_copy">© 2026 Lucent. Alle rechten voorbehouden.</span>
       <div style="display:flex;gap:20px;">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Voorwaarden</a>
+        <a href="/privacy" data-i18n="footer_priv_link">Privacy</a>
+        <a href="/terms" data-i18n="footer_terms_link">Voorwaarden</a>
         <a href="mailto:info@lucent.you">info@lucent.you</a>
       </div>
     </div>
@@ -1274,6 +1288,181 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   });
+
+  // ── i18n ──
+  const TRANSLATIONS = {
+    nl: {
+      nav_how: 'Hoe het werkt', nav_personality: 'Persoonlijkheid',
+      nav_league: 'De League', nav_premium: 'Premium', nav_download: 'Download de app',
+      hero_badge: 'Nu beschikbaar op Android',
+      hero_title: 'Dating zonder swipen.<br><span class="accent">Match op karakter.</span>',
+      hero_sub: 'Lucent koppelt je aan mensen die écht bij je passen — op basis van persoonlijkheid, waarden en jouw positie in de League.',
+      hero_btn_android: '📱 \u00a0Download voor Android',
+      hero_btn_how: 'Hoe werkt het? \u00a0↓',
+      hero_float2: 'Score +0.3 vandaag', hero_float3: 'Nieuw matchverzoek',
+      mockup_card_sub: 'Amsterdam · Kunst & Cultuur',
+      mockup_vibe1: 'Creatief', mockup_vibe2: 'Introvert', mockup_vibe3: 'Serieus',
+      mockup_lower: '👇 Lager', mockup_higher: '👆 Hoger',
+      stat_1: 'Persoonlijkheidsdimensies', stat_2: 'League niveaus',
+      stat_3: 'Leeftijd vereist', stat_4: 'Geverifieerde foto\'s',
+      how_tag: 'Hoe het werkt', how_title: 'Vier stappen naar een echte klik',
+      how_sub: 'Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid en een slim scoremodel.',
+      step1_num: 'Stap 01', step1_title: 'Bouw je profiel',
+      step1_desc: 'Maak een selfie en vul je vijf persoonlijkheidswaarden in. Geen filters, geen poses — jij zoals je bent.',
+      step2_num: 'Stap 02', step2_title: 'Doe mee aan de League',
+      step2_desc: 'Beoordeel dagelijks profielen op aantrekkelijkheid. Je eigen score wordt bepaald door anderen — eerlijk en transparant.',
+      step3_num: 'Stap 03', step3_title: 'Ontdek matches',
+      step3_desc: 'Zie mensen in jouw score-bereik die compatibel zijn op persoonlijkheid. Stuur een matchverzoek en start een gesprek.',
+      step4_num: 'Stap 04', step4_title: 'Leer jezelf kennen',
+      step4_desc: 'Bekijk inzichten over wie jou het hoogst beoordeelt en ontdek je perfecte match op basis van data.',
+      vibe_profile_title: 'Jouw Vibe Profiel',
+      dim1_l: 'Introvert', dim1_r: 'Extravert', dim2_l: 'Logisch', dim2_r: 'Emotioneel',
+      dim3_l: 'Gestructureerd', dim3_r: 'Spontaan', dim4_l: 'Traditioneel', dim4_r: 'Avontuurlijk',
+      dim5_l: 'Zelfstandig', dim5_r: 'Verbonden',
+      compat_label: 'Sterke match 🎉',
+      compat_sub: 'Jullie vullen elkaar perfect aan op spontaniteit en openheid.',
+      pers_tag: 'Persoonlijkheid', pers_title: 'Meer dan alleen een foto',
+      pers_sub: 'Lucent gebruikt vijf wetenschappelijk onderbouwde dimensies om echte compatibiliteit te berekenen — niet alleen uiterlijk.',
+      feat1_title: 'Sociale Batterij',
+      feat1_desc: 'Hoe laad jij op? Alleen of samen met anderen? We matchen introvert met introvert en extravert met extravert.',
+      feat2_title: 'Logica vs. Emotie',
+      feat2_desc: 'Neem jij beslissingen met je hoofd of je hart? Complementaire stijlen zorgen voor de mooiste gesprekken.',
+      feat3_title: 'Structuur vs. Spontaniteit',
+      feat3_desc: 'Plan jij alles van tevoren, of ga je gewoon? Wij weten welke combinatie werkt.',
+      feat4_title: 'Openheid & Hechting',
+      feat4_desc: 'Avontuur zoeken of comfort? Verbondenheid of vrijheid? Jouw ideale balans staat centraal.',
+      league_tag: 'De League', league_title: 'Jouw plek in de League',
+      league_sub: 'Jouw score wordt bepaald door anderen en vertelt waar je staat. Eerlijk, transparant en altijd in beweging.',
+      prem_tag: 'Lucent Premium', prem_title: 'Zet jezelf op de kaart',
+      prem_sub: 'Ontgrendel alle functies en vergroot je kansen op een echte match.',
+      free_name: 'Gratis', free_always: 'Altijd gratis',
+      free_f1: '5 matchverzoeken per dag', free_f2: '20 profielen per dag',
+      free_f3: 'League score & positie', free_f4: 'Persoonlijkheidsprofiel', free_f5: 'Realtime chat',
+      free_btn: 'Begin gratis',
+      prem_badge: '⭐ Meest gekozen', prem_price_per: 'Jaarlijks gefactureerd — of €8/mnd',
+      prem_f1: '15 matchverzoeken per dag', prem_f2: '60 profielen per dag',
+      prem_f3: 'Directe brieven sturen', prem_f4: 'Voorrang in het overzicht',
+      prem_f5: 'Inzichten: wie beoordeelt jou het hoogst?',
+      prem_f6: 'Uitgebreide data & analyses', prem_f7: 'Geen advertenties',
+      prem_btn: 'Start Premium',
+      safety_tag: 'Veiligheid & Vertrouwen', safety_title: 'Jouw veiligheid staat voorop',
+      safety_sub: 'Lucent is gebouwd met meerdere lagen van bescherming, zodat jij zorgeloos kunt daten.',
+      safety1_title: 'AI-geverifieerde foto\'s',
+      safety1_desc: 'Elke profielfoto wordt automatisch gemodereerd door AI voordat hij zichtbaar is. Geen nep, geen ongewenste inhoud.',
+      safety2_title: 'Privacybescherming',
+      safety2_desc: 'Jouw locatie is nooit zichtbaar voor anderen. We tonen alleen de afstand, niet je exacte positie.',
+      safety3_title: 'Blokkeren & melden',
+      safety3_desc: 'Eén tik om iemand te blokkeren of te melden. Ons team behandelt elke melding serieus en snel.',
+      safety4_title: 'AVG-compliant',
+      safety4_desc: 'Jouw gegevens worden beschermd conform de Europese privacywetgeving. Inzage en verwijdering altijd mogelijk.',
+      cta_title: 'Klaar voor een echte match?',
+      cta_sub: 'Download Lucent en ontdek wie er echt bij jou past — op basis van wie je bent, niet hoe je eruitziet.',
+      cta_btn: '📱 \u00a0Download voor Android',
+      footer_brand_desc: 'Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.',
+      footer_app_title: 'App', footer_app_1: 'Hoe het werkt', footer_app_2: 'Persoonlijkheid',
+      footer_app_3: 'De League', footer_app_4: 'Premium',
+      footer_legal_title: 'Juridisch', footer_priv: 'Privacyverklaring',
+      footer_terms: 'Gebruiksvoorwaarden', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. Alle rechten voorbehouden.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Voorwaarden',
+    },
+    en: {
+      nav_how: 'How it works', nav_personality: 'Personality',
+      nav_league: 'The League', nav_premium: 'Premium', nav_download: 'Download the app',
+      hero_badge: 'Now available on Android',
+      hero_title: 'Dating without swiping.<br><span class="accent">Match on character.</span>',
+      hero_sub: 'Lucent connects you with people who truly fit you — based on personality, values, and your position in the League.',
+      hero_btn_android: '📱 \u00a0Download for Android',
+      hero_btn_how: 'How does it work? \u00a0↓',
+      hero_float2: 'Score +0.3 today', hero_float3: 'New match request',
+      mockup_card_sub: 'Amsterdam · Art & Culture',
+      mockup_vibe1: 'Creative', mockup_vibe2: 'Introvert', mockup_vibe3: 'Serious',
+      mockup_lower: '👇 Lower', mockup_higher: '👆 Higher',
+      stat_1: 'Personality dimensions', stat_2: 'League levels',
+      stat_3: 'Age required', stat_4: 'Verified photos',
+      how_tag: 'How it works', how_title: 'Four steps to a real connection',
+      how_sub: 'No endless swiping. Lucent works based on your personality and a smart scoring model.',
+      step1_num: 'Step 01', step1_title: 'Build your profile',
+      step1_desc: 'Take a selfie and fill in your five personality values. No filters, no poses — just you as you are.',
+      step2_num: 'Step 02', step2_title: 'Join the League',
+      step2_desc: 'Rate profiles daily on attractiveness. Your own score is determined by others — honest and transparent.',
+      step3_num: 'Step 03', step3_title: 'Discover matches',
+      step3_desc: 'See people in your score range who are compatible in personality. Send a match request and start a conversation.',
+      step4_num: 'Step 04', step4_title: 'Get to know yourself',
+      step4_desc: 'View insights on who rates you highest and discover your perfect match based on data.',
+      vibe_profile_title: 'Your Vibe Profile',
+      dim1_l: 'Introvert', dim1_r: 'Extrovert', dim2_l: 'Logical', dim2_r: 'Emotional',
+      dim3_l: 'Structured', dim3_r: 'Spontaneous', dim4_l: 'Traditional', dim4_r: 'Adventurous',
+      dim5_l: 'Independent', dim5_r: 'Connected',
+      compat_label: 'Strong match 🎉',
+      compat_sub: 'You complement each other perfectly on spontaneity and openness.',
+      pers_tag: 'Personality', pers_title: 'More than just a photo',
+      pers_sub: 'Lucent uses five scientifically grounded dimensions to calculate true compatibility — not just looks.',
+      feat1_title: 'Social Battery',
+      feat1_desc: 'How do you recharge? Alone or together with others? We match introverts with introverts and extroverts with extroverts.',
+      feat2_title: 'Logic vs. Emotion',
+      feat2_desc: 'Do you make decisions with your head or your heart? Complementary styles lead to the best conversations.',
+      feat3_title: 'Structure vs. Spontaneity',
+      feat3_desc: 'Do you plan everything in advance, or just go with the flow? We know which combination works.',
+      feat4_title: 'Openness & Attachment',
+      feat4_desc: 'Seeking adventure or comfort? Connection or freedom? Your ideal balance is central.',
+      league_tag: 'The League', league_title: 'Your place in the League',
+      league_sub: 'Your score is determined by others and shows where you stand. Honest, transparent and always evolving.',
+      prem_tag: 'Lucent Premium', prem_title: 'Put yourself on the map',
+      prem_sub: 'Unlock all features and increase your chances of a real match.',
+      free_name: 'Free', free_always: 'Always free',
+      free_f1: '5 match requests per day', free_f2: '20 profiles per day',
+      free_f3: 'League score & position', free_f4: 'Personality profile', free_f5: 'Real-time chat',
+      free_btn: 'Start for free',
+      prem_badge: '⭐ Most popular', prem_price_per: 'Billed annually — or €8/month',
+      prem_f1: '15 match requests per day', prem_f2: '60 profiles per day',
+      prem_f3: 'Send direct letters', prem_f4: 'Priority in the overview',
+      prem_f5: 'Insights: who rates you highest?',
+      prem_f6: 'Extended data & analyses', prem_f7: 'No ads',
+      prem_btn: 'Start Premium',
+      safety_tag: 'Safety & Trust', safety_title: 'Your safety comes first',
+      safety_sub: 'Lucent is built with multiple layers of protection so you can date without worry.',
+      safety1_title: 'AI-verified photos',
+      safety1_desc: 'Every profile photo is automatically moderated by AI before it becomes visible. No fakes, no unwanted content.',
+      safety2_title: 'Privacy protection',
+      safety2_desc: 'Your location is never visible to others. We only show the distance, not your exact position.',
+      safety3_title: 'Block & report',
+      safety3_desc: 'One tap to block or report someone. Our team takes every report seriously and acts quickly.',
+      safety4_title: 'GDPR-compliant',
+      safety4_desc: 'Your data is protected in accordance with European privacy law. Access and deletion always possible.',
+      cta_title: 'Ready for a real match?',
+      cta_sub: 'Download Lucent and discover who truly fits you — based on who you are, not how you look.',
+      cta_btn: '📱 \u00a0Download for Android',
+      footer_brand_desc: 'Dating without swiping. Discover real matches based on personality, values and your position in the League.',
+      footer_app_title: 'App', footer_app_1: 'How it works', footer_app_2: 'Personality',
+      footer_app_3: 'The League', footer_app_4: 'Premium',
+      footer_legal_title: 'Legal', footer_priv: 'Privacy Policy',
+      footer_terms: 'Terms of Service', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. All rights reserved.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Terms',
+    }
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (TRANSLATIONS[lang][key] !== undefined) el.textContent = TRANSLATIONS[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (TRANSLATIONS[lang][key] !== undefined) el.innerHTML = TRANSLATIONS[lang][key];
+    });
+    document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('lucent_lang', lang);
+    applyLang(lang);
+  }
+
+  applyLang(localStorage.getItem('lucent_lang') || 'nl');
 </script>
 
 </body>
