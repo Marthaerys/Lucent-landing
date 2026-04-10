@@ -10,11 +10,11 @@
 Bestaande dating-apps zoals Tinder, Bumble en Hinge kampen met dezelfde fundamentele problemen:
 
 - **De top 10% krijgt 80% van de aandacht.** Mensen liken en swipen op iedereen die ze aantrekkelijk vinden, waardoor de meeste gebruikers weinig tot geen matches krijgen.
-- **Swipen is oppervlakkig.** Je ziet een foto, je swipet. Er is geen context, geen reden om geïnteresseerd te zijn.
+- **Een swipe heeft zijn waarde verloren.** Je ziet een foto en swipet misschien binnen een seconden zonder goede overweging.
+- **Een overvloed van likes verlaagt de match kwaliteit** Doordat likes ongelimiteerd zijn is het maken van een goed match lastig
 - **Matches leiden nergens heen.** Zelfs als je matched, verdwijnt het gesprek in de stille massa van andere matches.
-- **Je weet niet waarom je matcht.** Klik je echt, of is het puur uiterlijk?
 
-**Lucent lost dit op door eerlijkheid en context te centraal te stellen.**
+**Lucent lost dit op door transparantie en meer gerichte matches te centraal te stellen.**
 
 ---
 
@@ -24,9 +24,10 @@ Bestaande dating-apps zoals Tinder, Bumble en Hinge kampen met dezelfde fundamen
 
 Het hart van Lucent is de **League**: een dagelijks spel waarbij gebruikers raden of iemand anders een hogere of lagere aantrekkelijkheidsscore heeft dan zijzelf. Dit klinkt simpel, maar het heeft een diepgaande werking:
 
-- Iedereen krijgt een **eerlijke, genormaliseerde score** op basis van hoe anderen hen beoordelen.
+- Iedereen heeft een dynamische **score** op basis van hoe anderen hen beoordelen en op basis van de eigen gokken van een gebruiker van andere gebruikers(goed/fout).
 - Die score wordt berekend binnen een **cohort** (zelfde geslacht + vergelijkbare leeftijd) — zodat demografische verschillen in schoonheidsidealen worden meegewogen.
-- Scores variëren van 4.0 tot 10.0 en worden visueel weergegeven via League-iconen (boot, vogel, bal, vis).
+- Scores variëren van 4.0 tot 10.0 (deze scoren blijft echter verborgen om de gesteldheid van de gebruiker te waarborgen) per cohort van 5 jaar met een gemiddelde van een 7. 
+- Cohorten worden dagelijks genormaliseerd om te zorgen dat de gemiddelden altijd een 7 zijn binnen elk cohort.
 
 **Het resultaat:** Mensen daten binnen hun eigen "klasse". Geen hopeloze matches, geen ego-boost zonder gevolg.
 
@@ -36,7 +37,7 @@ Het hart van Lucent is de **League**: een dagelijks spel waarbij gebruikers rade
 
 ### 2.2 — Persoonlijkheid die je kunt zien
 
-Naast uiterlijk berekent Lucent een **Lucent Match Score**: een getal van 1 tot 10 dat beschrijft hoe goed twee persoonlijkheden bij elkaar passen.
+Naast uiterlijk berekent Lucent een **Lucent Match Score**: een % dat beschrijft hoe goed twee persoonlijkheden bij elkaar passen.
 
 Dit is gebaseerd op vijf persoonlijkheidsdimensies (geïnspireerd op de Big Five):
 - Sociale energie (introvert ↔ extravert)
@@ -59,15 +60,15 @@ Dit is gebaseerd op vijf persoonlijkheidsdimensies (geïnspireerd op de Big Five
 
 ### 2.3 — Data over jezelf die je nergens anders krijgt
 
-De **Data-tab** is een unieke feature: gebruikers zien wie hen het hoogst beoordeelt, uitgesplitst per demografische groep.
+De **Data-tab** is een unieke feature waar lucent zich onderscheidt door middel van transparantie: gebruikers kunnen het aantal mannen en vrouwen op de app zien per cohort en de bijbehorende score normaalverdeling. Hun eigen score is niet zichtbaar maar het laat wel transparant zien dat iederene via de zelfde regels speelt.
+
+**Premium-gebruikers** zien hier ook inzichten van het tegenovergestelde geslacht. Verder zien ze welke gebruikers hen het hoogst beoordeelt, uitgesplitst per demografische groep.
 
 Voorbeelden van inzichten:
 - "Vrouwen tussen 25 en 30 die religieus zijn beoordelen jou gemiddeld 12% hoger dan het gemiddelde"
 - "Mannen met een avontuurlijke levensstijl vinden jou aantrekkelijker dan mannen met structuur"
 
 Dit geeft gebruikers een nieuwe manier van zelfkennis — niet alleen over uiterlijk, maar over hoe ze overkomen op verschillende typen mensen.
-
-**Premium-gebruikers** zien ook inzichten van het tegenovergestelde geslacht.
 
 > *"Ik begreep eindelijk wie ik aantrak — en waarom."*
 
@@ -77,18 +78,17 @@ Dit geeft gebruikers een nieuwe manier van zelfkennis — niet alleen over uiter
 
 In de **People-tab** zien gebruikers een lijst met mensen die een vergelijkbare aantrekkelijkheidsscore hebben. Dit zijn de mensen met wie een match realistische kans heeft.
 
-- Gefilterd op afstand, leeftijd en geslacht
+- Gefilterd op afstand, leeftijd, geslacht en dus (de verborgen) score
 - Maximaal 20 profielen (60 met Premium) — overzichtelijk, niet overweldigend
 - Chatverzoek systeem: je stuurt een verzoek, de ander kiest of ze ja zeggen. Geen wederzijdse swipe vereist.
 
-**Het resultaat:** Minder frustratie, meer betekenisvolle gesprekken.
+**Het resultaat:** Minder frustratie, meer betekenisvolle matches en gesprekken.
 
 ---
 
 ### 2.5 — Kwaliteitsfoto's door stabiliteitsdetectie
 
-Bij het aanmaken van een profiel maakt Lucent gebruik van een slim camerasysteem: de countdown begint pas als de telefoon stilstaat. Zo worden onscherpe of haastige selfies voorkomen.
-
+Bij het aanmaken van een profiel maakt Lucent gebruik van een gelijk fotosysteem: de hoofdfoto van iedere gebruiker in de app is een selfie gemaakt met de selfiecamera zonder filters. Hierdoor voelt het eerlijker om gebruikers met elkaar de vergelijken om hun league te bepalen. 
 Alle foto's worden automatisch gecontroleerd op ongepaste inhoud. Dit houdt de community veilig en de profielkwaliteit hoog.
 
 ---
@@ -96,7 +96,7 @@ Alle foto's worden automatisch gecontroleerd op ongepaste inhoud. Dit houdt de c
 ## 3. Doelgroep
 
 ### Primaire doelgroep
-**Serieuze daters, 22–38 jaar**
+**Alle leeftijden**
 
 - Hebben Tinder en Hinge geprobeerd maar ervaren frustratie met het volume en de oppervlakkigheid
 - Willen weten waarom ze matchen, niet alleen dát ze matchen
@@ -107,7 +107,6 @@ Alle foto's worden automatisch gecontroleerd op ongepaste inhoud. Dit houdt de c
 **Zelfbewuste gebruikers die nieuwsgierig zijn naar hoe anderen hen zien**
 
 - Worden aangetrokken door de data-inzichten en het scoresysteem
-- Niet per se actief op zoek naar een relatie, maar wel geïnteresseerd in de sociale dynamiek achter aantrekkelijkheid
 
 ### Anti-doelgroep (niet aanspreken)
 - Gebruikers die puur casual seks zoeken (dit is niet de positionering van Lucent)
@@ -119,6 +118,7 @@ Alle foto's worden automatisch gecontroleerd op ongepaste inhoud. Dit houdt de c
 
 ### Tagline-opties
 
+- *"Meer zichtbaarheid. Meer matches. Meer jij."*
 - *"Date like you mean it."*
 - *"Weet wie bij je past. Echt."*
 - *"Eerlijk daten. Eindelijk."*
@@ -198,6 +198,7 @@ Lucent neemt veiligheid serieus — dit is een verkoopargument:
 ## 8. Toon & Stijl
 
 ### Merkpersoonlijkheid
+- **Transparant** — Lucent toont hoeveel gebruikers er per gender en cohort op de app zitten en wat de score verdeling is.
 - **Eerlijk** — Lucent verbergt niets. Je score is je score. Je match is je match.
 - **Intelligent** — De app denkt mee. Data, radar, AI-analyse.
 - **Warm** — Ondanks de data-gedreven aanpak gaat het om mensen en verbinding.
