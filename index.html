@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucent — Dating zonder swipen</title>
-  <meta name="description" content="Lucent koppelt je aan mensen die echt bij je passen, op basis van persoonlijkheid. Geen swipen. Geen oppervlakkigheid. Echte matches." />
+  <title>Lucent — Eerlijk daten. Eindelijk.</title>
+  <meta name="description" content="Lucent combineert een eerlijke aantrekkelijkheidsscore met echte persoonlijkheidscompatibiliteit. Match met mensen die echt bij je passen." />
   <link rel="icon" href="../assets/images/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -30,876 +30,267 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--surface);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── UTILS ── */
+    body { font-family: 'Nunito', sans-serif; background: var(--surface); color: var(--text); line-height: 1.6; overflow-x: hidden; }
     .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
 
-    /* ════════════════════════════════
-       NAV
-    ════════════════════════════════ */
+    /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(230,230,230,0.6);
-      transition: box-shadow .3s;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,230,230,0.6); transition: box-shadow .3s;
     }
     nav.scrolled { box-shadow: 0 4px 24px rgba(106,90,205,0.08); }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .nav-logo-icon {
-      width: 34px; height: 34px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-      display: flex; align-items: center; justify-content: center;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); display: flex; align-items: center; justify-content: center; }
     .nav-logo-icon img { width: 22px; height: 22px; object-fit: contain; }
-    .nav-logo-text {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: -0.3px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-sec);
-      text-decoration: none;
-      transition: color .2s;
-    }
+    .nav-logo-text { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -0.3px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 600; color: var(--text-sec); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--primary); }
-
-    .nav-cta {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: #fff !important;
-      padding: 10px 22px;
-      border-radius: var(--radius-full);
-      font-weight: 700 !important;
-      box-shadow: 0 4px 14px rgba(106,90,205,0.3);
-      transition: transform .2s, box-shadow .2s !important;
-    }
+    .nav-cta { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff !important; padding: 10px 22px; border-radius: var(--radius-full); font-weight: 700 !important; box-shadow: 0 4px 14px rgba(106,90,205,0.3); transition: transform .2s, box-shadow .2s !important; }
     .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(106,90,205,0.4) !important; }
+    @media (max-width: 768px) { nav { padding: 0 20px; } .nav-links { display: none; } }
+    .lang-switcher { display: flex; gap: 4px; align-items: center; margin-left: 12px; }
+    .lang-btn { background: none; border: none; font-size: 1.3rem; cursor: pointer; opacity: 0.4; transition: opacity .2s, transform .2s; line-height: 1; padding: 2px; }
+    .lang-btn.active { opacity: 1; transform: scale(1.15); }
+    .lang-btn:hover { opacity: 0.85; }
 
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-    }
-
-    /* ════════════════════════════════
-       HERO
-    ════════════════════════════════ */
+    /* ── HERO ── */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative;
-      overflow: hidden;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,127,217,0.18) 0%, transparent 70%),
-                  var(--surface);
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center; padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,127,217,0.18) 0%, transparent 70%), var(--surface);
     }
-
-    /* floating orbs */
-    .hero::before, .hero::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-    }
-    .hero::before {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(106,90,205,0.12), transparent 70%);
-      top: -100px; left: -100px;
-    }
-    .hero::after {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(139,127,217,0.1), transparent 70%);
-      bottom: 0; right: -100px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--primary-faint);
-      border: 1px solid rgba(106,90,205,0.2);
-      color: var(--primary);
-      border-radius: var(--radius-full);
-      padding: 7px 18px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      margin-bottom: 28px;
-      animation: fadeSlideDown .6s ease both;
-    }
-    .hero-badge-dot {
-      width: 7px; height: 7px;
-      background: var(--success);
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px rgba(26,188,156,0.3);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 2px rgba(26,188,156,0.3); }
-      50% { box-shadow: 0 0 0 5px rgba(26,188,156,0.1); }
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 72px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -2px;
-      color: var(--text);
-      max-width: 820px;
-      margin-bottom: 24px;
-      animation: fadeSlideDown .7s ease .1s both;
-    }
-    .hero h1 .accent {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: clamp(16px, 2.5vw, 20px);
-      color: var(--text-sec);
-      max-width: 540px;
-      line-height: 1.6;
-      margin-bottom: 40px;
-      animation: fadeSlideDown .7s ease .2s both;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-      animation: fadeSlideDown .7s ease .3s both;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
-      color: #fff;
-      text-decoration: none;
-      padding: 16px 32px;
-      border-radius: var(--radius-full);
-      font-size: 16px;
-      font-weight: 700;
-      box-shadow: 0 6px 24px rgba(106,90,205,0.35);
-      transition: transform .2s, box-shadow .2s;
-    }
+    .hero::before, .hero::after { content: ''; position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    .hero::before { width: 500px; height: 500px; background: radial-gradient(circle, rgba(106,90,205,0.12), transparent 70%); top: -100px; left: -100px; }
+    .hero::after { width: 400px; height: 400px; background: radial-gradient(circle, rgba(139,127,217,0.1), transparent 70%); bottom: 0; right: -100px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-faint); border: 1px solid rgba(106,90,205,0.2); color: var(--primary); border-radius: var(--radius-full); padding: 7px 18px; font-size: 13px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 28px; animation: fadeSlideDown .6s ease both; }
+    .hero-badge-dot { width: 7px; height: 7px; background: var(--success); border-radius: 50%; box-shadow: 0 0 0 2px rgba(26,188,156,0.3); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 2px rgba(26,188,156,0.3)} 50%{box-shadow:0 0 0 5px rgba(26,188,156,0.1)} }
+    .hero h1 { font-size: clamp(38px, 7vw, 72px); font-weight: 900; line-height: 1.1; letter-spacing: -2px; color: var(--text); max-width: 820px; margin-bottom: 24px; animation: fadeSlideDown .7s ease .1s both; }
+    .hero h1 .accent { background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: clamp(16px, 2.5vw, 20px); color: var(--text-sec); max-width: 580px; line-height: 1.6; margin-bottom: 40px; animation: fadeSlideDown .7s ease .2s both; }
+    .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; animation: fadeSlideDown .7s ease .3s both; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%); color: #fff; text-decoration: none; padding: 16px 32px; border-radius: var(--radius-full); font-size: 16px; font-weight: 700; box-shadow: 0 6px 24px rgba(106,90,205,0.35); transition: transform .2s, box-shadow .2s; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(106,90,205,0.45); }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--surface);
-      color: var(--text);
-      text-decoration: none;
-      padding: 16px 32px;
-      border-radius: var(--radius-full);
-      font-size: 16px;
-      font-weight: 700;
-      border: 1.5px solid var(--border);
-      transition: border-color .2s, color .2s;
-    }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); color: var(--text); text-decoration: none; padding: 16px 32px; border-radius: var(--radius-full); font-size: 16px; font-weight: 700; border: 1.5px solid var(--border); transition: border-color .2s, color .2s; }
     .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
 
-    /* phone mockup */
-    .hero-mockup {
-      position: relative;
-      width: 100%;
-      max-width: 340px;
-      margin: 0 auto;
-      animation: fadeSlideUp .9s ease .4s both;
-    }
-    .mockup-phone {
-      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%);
-      border-radius: 44px;
-      padding: 12px;
-      box-shadow:
-        0 40px 80px rgba(0,0,0,0.3),
-        0 0 0 1px rgba(255,255,255,0.06),
-        inset 0 0 0 1px rgba(255,255,255,0.04);
-    }
-    .mockup-screen {
-      background: var(--bg);
-      border-radius: 34px;
-      overflow: hidden;
-      min-height: 460px;
-      display: flex;
-      flex-direction: column;
-    }
-    .mockup-topbar {
-      background: var(--surface);
-      padding: 14px 20px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
-    .mockup-topbar-title {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .mockup-score-badge {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-    }
-    .mockup-card {
-      margin: 14px;
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(106,90,205,0.1);
-    }
-    .mockup-card-img {
-      height: 200px;
-      background: linear-gradient(135deg, #c8b8ff 0%, #9d8df0 40%, #7c6dd9 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-      position: relative;
-      overflow: hidden;
-    }
-    .mockup-card-img::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 60px;
-      background: linear-gradient(transparent, rgba(0,0,0,0.25));
-    }
+    /* hero mockup */
+    .hero-mockup { position: relative; width: 100%; max-width: 340px; margin: 0 auto; animation: fadeSlideUp .9s ease .4s both; }
+    .mockup-phone { background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%); border-radius: 44px; padding: 12px; box-shadow: 0 40px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.04); }
+    .mockup-screen { background: var(--bg); border-radius: 34px; overflow: hidden; min-height: 460px; display: flex; flex-direction: column; }
+    .mockup-topbar { background: var(--surface); padding: 14px 20px 10px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+    .mockup-topbar-title { font-size: 17px; font-weight: 800; color: var(--primary); }
+    .mockup-score-badge { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: var(--radius-full); }
+    .mockup-card { margin: 14px; background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 4px 20px rgba(106,90,205,0.1); }
+    .mockup-card-img { height: 200px; background: linear-gradient(135deg, #c8b8ff 0%, #9d8df0 40%, #7c6dd9 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.8); position: relative; overflow: hidden; }
+    .mockup-card-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(transparent, rgba(0,0,0,0.25)); }
+    .mockup-card-img-icon { font-size: 36px; }
     .mockup-card-body { padding: 14px 16px 12px; }
     .mockup-card-name { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
     .mockup-card-sub { font-size: 12px; color: var(--text-sec); margin-bottom: 10px; }
-    .mockup-card-vibe {
-      display: flex;
-      gap: 5px;
-      flex-wrap: wrap;
-    }
-    .vibe-tag {
-      background: var(--primary-faint);
-      color: var(--primary);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: var(--radius-full);
-    }
-    .mockup-buttons {
-      display: flex;
-      gap: 10px;
-      padding: 0 14px 14px;
-    }
-    .mockup-btn {
-      flex: 1;
-      padding: 12px;
-      border-radius: var(--radius-md);
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      cursor: default;
-    }
-    .mockup-btn-lower {
-      background: #fff0f0;
-      color: #e74c3c;
-      border: 1.5px solid #fdd;
-    }
-    .mockup-btn-higher {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: #fff;
-    }
+    .mockup-card-vibe { display: flex; gap: 5px; flex-wrap: wrap; }
+    .vibe-tag { background: var(--primary-faint); color: var(--primary); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: var(--radius-full); }
+    .mockup-buttons { display: flex; gap: 10px; padding: 0 14px 14px; }
+    .mockup-btn { flex: 1; padding: 12px; border-radius: var(--radius-md); font-size: 13px; font-weight: 700; text-align: center; cursor: default; }
+    .mockup-btn-lower { background: #fff0f0; color: #e74c3c; border: 1.5px solid #fdd; }
+    .mockup-btn-higher { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; }
 
-    /* floating badges around phone */
-    .hero-float {
-      position: absolute;
-      background: var(--surface);
-      border-radius: var(--radius-md);
-      padding: 10px 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      border: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      animation: float 4s ease-in-out infinite;
-    }
+    /* floating badges */
+    .hero-float { position: absolute; background: var(--surface); border-radius: var(--radius-md); padding: 10px 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); border: 1px solid var(--border); font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; white-space: nowrap; animation: float 4s ease-in-out infinite; }
     .hero-float-1 { top: 30px; left: -80px; animation-delay: 0s; }
     .hero-float-2 { top: 160px; right: -90px; animation-delay: 1.5s; }
     .hero-float-3 { bottom: 80px; left: -70px; animation-delay: .8s; }
-    @media (max-width: 600px) {
-      .hero-float-1, .hero-float-2, .hero-float-3 { display: none; }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+    @media (max-width: 600px) { .hero-float-1, .hero-float-2, .hero-float-3 { display: none; } }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes fadeSlideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeSlideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
 
-    @keyframes fadeSlideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* stats row */
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 32px 0 0;
-      border-top: 1px solid var(--border);
-      animation: fadeSlideDown .8s ease .5s both;
-    }
+    /* hero stats */
+    .hero-stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; padding: 32px 0 0; border-top: 1px solid var(--border); animation: fadeSlideDown .8s ease .5s both; }
     .stat-item { text-align: center; }
-    .stat-number {
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--primary);
-      letter-spacing: -1px;
-      display: block;
-    }
-    .stat-label {
-      font-size: 13px;
-      color: var(--text-sec);
-      font-weight: 600;
-    }
+    .stat-number { font-size: 28px; font-weight: 900; color: var(--primary); letter-spacing: -1px; display: block; }
+    .stat-label { font-size: 13px; color: var(--text-sec); font-weight: 600; }
+    @media (max-width: 480px) { .hero-buttons { flex-direction: column; align-items: center; } .hero-stats { gap: 24px; } }
 
-    /* ════════════════════════════════
-       SECTION BASE
-    ════════════════════════════════ */
+    /* ── SECTION BASE ── */
     section { padding: 100px 24px; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--primary);
-      margin-bottom: 14px;
-    }
-    .section-title {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .section-sub {
-      font-size: 17px;
-      color: var(--text-sec);
-      max-width: 560px;
-      line-height: 1.65;
-    }
+    .section-tag { display: inline-block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 14px; }
+    .section-title { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; letter-spacing: -1.5px; color: var(--text); margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--text-sec); max-width: 560px; line-height: 1.65; }
     .section-header { margin-bottom: 56px; }
     .center { text-align: center; }
     .center .section-sub { margin: 0 auto; }
 
-    /* ════════════════════════════════
-       HOW IT WORKS
-    ════════════════════════════════ */
+    /* ── APP SCREENSHOTS ── */
+    .screens-section { background: var(--bg); }
+    .screens-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    @media (max-width: 900px) { .screens-row { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .screens-row { grid-template-columns: 1fr 1fr; gap: 14px; } }
+    .phone-frame { background: #1a1a2e; border-radius: 38px; padding: 9px; box-shadow: 0 32px 64px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05); transition: transform .3s; }
+    .phone-frame:hover { transform: translateY(-6px); }
+    .phone-screen { border-radius: 30px; overflow: hidden; aspect-ratio: 9/19; background: linear-gradient(160deg, #E8E0F8 0%, #D4C9F0 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+    .phone-screen-icon { font-size: 32px; }
+    .phone-screen-label { font-size: 12px; font-weight: 800; color: var(--primary); text-align: center; padding: 0 16px; line-height: 1.4; }
+    .screen-caption { text-align: center; margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--text-sec); }
+
+    /* ── PILLARS ── */
+    .pillars-section { background: var(--surface); }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 720px) { .pillars-grid { grid-template-columns: 1fr; } }
+    .pillar-card { border-radius: var(--radius-xl); padding: 40px 32px; background: var(--primary-faint); border: 1px solid rgba(106,90,205,0.12); transition: transform .25s, box-shadow .25s; }
+    .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(106,90,205,0.1); }
+    .pillar-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+    .pillar-title { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 12px; letter-spacing: -0.5px; }
+    .pillar-desc { font-size: 15px; color: var(--text-sec); line-height: 1.65; }
+
+    /* ── HOW IT WORKS ── */
     .how-section { background: var(--bg); }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-    .step-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 32px 28px;
-      border: 1px solid var(--border);
-      position: relative;
-      transition: transform .25s, box-shadow .25s;
-    }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .step-card { background: var(--surface); border-radius: var(--radius-xl); padding: 32px 28px; border: 1px solid var(--border); position: relative; transition: transform .25s, box-shadow .25s; }
     .step-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(106,90,205,0.1); }
+    .step-number { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dis); margin-bottom: 18px; }
+    .step-icon { width: 52px; height: 52px; border-radius: var(--radius-md); background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; box-shadow: 0 6px 16px rgba(106,90,205,0.25); }
+    .step-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+    .step-desc { font-size: 15px; color: var(--text-sec); line-height: 1.6; }
 
-    .step-number {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-dis);
-      margin-bottom: 18px;
-    }
-    .step-icon {
-      width: 52px; height: 52px;
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 16px rgba(106,90,205,0.25);
-    }
-    .step-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .step-desc {
-      font-size: 15px;
-      color: var(--text-sec);
-      line-height: 1.6;
-    }
-    .step-connector {
-      display: none;
-    }
-
-    /* ════════════════════════════════
-       FEATURES / PERSONALITY
-    ════════════════════════════════ */
+    /* ── PERSONALITY ── */
     .features-section { background: var(--surface); }
-
-    .features-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
+    .features-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     @media (max-width: 860px) { .features-layout { grid-template-columns: 1fr; } }
-
-    .features-visual {
-      background: linear-gradient(135deg, #F0EDFA 0%, #E8E2F8 100%);
-      border-radius: var(--radius-xl);
-      padding: 36px;
-      border: 1px solid rgba(106,90,205,0.1);
-    }
-    .vibe-title {
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    .vibe-bar-row {
-      margin-bottom: 16px;
-    }
-    .vibe-bar-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-sec);
-      margin-bottom: 6px;
-    }
-    .vibe-bar-track {
-      height: 8px;
-      background: rgba(106,90,205,0.12);
-      border-radius: var(--radius-full);
-      overflow: visible;
-      position: relative;
-    }
-    .vibe-bar-fill {
-      height: 100%;
-      border-radius: var(--radius-full);
-      background: linear-gradient(90deg, var(--primary), var(--primary-light));
-      position: relative;
-    }
-    .vibe-bar-fill::after {
-      content: '';
-      position: absolute;
-      right: -4px; top: 50%;
-      transform: translateY(-50%);
-      width: 16px; height: 16px;
-      background: var(--primary);
-      border-radius: 50%;
-      border: 3px solid #fff;
-      box-shadow: 0 2px 8px rgba(106,90,205,0.4);
-    }
-
-    .compat-card {
-      background: var(--surface);
-      border-radius: var(--radius-lg);
-      padding: 18px 20px;
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: 0 4px 16px rgba(106,90,205,0.08);
-      border: 1px solid var(--border);
-    }
-    .compat-pct {
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--primary);
-      min-width: 64px;
-    }
+    .features-visual { background: linear-gradient(135deg, #F0EDFA 0%, #E8E2F8 100%); border-radius: var(--radius-xl); padding: 36px; border: 1px solid rgba(106,90,205,0.1); }
+    .vibe-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 20px; }
+    .vibe-bar-row { margin-bottom: 16px; }
+    .vibe-bar-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--text-sec); margin-bottom: 6px; }
+    .vibe-bar-track { height: 8px; background: rgba(106,90,205,0.12); border-radius: var(--radius-full); overflow: visible; position: relative; }
+    .vibe-bar-fill { height: 100%; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--primary), var(--primary-light)); position: relative; }
+    .vibe-bar-fill::after { content: ''; position: absolute; right: -4px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; background: var(--primary); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(106,90,205,0.4); }
+    .compat-card { background: var(--surface); border-radius: var(--radius-lg); padding: 18px 20px; margin-top: 20px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 16px rgba(106,90,205,0.08); border: 1px solid var(--border); }
+    .compat-pct { font-size: 28px; font-weight: 900; color: var(--primary); min-width: 64px; }
     .compat-label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
     .compat-sub { font-size: 12px; color: var(--text-sec); }
-
     .feature-list { list-style: none; }
-    .feature-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .feature-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
     .feature-item:last-child { border-bottom: none; }
-    .feature-icon-wrap {
-      width: 40px; height: 40px;
-      border-radius: var(--radius-sm);
-      background: var(--primary-faint);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 19px;
-      flex-shrink: 0;
-    }
+    .feature-icon-wrap { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--primary-faint); display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0; }
     .feature-item-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
     .feature-item-desc { font-size: 14px; color: var(--text-sec); line-height: 1.55; }
 
-    /* ════════════════════════════════
-       LEAGUE SECTION
-    ════════════════════════════════ */
+    /* ── LEAGUE ── */
     .league-section { background: var(--bg); }
-
-    .league-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 8px;
-    }
+    .league-how { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 72px; }
+    @media (max-width: 860px) { .league-how { grid-template-columns: 1fr; } }
+    .league-steps-list { list-style: none; }
+    .league-step { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 28px; }
+    .league-step:last-child { margin-bottom: 0; }
+    .league-step-num { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(106,90,205,0.3); }
+    .league-step-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+    .league-step-desc { font-size: 14px; color: var(--text-sec); line-height: 1.55; }
+    .league-mockup-placeholder { border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(139,127,217,0.15), rgba(106,90,205,0.08)); border: 2px dashed rgba(106,90,205,0.25); min-height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--primary); font-weight: 700; font-size: 14px; }
+    .league-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     @media (max-width: 600px) { .league-grid { grid-template-columns: 1fr; } }
-
-    .league-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 28px 24px;
-      border: 1px solid var(--border);
-      text-align: center;
-      transition: transform .25s, box-shadow .25s;
-    }
+    .league-card { background: var(--surface); border-radius: var(--radius-xl); padding: 28px 24px; border: 1px solid var(--border); text-align: center; transition: transform .25s, box-shadow .25s; }
     .league-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(106,90,205,0.1); }
     .league-icon { font-size: 44px; margin-bottom: 12px; display: block; }
     .league-name { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
-    .league-range {
-      display: inline-block;
-      background: var(--primary-faint);
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      margin-bottom: 10px;
-    }
+    .league-range { display: inline-block; background: var(--primary-faint); color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: var(--radius-full); margin-bottom: 10px; }
     .league-desc { font-size: 13px; color: var(--text-sec); line-height: 1.5; }
 
-    /* ════════════════════════════════
-       PREMIUM
-    ════════════════════════════════ */
-    .premium-section { background: var(--surface); }
+    /* ── DATA ── */
+    .data-section { background: #1a1a2e; padding: 100px 24px; }
+    .data-section .section-tag { color: var(--primary-light); }
+    .data-section .section-title { color: #fff; }
+    .data-section .section-sub { color: rgba(255,255,255,0.6); }
+    .data-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+    @media (max-width: 720px) { .data-grid { grid-template-columns: 1fr; } }
+    .data-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: var(--radius-xl); padding: 28px 24px; transition: background .2s; }
+    .data-card:hover { background: rgba(255,255,255,0.08); }
+    .data-card-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .data-card-title { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .data-card-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .data-quote { border-left: 3px solid var(--primary-light); padding: 18px 22px; color: rgba(255,255,255,0.75); font-style: italic; font-size: 15px; line-height: 1.7; margin: 36px 0; background: rgba(255,255,255,0.04); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .data-screenshot-placeholder { border-radius: var(--radius-xl); background: rgba(255,255,255,0.04); border: 2px dashed rgba(139,127,217,0.35); height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--primary-light); font-size: 14px; font-weight: 700; }
 
-    .pricing-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .pricing-card {
-      border-radius: var(--radius-xl);
-      padding: 36px 32px;
-      border: 1.5px solid var(--border);
-      background: var(--surface);
-      position: relative;
-      transition: transform .25s;
-    }
-    .pricing-card.featured {
-      border-color: var(--primary);
-      background: linear-gradient(160deg, #FDFCFF 0%, #F5F2FD 100%);
-      box-shadow: 0 16px 48px rgba(106,90,205,0.12);
-    }
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { background: var(--surface); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 720px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card { border-radius: var(--radius-xl); padding: 32px 28px; background: var(--bg); border: 1px solid var(--border); display: flex; flex-direction: column; }
+    .testimonial-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; flex-shrink: 0; }
+    .testimonial-quote { font-size: 15px; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 20px; flex: 1; }
+    .testimonial-quote::before { content: '"'; font-size: 48px; color: var(--primary); line-height: 0.5; display: block; margin-bottom: 12px; font-style: normal; }
+    .testimonial-name { font-size: 13px; font-weight: 800; color: var(--primary); }
+
+    /* ── PREMIUM ── */
+    .premium-section { background: var(--bg); }
+    .pricing-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 720px; margin: 0 auto; }
+    .pricing-card { border-radius: var(--radius-xl); padding: 36px 32px; border: 1.5px solid var(--border); background: var(--surface); position: relative; transition: transform .25s; }
+    .pricing-card.featured { border-color: var(--primary); background: linear-gradient(160deg, #FDFCFF 0%, #F5F2FD 100%); box-shadow: 0 16px 48px rgba(106,90,205,0.12); }
     .pricing-card:hover { transform: translateY(-4px); }
-
-    .pricing-badge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 5px 18px;
-      border-radius: var(--radius-full);
-      white-space: nowrap;
-      letter-spacing: 0.3px;
-    }
-    .pricing-name {
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-sec);
-      margin-bottom: 10px;
-    }
-    .pricing-price {
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--text);
-      letter-spacing: -2px;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
+    .pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; font-size: 12px; font-weight: 800; padding: 5px 18px; border-radius: var(--radius-full); white-space: nowrap; letter-spacing: 0.3px; }
+    .pricing-name { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text-sec); margin-bottom: 10px; }
+    .pricing-price { font-size: 48px; font-weight: 900; color: var(--text); letter-spacing: -2px; line-height: 1; margin-bottom: 4px; }
     .pricing-price sup { font-size: 20px; vertical-align: top; margin-top: 10px; letter-spacing: 0; }
     .pricing-price sub { font-size: 16px; letter-spacing: 0; font-weight: 600; color: var(--text-sec); }
     .pricing-per { font-size: 13px; color: var(--text-dis); margin-bottom: 24px; font-weight: 600; }
-
     .pricing-features { list-style: none; margin-bottom: 28px; }
-    .pricing-features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-sec);
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .pricing-features li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: var(--text-sec); padding: 8px 0; border-bottom: 1px solid var(--border); }
     .pricing-features li:last-child { border-bottom: none; }
-    .pricing-features li .check {
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px;
-      color: #fff;
-      flex-shrink: 0;
-    }
-
-    .pricing-btn {
-      display: block;
-      text-align: center;
-      padding: 14px;
-      border-radius: var(--radius-full);
-      font-size: 15px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .pricing-btn-outline {
-      border: 2px solid var(--border);
-      color: var(--text);
-    }
+    .pricing-features li .check { width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; flex-shrink: 0; }
+    .pricing-btn { display: block; text-align: center; padding: 14px; border-radius: var(--radius-full); font-size: 15px; font-weight: 800; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+    .pricing-btn-outline { border: 2px solid var(--border); color: var(--text); }
     .pricing-btn-outline:hover { border-color: var(--primary); color: var(--primary); }
-    .pricing-btn-solid {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(106,90,205,0.3);
-    }
+    .pricing-btn-solid { background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); color: #fff; box-shadow: 0 6px 20px rgba(106,90,205,0.3); }
     .pricing-btn-solid:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(106,90,205,0.4); }
 
-    /* ════════════════════════════════
-       SAFETY SECTION
-    ════════════════════════════════ */
-    .safety-section { background: var(--bg); }
-
-    .safety-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .safety-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: 28px 24px;
-      border: 1px solid var(--border);
-    }
+    /* ── SAFETY ── */
+    .safety-section { background: var(--surface); }
+    .safety-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .safety-card { background: var(--bg); border-radius: var(--radius-xl); padding: 28px 24px; border: 1px solid var(--border); }
     .safety-icon { font-size: 28px; margin-bottom: 14px; display: block; }
     .safety-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
     .safety-desc { font-size: 14px; color: var(--text-sec); line-height: 1.6; }
 
-    /* ════════════════════════════════
-       CTA BANNER
-    ════════════════════════════════ */
-    .cta-section {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, #7c6dd9 50%, var(--primary-light) 100%);
-      padding: 100px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -10%;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(255,255,255,0.07), transparent 60%);
-      border-radius: 50%;
-    }
-    .cta-section::after {
-      content: '';
-      position: absolute;
-      bottom: -30%; right: -5%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 60%);
-      border-radius: 50%;
-    }
+    /* ── FAQ ── */
+    .faq-section { background: var(--bg); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-radius: var(--radius-md); background: var(--surface); border: 1px solid var(--border); margin-bottom: 10px; overflow: hidden; }
+    .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 20px 24px; font-size: 16px; font-weight: 700; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Nunito', sans-serif; }
+    .faq-chevron { font-size: 20px; color: var(--primary); transition: transform .25s; flex-shrink: 0; margin-left: 12px; }
+    .faq-item.open .faq-chevron { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-answer p { padding: 0 24px 20px; font-size: 15px; color: var(--text-sec); line-height: 1.65; }
+
+    /* ── CTA ── */
+    .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, #7c6dd9 50%, var(--primary-light) 100%); padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -50%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.07), transparent 60%); border-radius: 50%; }
+    .cta-section::after { content: ''; position: absolute; bottom: -30%; right: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 60%); border-radius: 50%; }
     .cta-section .section-inner { position: relative; z-index: 1; }
-    .cta-section h2 {
-      font-size: clamp(28px, 5vw, 52px);
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-      line-height: 1.1;
-    }
-    .cta-section p {
-      font-size: 18px;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 40px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .btn-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #fff;
-      color: var(--primary);
-      text-decoration: none;
-      padding: 16px 36px;
-      border-radius: var(--radius-full);
-      font-size: 16px;
-      font-weight: 800;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-      transition: transform .2s, box-shadow .2s;
-    }
+    .cta-section h2 { font-size: clamp(28px, 5vw, 52px); font-weight: 900; color: #fff; letter-spacing: -1.5px; margin-bottom: 16px; line-height: 1.1; }
+    .cta-section p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--primary); text-decoration: none; padding: 16px 36px; border-radius: var(--radius-full); font-size: 16px; font-weight: 800; box-shadow: 0 8px 32px rgba(0,0,0,0.15); transition: transform .2s, box-shadow .2s; }
     .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
 
-    /* ════════════════════════════════
-       FOOTER
-    ════════════════════════════════ */
-    footer {
-      background: #1a1a2e;
-      color: rgba(255,255,255,0.7);
-      padding: 60px 24px 32px;
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
+    /* ── FOOTER ── */
+    footer { background: #1a1a2e; color: rgba(255,255,255,0.7); padding: 60px 24px 32px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
     @media (max-width: 720px) { .footer-top { grid-template-columns: 1fr; gap: 32px; } }
-
-    .footer-brand-name {
-      font-size: 22px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-    }
-    .footer-brand-desc {
-      font-size: 14px;
-      line-height: 1.65;
-      max-width: 280px;
-    }
-    .footer-col-title {
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #fff;
-      margin-bottom: 16px;
-    }
+    .footer-brand-name { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .footer-brand-desc { font-size: 14px; line-height: 1.65; max-width: 280px; }
+    .footer-col-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #fff; margin-bottom: 16px; }
     .footer-links-list { list-style: none; }
     .footer-links-list li { margin-bottom: 10px; }
-    .footer-links-list a {
-      font-size: 14px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      transition: color .2s;
-    }
+    .footer-links-list a { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); text-decoration: none; transition: color .2s; }
     .footer-links-list a:hover { color: #fff; }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 13px;
-    }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; }
     .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
     .footer-bottom a:hover { color: #fff; }
-
-    /* ════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════ */
-    @media (max-width: 480px) {
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .hero-stats { gap: 24px; }
-    }
-
-    /* ── LANG SWITCHER ── */
-    .lang-switcher { display: flex; gap: 4px; align-items: center; margin-left: 12px; }
-    .lang-btn {
-      background: none; border: none; font-size: 1.3rem; cursor: pointer;
-      opacity: 0.4; transition: opacity .2s, transform .2s; line-height: 1;
-      padding: 2px;
-    }
-    .lang-btn.active { opacity: 1; transform: scale(1.15); }
-    .lang-btn:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
@@ -925,42 +316,28 @@
   </div>
 </nav>
 
-<!-- ════════════════════════════════
-     HERO
-════════════════════════════════ -->
+<!-- ── HERO ── -->
 <section class="hero" id="home">
-  <div class="hero-badge" data-i18n="hero_badge">
+  <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    Nu beschikbaar op Android
+    <span data-i18n="hero_badge">Nu beschikbaar op Android</span>
   </div>
 
-  <h1 data-i18n-html="hero_title">Dating zonder swipen.<br><span class="accent">Match op karakter.</span></h1>
+  <h1 data-i18n-html="hero_title">Weet wat je waard bent.<br><span class="accent">Match met wie past.</span></h1>
 
   <p class="hero-sub" data-i18n="hero_sub">
-    Lucent koppelt je aan mensen die écht bij je passen — op basis van persoonlijkheid, waarden en jouw positie in de League.
+    Lucent combineert een eerlijke aantrekkelijkheidsscore met echte persoonlijkheidscompatibiliteit — zodat je niet swipt in het donker.
   </p>
 
   <div class="hero-buttons">
-    <a href="#" class="btn-primary" data-i18n="hero_btn_android">
-      📱 &nbsp;Download voor Android
-    </a>
-    <a href="#hoe-werkt-het" class="btn-secondary" data-i18n="hero_btn_how">
-      Hoe werkt het? &nbsp;↓
-    </a>
+    <a href="#" class="btn-primary" data-i18n="hero_btn_android">📱 &nbsp;Download voor Android</a>
+    <a href="#hoe-werkt-het" class="btn-secondary" data-i18n="hero_btn_how">Hoe werkt het? &nbsp;↓</a>
   </div>
 
-  <!-- Phone mockup -->
   <div class="hero-mockup">
-    <!-- Floating badges -->
-    <div class="hero-float hero-float-1">
-      🎯 &nbsp;<span>87% match!</span>
-    </div>
-    <div class="hero-float hero-float-2">
-      ⬆️ &nbsp;<span data-i18n="hero_float2">Score +0.3 vandaag</span>
-    </div>
-    <div class="hero-float hero-float-3">
-      💜 &nbsp;<span data-i18n="hero_float3">Nieuw matchverzoek</span>
-    </div>
+    <div class="hero-float hero-float-1">🎯 &nbsp;<span>87% match!</span></div>
+    <div class="hero-float hero-float-2">⬆️ &nbsp;<span data-i18n="hero_float2">Score +0.3 vandaag</span></div>
+    <div class="hero-float hero-float-3">💜 &nbsp;<span data-i18n="hero_float3">Nieuw chatverzoek</span></div>
 
     <div class="mockup-phone">
       <div class="mockup-screen">
@@ -969,10 +346,13 @@
           <span class="mockup-score-badge">Score: 7.4 🐟</span>
         </div>
         <div class="mockup-card">
-          <div class="mockup-card-img">🧑</div>
+          <div class="mockup-card-img">
+            <span class="mockup-card-img-icon">📸</span>
+            <span data-i18n="mockup_photo_label">Stockfoto</span>
+          </div>
           <div class="mockup-card-body">
             <div class="mockup-card-name">Lisa, 26</div>
-            <div class="mockup-card-sub" data-i18n="mockup_card_sub">Amsterdam · Kunst & Cultuur</div>
+            <div class="mockup-card-sub" data-i18n="mockup_card_sub">Amsterdam · Kunst &amp; Cultuur</div>
             <div class="mockup-card-vibe">
               <span class="vibe-tag" data-i18n="mockup_vibe1">Creatief</span>
               <span class="vibe-tag" data-i18n="mockup_vibe2">Introvert</span>
@@ -988,99 +368,161 @@
     </div>
   </div>
 
-  <!-- Stats -->
   <div class="hero-stats">
     <div class="stat-item">
-      <span class="stat-number">5</span>
-      <span class="stat-label" data-i18n="stat_1">Persoonlijkheidsdimensies</span>
+      <span class="stat-number" data-i18n="stat_1_num">Eerlijk</span>
+      <span class="stat-label" data-i18n="stat_1_label">Score op echte beoordelingen</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">4</span>
-      <span class="stat-label" data-i18n="stat_2">League niveaus</span>
+      <span class="stat-number" data-i18n="stat_2_num">Transparant</span>
+      <span class="stat-label" data-i18n="stat_2_label">Inzicht in wie jou aantrekkelijk vindt</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">18+</span>
-      <span class="stat-label" data-i18n="stat_3">Leeftijd vereist</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">100%</span>
-      <span class="stat-label" data-i18n="stat_4">Geverifieerde foto's</span>
+      <span class="stat-number" data-i18n="stat_3_num">Gericht</span>
+      <span class="stat-label" data-i18n="stat_3_label">Matches in jouw bereik</span>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════
-     HOW IT WORKS
-════════════════════════════════ -->
+<!-- ── APP SCREENSHOTS ── -->
+<section class="screens-section" id="screenshots">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-tag" data-i18n="screens_tag">De app</span>
+      <h2 class="section-title" data-i18n="screens_title">Zie de app in actie</h2>
+      <p class="section-sub" data-i18n="screens_sub">Vier tabs, één doel: eerlijk daten op basis van wie je écht bent.</p>
+    </div>
+    <div class="screens-row">
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <span class="phone-screen-icon">📸</span>
+            <span class="phone-screen-label" data-i18n="screen1_label">Screenshot: League spel</span>
+          </div>
+        </div>
+        <p class="screen-caption" data-i18n="screen1_cap">League</p>
+      </div>
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <span class="phone-screen-icon">📸</span>
+            <span class="phone-screen-label" data-i18n="screen2_label">Screenshot: Jouw bereik</span>
+          </div>
+        </div>
+        <p class="screen-caption" data-i18n="screen2_cap">People</p>
+      </div>
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <span class="phone-screen-icon">📸</span>
+            <span class="phone-screen-label" data-i18n="screen3_label">Screenshot: Radardiagram</span>
+          </div>
+        </div>
+        <p class="screen-caption" data-i18n="screen3_cap">Vibe Map</p>
+      </div>
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <span class="phone-screen-icon">📸</span>
+            <span class="phone-screen-label" data-i18n="screen4_label">Screenshot: Inzichten</span>
+          </div>
+        </div>
+        <p class="screen-caption" data-i18n="screen4_cap">Data</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DRIE PIJLERS ── -->
+<section class="pillars-section">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-tag" data-i18n="pillars_tag">Waarom Lucent?</span>
+      <h2 class="section-title" data-i18n="pillars_title">Drie redenen om anders te daten</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <span class="pillar-icon">⚖️</span>
+        <div class="pillar-title" data-i18n="pillar1_title">Eerlijkheid</div>
+        <p class="pillar-desc" data-i18n="pillar1_desc">Een echte aantrekkelijkheidsscore op basis van echte beoordelingen van echte mensen. Geen inflatie, geen ego-boost — gewoon waar je staat.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">🔍</span>
+        <div class="pillar-title" data-i18n="pillar2_title">Inzicht</div>
+        <p class="pillar-desc" data-i18n="pillar2_desc">Zie niet alleen óf iemand aantrekkelijk is, maar ook waarom jullie bij elkaar passen — via een radardiagram, AI-vibe analyse en persoonlijke data-inzichten.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">🎯</span>
+        <div class="pillar-title" data-i18n="pillar3_title">Kwaliteit boven kwantiteit</div>
+        <p class="pillar-desc" data-i18n="pillar3_desc">Minder profielen, betere matches. Jij ziet mensen in jouw bereik — geen hopeloze matches, geen eindeloos scrollen door profielen die toch nergens toe leiden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
 <section class="how-section" id="hoe-werkt-het">
   <div class="section-inner">
     <div class="section-header center">
       <span class="section-tag" data-i18n="how_tag">Hoe het werkt</span>
-      <h2 class="section-title" data-i18n="how_title">Vier stappen naar een echte klik</h2>
-      <p class="section-sub" data-i18n="how_sub">Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid en een slim scoremodel.</p>
+      <h2 class="section-title" data-i18n="how_title">In vier stappen naar een echte klik</h2>
+      <p class="section-sub" data-i18n="how_sub">Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid, jouw waarden en een eerlijk scoremodel.</p>
     </div>
-
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-number" data-i18n="step1_num">Stap 01</div>
         <div class="step-icon">🧬</div>
         <div class="step-title" data-i18n="step1_title">Bouw je profiel</div>
-        <p class="step-desc" data-i18n="step1_desc">Maak een selfie en vul je vijf persoonlijkheidswaarden in. Geen filters, geen poses — jij zoals je bent.</p>
+        <p class="step-desc" data-i18n="step1_desc">Maak een selfie zonder filters en stel vijf persoonlijkheidsdimensies in. Voeg zeven kernwaarden toe — van relatiedoel tot levensstijl. Jij, zoals je echt bent.</p>
       </div>
       <div class="step-card">
         <div class="step-number" data-i18n="step2_num">Stap 02</div>
         <div class="step-icon">⚡</div>
-        <div class="step-title" data-i18n="step2_title">Doe mee aan de League</div>
-        <p class="step-desc" data-i18n="step2_desc">Beoordeel dagelijks profielen op aantrekkelijkheid. Je eigen score wordt bepaald door anderen — eerlijk en transparant.</p>
+        <div class="step-title" data-i18n="step2_title">Speel de League</div>
+        <p class="step-desc" data-i18n="step2_desc">Raad dagelijks of anderen hoger of lager scoren dan jij. Op basis van hoe anderen jou beoordelen bouw je jouw eigen aantrekkelijkheidsscore op — eerlijk en transparant.</p>
       </div>
       <div class="step-card">
         <div class="step-number" data-i18n="step3_num">Stap 03</div>
         <div class="step-icon">🎯</div>
-        <div class="step-title" data-i18n="step3_title">Ontdek matches</div>
-        <p class="step-desc" data-i18n="step3_desc">Zie mensen in jouw score-bereik die compatibel zijn op persoonlijkheid. Stuur een matchverzoek en start een gesprek.</p>
+        <div class="step-title" data-i18n="step3_title">Ontdek je bereik</div>
+        <p class="step-desc" data-i18n="step3_desc">Zie mensen met een vergelijkbare score én een hoge persoonlijkheidscompatibiliteit. Stuur een chatverzoek en zie direct hoe goed jullie bij elkaar passen via de Vibe Map.</p>
       </div>
       <div class="step-card">
         <div class="step-number" data-i18n="step4_num">Stap 04</div>
         <div class="step-icon">📊</div>
         <div class="step-title" data-i18n="step4_title">Leer jezelf kennen</div>
-        <p class="step-desc" data-i18n="step4_desc">Bekijk inzichten over wie jou het hoogst beoordeelt en ontdek je perfecte match op basis van data.</p>
+        <p class="step-desc" data-i18n="step4_desc">De Data-tab laat zien welke demografische groepen jou het hoogst beoordelen. Inzichten die je nergens anders krijgt — over uiterlijk én hoe je overkomt.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════
-     PERSONALITY
-════════════════════════════════ -->
+<!-- ── PERSONALITY ── -->
 <section class="features-section" id="persoonlijkheid">
   <div class="section-inner">
     <div class="features-layout">
-
-      <!-- Visual -->
       <div class="features-visual">
         <div class="vibe-title" data-i18n="vibe_profile_title">Jouw Vibe Profiel</div>
-
         <div class="vibe-bar-row">
           <div class="vibe-bar-label"><span data-i18n="dim1_l">Introvert</span><span data-i18n="dim1_r">Extravert</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:35%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span data-i18n="dim2_l">Logisch</span><span data-i18n="dim2_r">Emotioneel</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim2_l">Op logica</span><span data-i18n="dim2_r">Op gevoel</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:70%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span data-i18n="dim3_l">Gestructureerd</span><span data-i18n="dim3_r">Spontaan</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim3_l">Structuur</span><span data-i18n="dim3_r">Spontaan</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:80%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span data-i18n="dim4_l">Traditioneel</span><span data-i18n="dim4_r">Avontuurlijk</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim4_l">Voorzichtig</span><span data-i18n="dim4_r">Avontuurlijk</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:60%"></div></div>
         </div>
         <div class="vibe-bar-row">
-          <div class="vibe-bar-label"><span data-i18n="dim5_l">Zelfstandig</span><span data-i18n="dim5_r">Verbonden</span></div>
+          <div class="vibe-bar-label"><span data-i18n="dim5_l">Vrijheid</span><span data-i18n="dim5_r">Samenzijn</span></div>
           <div class="vibe-bar-track"><div class="vibe-bar-fill" style="width:50%"></div></div>
         </div>
-
         <div class="compat-card">
           <div class="compat-pct">87%</div>
           <div>
@@ -1090,167 +532,314 @@
         </div>
       </div>
 
-      <!-- Text -->
       <div>
         <span class="section-tag" data-i18n="pers_tag">Persoonlijkheid</span>
         <h2 class="section-title" data-i18n="pers_title">Meer dan alleen een foto</h2>
-        <p class="section-sub" style="margin-bottom:32px;" data-i18n="pers_sub">Lucent gebruikt vijf wetenschappelijk onderbouwde dimensies om echte compatibiliteit te berekenen — niet alleen uiterlijk.</p>
-
+        <p class="section-sub" style="margin-bottom:32px;" data-i18n="pers_sub">Lucent berekent hoe goed jij en een ander écht bij elkaar passen — op vijf persoonlijkheidsdimensies, zichtbaar in een radardiagram met AI-analyse.</p>
         <ul class="feature-list">
           <li class="feature-item">
-            <div class="feature-icon-wrap">🔋</div>
+            <div class="feature-icon-wrap">🕸️</div>
             <div>
-              <div class="feature-item-title" data-i18n="feat1_title">Sociale Batterij</div>
-              <div class="feature-item-desc" data-i18n="feat1_desc">Hoe laad jij op? Alleen of samen met anderen? We matchen introvert met introvert en extravert met extravert.</div>
+              <div class="feature-item-title" data-i18n="feat1_title">Radardiagram (Vibe Map)</div>
+              <div class="feature-item-desc" data-i18n="feat1_desc">Een interactief spinnenweb vergelijkt jouw vijf persoonlijkheidskenmerken met die van de ander — in één oogopslag zie je waar jullie klikken én waar de uitdagingen zitten.</div>
             </div>
           </li>
           <li class="feature-item">
-            <div class="feature-icon-wrap">🧠</div>
+            <div class="feature-icon-wrap">🤖</div>
             <div>
-              <div class="feature-item-title" data-i18n="feat2_title">Logica vs. Emotie</div>
-              <div class="feature-item-desc" data-i18n="feat2_desc">Neem jij beslissingen met je hoofd of je hart? Complementaire stijlen zorgen voor de mooiste gesprekken.</div>
+              <div class="feature-item-title" data-i18n="feat2_title">AI Vibe-analyse</div>
+              <div class="feature-item-desc" data-i18n="feat2_desc">Eén persoonlijke AI-zin beschrijft hoe jullie persoonlijkheden op elkaar aansluiten. Uniek voor elke combinatie, nooit generiek.</div>
             </div>
           </li>
           <li class="feature-item">
-            <div class="feature-icon-wrap">🗓️</div>
+            <div class="feature-icon-wrap">💡</div>
             <div>
-              <div class="feature-item-title" data-i18n="feat3_title">Structuur vs. Spontaniteit</div>
-              <div class="feature-item-desc" data-i18n="feat3_desc">Plan jij alles van tevoren, of ga je gewoon? Wij weten welke combinatie werkt.</div>
+              <div class="feature-item-title" data-i18n="feat3_title">Lucent Match Score</div>
+              <div class="feature-item-desc" data-i18n="feat3_desc">Een getal van 1 tot 10 drukt de compatibiliteit uit. Groen (sterk), paars (goed), oranje (zwak) — zodat je weet wat je aan een match hebt vóór het eerste bericht.</div>
             </div>
           </li>
           <li class="feature-item">
-            <div class="feature-icon-wrap">🌍</div>
+            <div class="feature-icon-wrap">⚠️</div>
             <div>
-              <div class="feature-item-title" data-i18n="feat4_title">Openheid & Hechting</div>
-              <div class="feature-item-desc" data-i18n="feat4_desc">Avontuur zoeken of comfort? Verbondenheid of vrijheid? Jouw ideale balans staat centraal.</div>
+              <div class="feature-item-title" data-i18n="feat4_title">Waarschuwingsvlaggen</div>
+              <div class="feature-item-desc" data-i18n="feat4_desc">Grote verschillen op emotionele stabiliteit of levensstijl worden duidelijk aangegeven — eerlijk, zodat je bewust kiest.</div>
             </div>
           </li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════
-     LEAGUE
-════════════════════════════════ -->
+<!-- ── LEAGUE ── -->
 <section class="league-section" id="league">
   <div class="section-inner">
     <div class="section-header center">
       <span class="section-tag" data-i18n="league_tag">De League</span>
-      <h2 class="section-title" data-i18n="league_title">Jouw plek in de League</h2>
-      <p class="section-sub" data-i18n="league_sub">Jouw score wordt bepaald door anderen en vertelt waar je staat. Eerlijk, transparant en altijd in beweging.</p>
+      <h2 class="section-title" data-i18n="league_title">Jij speelt een spel. En jij bent het antwoord.</h2>
+      <p class="section-sub" data-i18n="league_sub">De League is het hart van Lucent — een dagelijks raadspel waarbij jouw score wordt bepaald door echte beoordelingen van echte mensen.</p>
+    </div>
+
+    <div class="league-how">
+      <div>
+        <h3 style="font-size:22px;font-weight:900;color:var(--text);letter-spacing:-0.5px;margin-bottom:32px;" data-i18n="league_how_title">Hoe het raadspel werkt</h3>
+        <ul class="league-steps-list">
+          <li class="league-step">
+            <div class="league-step-num">1</div>
+            <div>
+              <div class="league-step-title" data-i18n="league_step1_title">Je ziet een profiel</div>
+              <p class="league-step-desc" data-i18n="league_step1_desc">Elke dag zie je profielen van het tegenovergestelde geslacht, vergelijkbare leeftijd — mensen in jouw klasse.</p>
+            </div>
+          </li>
+          <li class="league-step">
+            <div class="league-step-num">2</div>
+            <div>
+              <div class="league-step-title" data-i18n="league_step2_title">Maak een keuze</div>
+              <p class="league-step-desc" data-i18n="league_step2_desc">Heeft deze persoon een hogere of lagere aantrekkelijkheidsscore dan jij? Eén tik — geen eindeloos swipen.</p>
+            </div>
+          </li>
+          <li class="league-step">
+            <div class="league-step-num">3</div>
+            <div>
+              <div class="league-step-title" data-i18n="league_step3_title">Zie direct het resultaat</div>
+              <p class="league-step-desc" data-i18n="league_step3_desc">Goed of fout? Je ziet hun huidige score en hoe die de afgelopen 24 uur bewogen heeft. Transparant en eerlijk.</p>
+            </div>
+          </li>
+          <li class="league-step">
+            <div class="league-step-num">4</div>
+            <div>
+              <div class="league-step-title" data-i18n="league_step4_title">Jouw score beweegt mee</div>
+              <p class="league-step-desc" data-i18n="league_step4_desc">Hoe meer anderen jou als "hoger" raden, hoe hoger jouw score. Genormaliseerd per cohort — zodat de vergelijking altijd eerlijk is.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="league-mockup-placeholder">
+        <span style="font-size:40px;">📸</span>
+        <span data-i18n="league_placeholder">Screenshot: League gameplay</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <h3 style="font-size:22px;font-weight:900;color:var(--text);letter-spacing:-0.5px;margin-bottom:8px;text-align:center;" data-i18n="league_tiers_title">De vier leagues</h3>
+      <p style="text-align:center;color:var(--text-sec);font-size:15px;margin-bottom:32px;" data-i18n="league_tiers_sub">Jouw score bepaalt je League-icoon — zichtbaar voor iedereen in de People-tab.</p>
+    </div>
+    <div class="league-grid">
+      <div class="league-card">
+        <span class="league-icon">⛵</span>
+        <div class="league-name" data-i18n="tier1_name">Boot</div>
+        <div class="league-range">&lt; 6.0</div>
+        <p class="league-desc" data-i18n="tier1_desc">Net van start. Je score groeit naarmate meer mensen jou beoordelen in de League.</p>
+      </div>
+      <div class="league-card">
+        <span class="league-icon">🐦</span>
+        <div class="league-name" data-i18n="tier2_name">Vogel</div>
+        <div class="league-range">6.0 – 6.9</div>
+        <p class="league-desc" data-i18n="tier2_desc">Boven gemiddeld. Je scoort hoger dan de meeste mensen in jouw cohort.</p>
+      </div>
+      <div class="league-card">
+        <span class="league-icon">⚽</span>
+        <div class="league-name" data-i18n="tier3_name">Bal</div>
+        <div class="league-range">7.0 – 7.9</div>
+        <p class="league-desc" data-i18n="tier3_desc">Sterk profiel. Je behoort tot de top van jouw leeftijdsgroep en geslacht.</p>
+      </div>
+      <div class="league-card">
+        <span class="league-icon">🐟</span>
+        <div class="league-name" data-i18n="tier4_name">Vis</div>
+        <div class="league-range">8.0+</div>
+        <p class="league-desc" data-i18n="tier4_desc">Top van het cohort. De hoogste klasse in jouw leeftijdsgroep en geslacht.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════
-     PREMIUM
-════════════════════════════════ -->
+<!-- ── DATA & INZICHTEN ── -->
+<section class="data-section" id="data">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-tag" data-i18n="data_tag">Data &amp; Inzichten</span>
+      <h2 class="section-title" data-i18n="data_title">Begrijp wie jou aantrekkelijk vindt</h2>
+      <p class="section-sub" data-i18n="data_sub">De Data-tab geeft je inzichten die je nergens anders krijgt — niet over oppervlakkigheid, maar over echte patronen.</p>
+    </div>
+    <div class="data-grid">
+      <div class="data-card">
+        <span class="data-card-icon">📊</span>
+        <div class="data-card-title" data-i18n="data1_title">Wie beoordeelt jou het hoogst?</div>
+        <p class="data-card-desc" data-i18n="data1_desc">Zie welke demografische groepen — op leeftijd, religie, politiek of persoonlijkheid — jou gemiddeld het meest aantrekkelijk vinden. Uitgesplitst en geanonimiseerd.</p>
+      </div>
+      <div class="data-card">
+        <span class="data-card-icon">📈</span>
+        <div class="data-card-title" data-i18n="data2_title">Jouw positie in het cohort</div>
+        <p class="data-card-desc" data-i18n="data2_desc">Een histogram toont hoe jouw score zich verhoudt tot alle andere gebruikers in jouw leeftijdsgroep en geslacht. Zo zie je dat iedereen via dezelfde eerlijke regels speelt.</p>
+      </div>
+      <div class="data-card">
+        <span class="data-card-icon">🔒</span>
+        <div class="data-card-title" data-i18n="data3_title">Premium: tegengesteld geslacht</div>
+        <p class="data-card-desc" data-i18n="data3_desc">Met Lucent Pro zie je ook inzichten van het tegenovergestelde geslacht — wie vinden jou aantrekkelijk, en waarom? Een extra laag zelfinzicht voor wie écht wil begrijpen hoe hij of zij overkomt.</p>
+      </div>
+    </div>
+    <div class="data-quote" data-i18n="data_quote">
+      "Vrouwen tussen 25 en 30 die religieus zijn beoordelen jou gemiddeld 12% hoger dan het gemiddelde" — een echt type inzicht uit de Data-tab
+    </div>
+    <div class="data-screenshot-placeholder">
+      <span style="font-size:40px;">📸</span>
+      <span data-i18n="data_placeholder">Screenshot: Data tab</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-tag" data-i18n="test_tag">Ervaringen</span>
+      <h2 class="section-title" data-i18n="test_title">Wat gebruikers zeggen</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-avatar">👤</div>
+        <p class="testimonial-quote" data-i18n="test1_quote">Eindelijk een app waarbij je eerlijk te weten komt waar je staat. Geen valse hoop, geen eindeloos swipen in het donker.</p>
+        <div class="testimonial-name" data-i18n="test1_name">Kevin, 28</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar">👤</div>
+        <p class="testimonial-quote" data-i18n="test2_quote">Ik wist nog voor het eerste gesprek dat we klikte. De radarkaart zei eigenlijk al alles wat ik wilde weten.</p>
+        <div class="testimonial-name" data-i18n="test2_name">Sophie, 25</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar">👤</div>
+        <p class="testimonial-quote" data-i18n="test3_quote">Ik begreep eindelijk wie ik aantrok — en waarom. De data-inzichten zijn iets wat ik bij geen enkele andere app had verwacht.</p>
+        <div class="testimonial-name" data-i18n="test3_name">Daan, 31</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PREMIUM ── -->
 <section class="premium-section" id="premium">
   <div class="section-inner">
     <div class="section-header center">
-      <span class="section-tag" data-i18n="prem_tag">Lucent Premium</span>
-      <h2 class="section-title" data-i18n="prem_title">Zet jezelf op de kaart</h2>
-      <p class="section-sub" data-i18n="prem_sub">Ontgrendel alle functies en vergroot je kansen op een echte match.</p>
+      <span class="section-tag" data-i18n="prem_tag">Lucent Pro</span>
+      <h2 class="section-title" data-i18n="prem_title">Voor wie écht wil</h2>
+      <p class="section-sub" data-i18n="prem_sub">Lucent Pro ontgrendelt alle functies en vergroot je kansen op een betekenisvolle match — voor de prijs van één koffie per week.</p>
     </div>
 
     <div class="pricing-wrap">
-      <!-- Free -->
       <div class="pricing-card">
         <div class="pricing-name" data-i18n="free_name">Gratis</div>
-        <div class="pricing-price"><sup>€</sup>0<sub>/mnd</sub></div>
+        <div class="pricing-price"><sup>€</sup>0<sub data-i18n="free_sub">/mnd</sub></div>
         <div class="pricing-per" data-i18n="free_always">Altijd gratis</div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> <span data-i18n="free_f1">5 matchverzoeken per dag</span></li>
-          <li><span class="check">✓</span> <span data-i18n="free_f2">20 profielen per dag</span></li>
-          <li><span class="check">✓</span> <span data-i18n="free_f3">League score & positie</span></li>
-          <li><span class="check">✓</span> <span data-i18n="free_f4">Persoonlijkheidsprofiel</span></li>
-          <li><span class="check">✓</span> <span data-i18n="free_f5">Realtime chat</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f1">20 profielen in People</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f2">5 openstaande verzoeken</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f3">League score &amp; icoon</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f4">Persoonlijkheidsprofiel &amp; Vibe Map</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f5">Data-inzichten eigen geslacht</span></li>
         </ul>
         <a href="#" class="pricing-btn pricing-btn-outline" data-i18n="free_btn">Begin gratis</a>
       </div>
 
-      <!-- Premium -->
       <div class="pricing-card featured">
         <div class="pricing-badge" data-i18n="prem_badge">⭐ Meest gekozen</div>
-        <div class="pricing-name">Premium</div>
-        <div class="pricing-price"><sup>€</sup>6<sub>/mnd</sub></div>
-        <div class="pricing-per" data-i18n="prem_price_per">Jaarlijks gefactureerd — of €8/mnd</div>
+        <div class="pricing-name">Lucent Pro</div>
+        <div class="pricing-price"><sup>€</sup>7<span style="font-size:28px;font-weight:900;">,95</span><sub data-i18n="prem_sub_month">/mnd</sub></div>
+        <div class="pricing-per" data-i18n="prem_price_per">of €5,95/mnd bij halfjaarlijkse betaling</div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> <span data-i18n="prem_f1">15 matchverzoeken per dag</span></li>
-          <li><span class="check">✓</span> <span data-i18n="prem_f2">60 profielen per dag</span></li>
-          <li><span class="check">✓</span> <span data-i18n="prem_f3">Directe brieven sturen</span></li>
-          <li><span class="check">✓</span> <span data-i18n="prem_f4">Voorrang in het overzicht</span></li>
-          <li><span class="check">✓</span> <span data-i18n="prem_f5">Inzichten: wie beoordeelt jou het hoogst?</span></li>
-          <li><span class="check">✓</span> <span data-i18n="prem_f6">Uitgebreide data & analyses</span></li>
-          <li><span class="check">✓</span> <span data-i18n="prem_f7">Geen advertenties</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f1">60 profielen in People</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f2">15 openstaande verzoeken</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f3">Direct match sturen (1×/dag)</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f4">Altijd bovenaan in People</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f5">Data-inzichten tegengesteld geslacht</span></li>
+          <li><span class="check">✓</span> <span data-i18n="prem_f6">Geen advertenties</span></li>
         </ul>
-        <a href="#" class="pricing-btn pricing-btn-solid" data-i18n="prem_btn">Start Premium</a>
+        <a href="#" class="pricing-btn pricing-btn-solid" data-i18n="prem_btn">Start Lucent Pro</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════
-     SAFETY
-════════════════════════════════ -->
+<!-- ── SAFETY ── -->
 <section class="safety-section">
   <div class="section-inner">
     <div class="section-header center">
-      <span class="section-tag" data-i18n="safety_tag">Veiligheid & Vertrouwen</span>
+      <span class="section-tag" data-i18n="safety_tag">Veiligheid &amp; Vertrouwen</span>
       <h2 class="section-title" data-i18n="safety_title">Jouw veiligheid staat voorop</h2>
       <p class="section-sub" data-i18n="safety_sub">Lucent is gebouwd met meerdere lagen van bescherming, zodat jij zorgeloos kunt daten.</p>
     </div>
-
     <div class="safety-grid">
       <div class="safety-card">
         <span class="safety-icon">📸</span>
         <div class="safety-title" data-i18n="safety1_title">AI-geverifieerde foto's</div>
-        <p class="safety-desc" data-i18n="safety1_desc">Elke profielfoto wordt automatisch gemodereerd door AI voordat hij zichtbaar is. Geen nep, geen ongewenste inhoud.</p>
+        <p class="safety-desc" data-i18n="safety1_desc">Elke profielfoto wordt automatisch gemodereerd door AI voordat hij zichtbaar is. Geen nepprofielen, geen ongepaste inhoud.</p>
       </div>
       <div class="safety-card">
-        <span class="safety-icon">🔒</span>
-        <div class="safety-title" data-i18n="safety2_title">Privacybescherming</div>
-        <p class="safety-desc" data-i18n="safety2_desc">Jouw locatie is nooit zichtbaar voor anderen. We tonen alleen de afstand, niet je exacte positie.</p>
+        <span class="safety-icon">📍</span>
+        <div class="safety-title" data-i18n="safety2_title">Locatie na onboarding vergeten</div>
+        <p class="safety-desc" data-i18n="safety2_desc">Lucent vraagt je locatie eenmalig — alleen om je stad te bepalen. Daarna wordt je locatie nooit meer bijgehouden. Alleen de afstand is zichtbaar, nooit je exacte positie.</p>
       </div>
       <div class="safety-card">
         <span class="safety-icon">🚫</span>
-        <div class="safety-title" data-i18n="safety3_title">Blokkeren & melden</div>
-        <p class="safety-desc" data-i18n="safety3_desc">Eén tik om iemand te blokkeren of te melden. Ons team behandelt elke melding serieus en snel.</p>
+        <div class="safety-title" data-i18n="safety3_title">Blokkeren &amp; melden</div>
+        <p class="safety-desc" data-i18n="safety3_desc">Eén tik om iemand te blokkeren of te melden. Ons team behandelt elke melding serieus en snel. Maximaal drie meldingen per dag per gebruiker, om misbruik te voorkomen.</p>
       </div>
       <div class="safety-card">
         <span class="safety-icon">🛡️</span>
-        <div class="safety-title" data-i18n="safety4_title">AVG-compliant</div>
-        <p class="safety-desc" data-i18n="safety4_desc">Jouw gegevens worden beschermd conform de Europese privacywetgeving. Inzage en verwijdering altijd mogelijk.</p>
+        <div class="safety-title" data-i18n="safety4_title">AVG/GDPR-compliant</div>
+        <p class="safety-desc" data-i18n="safety4_desc">Je gegevens worden beschermd conform de Europese privacywetgeving (AVG). Inzage, correctie en volledige verwijdering zijn altijd mogelijk via de app-instellingen.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════
-     CTA
-════════════════════════════════ -->
-<section class="cta-section">
+<!-- ── FAQ ── -->
+<section class="faq-section">
   <div class="section-inner">
-    <h2 data-i18n="cta_title">Klaar voor een echte match?</h2>
-    <p data-i18n="cta_sub">Download Lucent en ontdek wie er echt bij jou past — op basis van wie je bent, niet hoe je eruitziet.</p>
-    <a href="#" class="btn-white" data-i18n="cta_btn">
-      📱 &nbsp;Download voor Android
-    </a>
+    <div class="section-header center">
+      <span class="section-tag" data-i18n="faq_tag">Veelgestelde vragen</span>
+      <h2 class="section-title" data-i18n="faq_title">Alles wat je wilt weten</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question"><span data-i18n="faq1_q">Hoe werkt de score?</span><span class="faq-chevron">+</span></button>
+        <div class="faq-answer"><p data-i18n="faq1_a">Andere gebruikers raden in het dagelijkse League-spel of jij hoger of lager scoort dan henzelf. Op basis van die beoordelingen berekent Lucent jouw score — genormaliseerd per leeftijdsgroep en geslacht, zodat de vergelijking altijd eerlijk is.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span data-i18n="faq2_q">Ziet iedereen mijn score?</span><span class="faq-chevron">+</span></button>
+        <div class="faq-answer"><p data-i18n="faq2_a">Nee. Je ziet de score van een ander pas nadat je hebt geraden. Je eigen score is alleen voor jouzelf zichtbaar — anderen zien alleen je League-icoon (⛵ / 🐦 / ⚽ / 🐟) dat aangeeft in welke klasse je zit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span data-i18n="faq3_q">Wat is een Lucent Match Score?</span><span class="faq-chevron">+</span></button>
+        <div class="faq-answer"><p data-i18n="faq3_a">Een getal van 1 tot 10 dat aangeeft hoe goed jij en een andere gebruiker op persoonlijkheid bij elkaar passen. Gebaseerd op vijf dimensies die je zelf invult. De score is zichtbaar via het radardiagram op een profielpagina, samen met een AI-gegenereerde vibe-beschrijving.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span data-i18n="faq4_q">Is Lucent voor serieuze relaties?</span><span class="faq-chevron">+</span></button>
+        <div class="faq-answer"><p data-i18n="faq4_a">Lucent is primair ontworpen voor mensen die op zoek zijn naar een serieuze of semi-serieuze verbinding. De nadruk op persoonlijkheidscompatibiliteit, eerlijke matching en data-inzichten past bij dat doel. Casual gebruik past minder goed bij de app.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span data-i18n="faq5_q">Wat kost Lucent Pro?</span><span class="faq-chevron">+</span></button>
+        <div class="faq-answer"><p data-i18n="faq5_a">€7,95 per maand bij maandelijkse betaling, of €5,95 per maand bij een halfjaarlijks abonnement. Voor de prijs van één koffie per week krijg je significant meer kansen op een betekenisvolle match.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════
-     FOOTER
-════════════════════════════════ -->
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="section-inner">
+    <h2 data-i18n="cta_title">Eerlijk daten. Eindelijk.</h2>
+    <p data-i18n="cta_sub">Download Lucent en ontdek wie er écht bij jou past — op basis van wie je bent, niet hoe je eruitziet.</p>
+    <a href="#" class="btn-white" data-i18n="cta_btn">📱 &nbsp;Download voor Android</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
         <div class="footer-brand-name">Lucent</div>
-        <p class="footer-brand-desc" data-i18n="footer_brand_desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+        <p class="footer-brand-desc" data-i18n="footer_brand_desc">Eerlijk daten op basis van een echte score, persoonlijkheidscompatibiliteit en inzichten die je nergens anders krijgt.</p>
       </div>
       <div>
         <div class="footer-col-title" data-i18n="footer_app_title">App</div>
@@ -1270,7 +859,6 @@
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
       <span data-i18n="footer_copy">© 2026 Lucent. Alle rechten voorbehouden.</span>
       <div style="display:flex;gap:20px;">
@@ -1285,161 +873,207 @@
 <script>
   // Nav scroll shadow
   const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.toggle('open');
+      answer.style.maxHeight = isOpen ? answer.scrollHeight + 'px' : '0';
+    });
   });
 
   // ── i18n ──
   const TRANSLATIONS = {
     nl: {
-      nav_how: 'Hoe het werkt', nav_personality: 'Persoonlijkheid',
-      nav_league: 'De League', nav_premium: 'Premium', nav_download: 'Download de app',
+      nav_how: 'Hoe het werkt', nav_personality: 'Persoonlijkheid', nav_league: 'De League', nav_premium: 'Premium', nav_download: 'Download de app',
       hero_badge: 'Nu beschikbaar op Android',
-      hero_title: 'Dating zonder swipen.<br><span class="accent">Match op karakter.</span>',
-      hero_sub: 'Lucent koppelt je aan mensen die écht bij je passen — op basis van persoonlijkheid, waarden en jouw positie in de League.',
-      hero_btn_android: '📱 \u00a0Download voor Android',
-      hero_btn_how: 'Hoe werkt het? \u00a0↓',
-      hero_float2: 'Score +0.3 vandaag', hero_float3: 'Nieuw matchverzoek',
-      mockup_card_sub: 'Amsterdam · Kunst & Cultuur',
+      hero_title: 'Weet wat je waard bent.<br><span class="accent">Match met wie past.</span>',
+      hero_sub: 'Lucent combineert een eerlijke aantrekkelijkheidsscore met echte persoonlijkheidscompatibiliteit — zodat je niet swipt in het donker.',
+      hero_btn_android: '📱 \u00a0Download voor Android', hero_btn_how: 'Hoe werkt het? \u00a0↓',
+      hero_float2: 'Score +0.3 vandaag', hero_float3: 'Nieuw chatverzoek',
+      mockup_photo_label: 'Stockfoto', mockup_card_sub: 'Amsterdam · Kunst & Cultuur',
       mockup_vibe1: 'Creatief', mockup_vibe2: 'Introvert', mockup_vibe3: 'Serieus',
       mockup_lower: '👇 Lager', mockup_higher: '👆 Hoger',
-      stat_1: 'Persoonlijkheidsdimensies', stat_2: 'League niveaus',
-      stat_3: 'Leeftijd vereist', stat_4: 'Geverifieerde foto\'s',
-      how_tag: 'Hoe het werkt', how_title: 'Vier stappen naar een echte klik',
-      how_sub: 'Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid en een slim scoremodel.',
-      step1_num: 'Stap 01', step1_title: 'Bouw je profiel',
-      step1_desc: 'Maak een selfie en vul je vijf persoonlijkheidswaarden in. Geen filters, geen poses — jij zoals je bent.',
-      step2_num: 'Stap 02', step2_title: 'Doe mee aan de League',
-      step2_desc: 'Beoordeel dagelijks profielen op aantrekkelijkheid. Je eigen score wordt bepaald door anderen — eerlijk en transparant.',
-      step3_num: 'Stap 03', step3_title: 'Ontdek matches',
-      step3_desc: 'Zie mensen in jouw score-bereik die compatibel zijn op persoonlijkheid. Stuur een matchverzoek en start een gesprek.',
-      step4_num: 'Stap 04', step4_title: 'Leer jezelf kennen',
-      step4_desc: 'Bekijk inzichten over wie jou het hoogst beoordeelt en ontdek je perfecte match op basis van data.',
+      stat_1_num: 'Eerlijk', stat_1_label: 'Score op echte beoordelingen',
+      stat_2_num: 'Transparant', stat_2_label: 'Inzicht in wie jou aantrekkelijk vindt',
+      stat_3_num: 'Gericht', stat_3_label: 'Matches in jouw bereik',
+      screens_tag: 'De app', screens_title: 'Zie de app in actie', screens_sub: 'Vier tabs, één doel: eerlijk daten op basis van wie je écht bent.',
+      screen1_label: 'Screenshot: League spel', screen1_cap: 'League',
+      screen2_label: 'Screenshot: Jouw bereik', screen2_cap: 'People',
+      screen3_label: 'Screenshot: Radardiagram', screen3_cap: 'Vibe Map',
+      screen4_label: 'Screenshot: Inzichten', screen4_cap: 'Data',
+      pillars_tag: 'Waarom Lucent?', pillars_title: 'Drie redenen om anders te daten',
+      pillar1_title: 'Eerlijkheid', pillar1_desc: 'Een echte aantrekkelijkheidsscore op basis van echte beoordelingen van echte mensen. Geen inflatie, geen ego-boost — gewoon waar je staat.',
+      pillar2_title: 'Inzicht', pillar2_desc: 'Zie niet alleen óf iemand aantrekkelijk is, maar ook waarom jullie bij elkaar passen — via een radardiagram, AI-vibe analyse en persoonlijke data-inzichten.',
+      pillar3_title: 'Kwaliteit boven kwantiteit', pillar3_desc: 'Minder profielen, betere matches. Jij ziet mensen in jouw bereik — geen hopeloze matches, geen eindeloos scrollen door profielen die toch nergens toe leiden.',
+      how_tag: 'Hoe het werkt', how_title: 'In vier stappen naar een echte klik', how_sub: 'Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid, jouw waarden en een eerlijk scoremodel.',
+      step1_num: 'Stap 01', step1_title: 'Bouw je profiel', step1_desc: 'Maak een selfie zonder filters en stel vijf persoonlijkheidsdimensies in. Voeg zeven kernwaarden toe — van relatiedoel tot levensstijl. Jij, zoals je echt bent.',
+      step2_num: 'Stap 02', step2_title: 'Speel de League', step2_desc: 'Raad dagelijks of anderen hoger of lager scoren dan jij. Op basis van hoe anderen jou beoordelen bouw je jouw eigen aantrekkelijkheidsscore op — eerlijk en transparant.',
+      step3_num: 'Stap 03', step3_title: 'Ontdek je bereik', step3_desc: 'Zie mensen met een vergelijkbare score én een hoge persoonlijkheidscompatibiliteit. Stuur een chatverzoek en zie direct hoe goed jullie bij elkaar passen via de Vibe Map.',
+      step4_num: 'Stap 04', step4_title: 'Leer jezelf kennen', step4_desc: 'De Data-tab laat zien welke demografische groepen jou het hoogst beoordelen. Inzichten die je nergens anders krijgt — over uiterlijk én hoe je overkomt.',
       vibe_profile_title: 'Jouw Vibe Profiel',
-      dim1_l: 'Introvert', dim1_r: 'Extravert', dim2_l: 'Logisch', dim2_r: 'Emotioneel',
-      dim3_l: 'Gestructureerd', dim3_r: 'Spontaan', dim4_l: 'Traditioneel', dim4_r: 'Avontuurlijk',
-      dim5_l: 'Zelfstandig', dim5_r: 'Verbonden',
-      compat_label: 'Sterke match 🎉',
-      compat_sub: 'Jullie vullen elkaar perfect aan op spontaniteit en openheid.',
+      dim1_l: 'Introvert', dim1_r: 'Extravert', dim2_l: 'Op logica', dim2_r: 'Op gevoel',
+      dim3_l: 'Structuur', dim3_r: 'Spontaan', dim4_l: 'Voorzichtig', dim4_r: 'Avontuurlijk',
+      dim5_l: 'Vrijheid', dim5_r: 'Samenzijn',
+      compat_label: 'Sterke match 🎉', compat_sub: 'Jullie vullen elkaar perfect aan op spontaniteit en openheid.',
       pers_tag: 'Persoonlijkheid', pers_title: 'Meer dan alleen een foto',
-      pers_sub: 'Lucent gebruikt vijf wetenschappelijk onderbouwde dimensies om echte compatibiliteit te berekenen — niet alleen uiterlijk.',
-      feat1_title: 'Sociale Batterij',
-      feat1_desc: 'Hoe laad jij op? Alleen of samen met anderen? We matchen introvert met introvert en extravert met extravert.',
-      feat2_title: 'Logica vs. Emotie',
-      feat2_desc: 'Neem jij beslissingen met je hoofd of je hart? Complementaire stijlen zorgen voor de mooiste gesprekken.',
-      feat3_title: 'Structuur vs. Spontaniteit',
-      feat3_desc: 'Plan jij alles van tevoren, of ga je gewoon? Wij weten welke combinatie werkt.',
-      feat4_title: 'Openheid & Hechting',
-      feat4_desc: 'Avontuur zoeken of comfort? Verbondenheid of vrijheid? Jouw ideale balans staat centraal.',
-      league_tag: 'De League', league_title: 'Jouw plek in de League',
-      league_sub: 'Jouw score wordt bepaald door anderen en vertelt waar je staat. Eerlijk, transparant en altijd in beweging.',
-      prem_tag: 'Lucent Premium', prem_title: 'Zet jezelf op de kaart',
-      prem_sub: 'Ontgrendel alle functies en vergroot je kansen op een echte match.',
-      free_name: 'Gratis', free_always: 'Altijd gratis',
-      free_f1: '5 matchverzoeken per dag', free_f2: '20 profielen per dag',
-      free_f3: 'League score & positie', free_f4: 'Persoonlijkheidsprofiel', free_f5: 'Realtime chat',
-      free_btn: 'Begin gratis',
-      prem_badge: '⭐ Meest gekozen', prem_price_per: 'Jaarlijks gefactureerd — of €8/mnd',
-      prem_f1: '15 matchverzoeken per dag', prem_f2: '60 profielen per dag',
-      prem_f3: 'Directe brieven sturen', prem_f4: 'Voorrang in het overzicht',
-      prem_f5: 'Inzichten: wie beoordeelt jou het hoogst?',
-      prem_f6: 'Uitgebreide data & analyses', prem_f7: 'Geen advertenties',
-      prem_btn: 'Start Premium',
+      pers_sub: 'Lucent berekent hoe goed jij en een ander écht bij elkaar passen — op vijf persoonlijkheidsdimensies, zichtbaar in een radardiagram met AI-analyse.',
+      feat1_title: 'Radardiagram (Vibe Map)', feat1_desc: 'Een interactief spinnenweb vergelijkt jouw vijf persoonlijkheidskenmerken met die van de ander — in één oogopslag zie je waar jullie klikken én waar de uitdagingen zitten.',
+      feat2_title: 'AI Vibe-analyse', feat2_desc: 'Eén persoonlijke AI-zin beschrijft hoe jullie persoonlijkheden op elkaar aansluiten. Uniek voor elke combinatie, nooit generiek.',
+      feat3_title: 'Lucent Match Score', feat3_desc: 'Een getal van 1 tot 10 drukt de compatibiliteit uit. Groen (sterk), paars (goed), oranje (zwak) — zodat je weet wat je aan een match hebt vóór het eerste bericht.',
+      feat4_title: 'Waarschuwingsvlaggen', feat4_desc: 'Grote verschillen op emotionele stabiliteit of levensstijl worden duidelijk aangegeven — eerlijk, zodat je bewust kiest.',
+      league_tag: 'De League', league_title: 'Jij speelt een spel. En jij bent het antwoord.',
+      league_sub: 'De League is het hart van Lucent — een dagelijks raadspel waarbij jouw score wordt bepaald door echte beoordelingen van echte mensen.',
+      league_how_title: 'Hoe het raadspel werkt',
+      league_step1_title: 'Je ziet een profiel', league_step1_desc: 'Elke dag zie je profielen van het tegenovergestelde geslacht, vergelijkbare leeftijd — mensen in jouw klasse.',
+      league_step2_title: 'Maak een keuze', league_step2_desc: 'Heeft deze persoon een hogere of lagere aantrekkelijkheidsscore dan jij? Eén tik — geen eindeloos swipen.',
+      league_step3_title: 'Zie direct het resultaat', league_step3_desc: 'Goed of fout? Je ziet hun huidige score en hoe die de afgelopen 24 uur bewogen heeft. Transparant en eerlijk.',
+      league_step4_title: 'Jouw score beweegt mee', league_step4_desc: 'Hoe meer anderen jou als "hoger" raden, hoe hoger jouw score. Genormaliseerd per cohort — zodat de vergelijking altijd eerlijk is.',
+      league_placeholder: 'Screenshot: League gameplay',
+      league_tiers_title: 'De vier leagues', league_tiers_sub: 'Jouw score bepaalt je League-icoon — zichtbaar voor iedereen in de People-tab.',
+      tier1_name: 'Boot', tier1_desc: 'Net van start. Je score groeit naarmate meer mensen jou beoordelen in de League.',
+      tier2_name: 'Vogel', tier2_desc: 'Boven gemiddeld. Je scoort hoger dan de meeste mensen in jouw cohort.',
+      tier3_name: 'Bal', tier3_desc: 'Sterk profiel. Je behoort tot de top van jouw leeftijdsgroep en geslacht.',
+      tier4_name: 'Vis', tier4_desc: 'Top van het cohort. De hoogste klasse in jouw leeftijdsgroep en geslacht.',
+      data_tag: 'Data & Inzichten', data_title: 'Begrijp wie jou aantrekkelijk vindt',
+      data_sub: 'De Data-tab geeft je inzichten die je nergens anders krijgt — niet over oppervlakkigheid, maar over echte patronen.',
+      data1_title: 'Wie beoordeelt jou het hoogst?', data1_desc: 'Zie welke demografische groepen — op leeftijd, religie, politiek of persoonlijkheid — jou gemiddeld het meest aantrekkelijk vinden. Uitgesplitst en geanonimiseerd.',
+      data2_title: 'Jouw positie in het cohort', data2_desc: 'Een histogram toont hoe jouw score zich verhoudt tot alle andere gebruikers in jouw leeftijdsgroep en geslacht. Zo zie je dat iedereen via dezelfde eerlijke regels speelt.',
+      data3_title: 'Premium: tegengesteld geslacht', data3_desc: 'Met Lucent Pro zie je ook inzichten van het tegenovergestelde geslacht — wie vinden jou aantrekkelijk, en waarom? Een extra laag zelfinzicht voor wie écht wil begrijpen hoe hij of zij overkomt.',
+      data_quote: '"Vrouwen tussen 25 en 30 die religieus zijn beoordelen jou gemiddeld 12% hoger dan het gemiddelde" — een echt type inzicht uit de Data-tab',
+      data_placeholder: 'Screenshot: Data tab',
+      test_tag: 'Ervaringen', test_title: 'Wat gebruikers zeggen',
+      test1_quote: 'Eindelijk een app waarbij je eerlijk te weten komt waar je staat. Geen valse hoop, geen eindeloos swipen in het donker.', test1_name: 'Kevin, 28',
+      test2_quote: 'Ik wist nog voor het eerste gesprek dat we klikte. De radarkaart zei eigenlijk al alles wat ik wilde weten.', test2_name: 'Sophie, 25',
+      test3_quote: 'Ik begreep eindelijk wie ik aantrok — en waarom. De data-inzichten zijn iets wat ik bij geen enkele andere app had verwacht.', test3_name: 'Daan, 31',
+      prem_tag: 'Lucent Pro', prem_title: 'Voor wie écht wil',
+      prem_sub: 'Lucent Pro ontgrendelt alle functies en vergroot je kansen op een betekenisvolle match — voor de prijs van één koffie per week.',
+      free_name: 'Gratis', free_sub: '/mnd', free_always: 'Altijd gratis',
+      free_f1: '20 profielen in People', free_f2: '5 openstaande verzoeken',
+      free_f3: 'League score & icoon', free_f4: 'Persoonlijkheidsprofiel & Vibe Map',
+      free_f5: 'Data-inzichten eigen geslacht', free_btn: 'Begin gratis',
+      prem_badge: '⭐ Meest gekozen', prem_sub_month: '/mnd',
+      prem_price_per: 'of €5,95/mnd bij halfjaarlijkse betaling',
+      prem_f1: '60 profielen in People', prem_f2: '15 openstaande verzoeken',
+      prem_f3: 'Direct match sturen (1×/dag)', prem_f4: 'Altijd bovenaan in People',
+      prem_f5: 'Data-inzichten tegengesteld geslacht', prem_f6: 'Geen advertenties',
+      prem_btn: 'Start Lucent Pro',
       safety_tag: 'Veiligheid & Vertrouwen', safety_title: 'Jouw veiligheid staat voorop',
       safety_sub: 'Lucent is gebouwd met meerdere lagen van bescherming, zodat jij zorgeloos kunt daten.',
-      safety1_title: 'AI-geverifieerde foto\'s',
-      safety1_desc: 'Elke profielfoto wordt automatisch gemodereerd door AI voordat hij zichtbaar is. Geen nep, geen ongewenste inhoud.',
-      safety2_title: 'Privacybescherming',
-      safety2_desc: 'Jouw locatie is nooit zichtbaar voor anderen. We tonen alleen de afstand, niet je exacte positie.',
-      safety3_title: 'Blokkeren & melden',
-      safety3_desc: 'Eén tik om iemand te blokkeren of te melden. Ons team behandelt elke melding serieus en snel.',
-      safety4_title: 'AVG-compliant',
-      safety4_desc: 'Jouw gegevens worden beschermd conform de Europese privacywetgeving. Inzage en verwijdering altijd mogelijk.',
-      cta_title: 'Klaar voor een echte match?',
-      cta_sub: 'Download Lucent en ontdek wie er echt bij jou past — op basis van wie je bent, niet hoe je eruitziet.',
+      safety1_title: 'AI-geverifieerde foto\'s', safety1_desc: 'Elke profielfoto wordt automatisch gemodereerd door AI voordat hij zichtbaar is. Geen nepprofielen, geen ongepaste inhoud.',
+      safety2_title: 'Locatie na onboarding vergeten', safety2_desc: 'Lucent vraagt je locatie eenmalig — alleen om je stad te bepalen. Daarna wordt je locatie nooit meer bijgehouden. Alleen de afstand is zichtbaar, nooit je exacte positie.',
+      safety3_title: 'Blokkeren & melden', safety3_desc: 'Eén tik om iemand te blokkeren of te melden. Ons team behandelt elke melding serieus en snel. Maximaal drie meldingen per dag per gebruiker, om misbruik te voorkomen.',
+      safety4_title: 'AVG/GDPR-compliant', safety4_desc: 'Je gegevens worden beschermd conform de Europese privacywetgeving (AVG). Inzage, correctie en volledige verwijdering zijn altijd mogelijk via de app-instellingen.',
+      faq_tag: 'Veelgestelde vragen', faq_title: 'Alles wat je wilt weten',
+      faq1_q: 'Hoe werkt de score?', faq1_a: 'Andere gebruikers raden in het dagelijkse League-spel of jij hoger of lager scoort dan henzelf. Op basis van die beoordelingen berekent Lucent jouw score — genormaliseerd per leeftijdsgroep en geslacht, zodat de vergelijking altijd eerlijk is.',
+      faq2_q: 'Ziet iedereen mijn score?', faq2_a: 'Nee. Je ziet de score van een ander pas nadat je hebt geraden. Je eigen score is alleen voor jouzelf zichtbaar — anderen zien alleen je League-icoon dat aangeeft in welke klasse je zit.',
+      faq3_q: 'Wat is een Lucent Match Score?', faq3_a: 'Een getal van 1 tot 10 dat aangeeft hoe goed jij en een andere gebruiker op persoonlijkheid bij elkaar passen. Gebaseerd op vijf dimensies die je zelf invult. De score is zichtbaar via het radardiagram op een profielpagina, samen met een AI-gegenereerde vibe-beschrijving.',
+      faq4_q: 'Is Lucent voor serieuze relaties?', faq4_a: 'Lucent is primair ontworpen voor mensen die op zoek zijn naar een serieuze of semi-serieuze verbinding. De nadruk op persoonlijkheidscompatibiliteit, eerlijke matching en data-inzichten past bij dat doel. Casual gebruik past minder goed bij de app.',
+      faq5_q: 'Wat kost Lucent Pro?', faq5_a: '€7,95 per maand bij maandelijkse betaling, of €5,95 per maand bij een halfjaarlijks abonnement. Voor de prijs van één koffie per week krijg je significant meer kansen op een betekenisvolle match.',
+      cta_title: 'Eerlijk daten. Eindelijk.',
+      cta_sub: 'Download Lucent en ontdek wie er écht bij jou past — op basis van wie je bent, niet hoe je eruitziet.',
       cta_btn: '📱 \u00a0Download voor Android',
-      footer_brand_desc: 'Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.',
-      footer_app_title: 'App', footer_app_1: 'Hoe het werkt', footer_app_2: 'Persoonlijkheid',
-      footer_app_3: 'De League', footer_app_4: 'Premium',
-      footer_legal_title: 'Juridisch', footer_priv: 'Privacyverklaring',
-      footer_terms: 'Gebruiksvoorwaarden', footer_contact: 'Contact',
-      footer_copy: '© 2026 Lucent. Alle rechten voorbehouden.',
-      footer_priv_link: 'Privacy', footer_terms_link: 'Voorwaarden',
+      footer_brand_desc: 'Eerlijk daten op basis van een echte score, persoonlijkheidscompatibiliteit en inzichten die je nergens anders krijgt.',
+      footer_app_title: 'App', footer_app_1: 'Hoe het werkt', footer_app_2: 'Persoonlijkheid', footer_app_3: 'De League', footer_app_4: 'Premium',
+      footer_legal_title: 'Juridisch', footer_priv: 'Privacyverklaring', footer_terms: 'Gebruiksvoorwaarden', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. Alle rechten voorbehouden.', footer_priv_link: 'Privacy', footer_terms_link: 'Voorwaarden',
     },
     en: {
-      nav_how: 'How it works', nav_personality: 'Personality',
-      nav_league: 'The League', nav_premium: 'Premium', nav_download: 'Download the app',
+      nav_how: 'How it works', nav_personality: 'Personality', nav_league: 'The League', nav_premium: 'Premium', nav_download: 'Download the app',
       hero_badge: 'Now available on Android',
-      hero_title: 'Dating without swiping.<br><span class="accent">Match on character.</span>',
-      hero_sub: 'Lucent connects you with people who truly fit you — based on personality, values, and your position in the League.',
-      hero_btn_android: '📱 \u00a0Download for Android',
-      hero_btn_how: 'How does it work? \u00a0↓',
-      hero_float2: 'Score +0.3 today', hero_float3: 'New match request',
-      mockup_card_sub: 'Amsterdam · Art & Culture',
+      hero_title: 'Know your worth.<br><span class="accent">Match with who fits.</span>',
+      hero_sub: 'Lucent combines a fair attractiveness score with real personality compatibility — so you stop dating in the dark.',
+      hero_btn_android: '📱 \u00a0Download for Android', hero_btn_how: 'How does it work? \u00a0↓',
+      hero_float2: 'Score +0.3 today', hero_float3: 'New chat request',
+      mockup_photo_label: 'Stock photo', mockup_card_sub: 'Amsterdam · Art & Culture',
       mockup_vibe1: 'Creative', mockup_vibe2: 'Introvert', mockup_vibe3: 'Serious',
       mockup_lower: '👇 Lower', mockup_higher: '👆 Higher',
-      stat_1: 'Personality dimensions', stat_2: 'League levels',
-      stat_3: 'Age required', stat_4: 'Verified photos',
-      how_tag: 'How it works', how_title: 'Four steps to a real connection',
-      how_sub: 'No endless swiping. Lucent works based on your personality and a smart scoring model.',
-      step1_num: 'Step 01', step1_title: 'Build your profile',
-      step1_desc: 'Take a selfie and fill in your five personality values. No filters, no poses — just you as you are.',
-      step2_num: 'Step 02', step2_title: 'Join the League',
-      step2_desc: 'Rate profiles daily on attractiveness. Your own score is determined by others — honest and transparent.',
-      step3_num: 'Step 03', step3_title: 'Discover matches',
-      step3_desc: 'See people in your score range who are compatible in personality. Send a match request and start a conversation.',
-      step4_num: 'Step 04', step4_title: 'Get to know yourself',
-      step4_desc: 'View insights on who rates you highest and discover your perfect match based on data.',
+      stat_1_num: 'Honest', stat_1_label: 'Score based on real ratings',
+      stat_2_num: 'Transparent', stat_2_label: 'Insight into who finds you attractive',
+      stat_3_num: 'Targeted', stat_3_label: 'Matches within your range',
+      screens_tag: 'The app', screens_title: 'See the app in action', screens_sub: 'Four tabs, one goal: honest dating based on who you truly are.',
+      screen1_label: 'Screenshot: League game', screen1_cap: 'League',
+      screen2_label: 'Screenshot: Your range', screen2_cap: 'People',
+      screen3_label: 'Screenshot: Radar chart', screen3_cap: 'Vibe Map',
+      screen4_label: 'Screenshot: Insights', screen4_cap: 'Data',
+      pillars_tag: 'Why Lucent?', pillars_title: 'Three reasons to date differently',
+      pillar1_title: 'Honesty', pillar1_desc: 'A real attractiveness score based on real ratings from real people. No inflation, no ego boost — just where you actually stand.',
+      pillar2_title: 'Insight', pillar2_desc: 'See not just whether someone is attractive, but why you\'re a good match — through a radar chart, AI vibe analysis and personal data insights.',
+      pillar3_title: 'Quality over quantity', pillar3_desc: 'Fewer profiles, better matches. You see people in your range — no hopeless matches, no endless scrolling through profiles that lead nowhere.',
+      how_tag: 'How it works', how_title: 'Four steps to a real connection', how_sub: 'No endless swiping. Lucent works based on your personality, your values and a fair scoring model.',
+      step1_num: 'Step 01', step1_title: 'Build your profile', step1_desc: 'Take a selfie without filters and set five personality dimensions. Add seven core values — from relationship goals to lifestyle. You, as you truly are.',
+      step2_num: 'Step 02', step2_title: 'Play the League', step2_desc: 'Guess daily whether others score higher or lower than you. Based on how others rate you, your own attractiveness score is built — honestly and transparently.',
+      step3_num: 'Step 03', step3_title: 'Discover your range', step3_desc: 'See people with a similar score and high personality compatibility. Send a chat request and immediately see how well you match via the Vibe Map.',
+      step4_num: 'Step 04', step4_title: 'Get to know yourself', step4_desc: 'The Data tab shows which demographic groups rate you highest. Insights you won\'t find anywhere else — about looks and how you come across.',
       vibe_profile_title: 'Your Vibe Profile',
-      dim1_l: 'Introvert', dim1_r: 'Extrovert', dim2_l: 'Logical', dim2_r: 'Emotional',
-      dim3_l: 'Structured', dim3_r: 'Spontaneous', dim4_l: 'Traditional', dim4_r: 'Adventurous',
-      dim5_l: 'Independent', dim5_r: 'Connected',
-      compat_label: 'Strong match 🎉',
-      compat_sub: 'You complement each other perfectly on spontaneity and openness.',
+      dim1_l: 'Introvert', dim1_r: 'Extrovert', dim2_l: 'Logic-driven', dim2_r: 'Feeling-driven',
+      dim3_l: 'Structure', dim3_r: 'Spontaneous', dim4_l: 'Cautious', dim4_r: 'Adventurous',
+      dim5_l: 'Freedom', dim5_r: 'Togetherness',
+      compat_label: 'Strong match 🎉', compat_sub: 'You complement each other perfectly on spontaneity and openness.',
       pers_tag: 'Personality', pers_title: 'More than just a photo',
-      pers_sub: 'Lucent uses five scientifically grounded dimensions to calculate true compatibility — not just looks.',
-      feat1_title: 'Social Battery',
-      feat1_desc: 'How do you recharge? Alone or together with others? We match introverts with introverts and extroverts with extroverts.',
-      feat2_title: 'Logic vs. Emotion',
-      feat2_desc: 'Do you make decisions with your head or your heart? Complementary styles lead to the best conversations.',
-      feat3_title: 'Structure vs. Spontaneity',
-      feat3_desc: 'Do you plan everything in advance, or just go with the flow? We know which combination works.',
-      feat4_title: 'Openness & Attachment',
-      feat4_desc: 'Seeking adventure or comfort? Connection or freedom? Your ideal balance is central.',
-      league_tag: 'The League', league_title: 'Your place in the League',
-      league_sub: 'Your score is determined by others and shows where you stand. Honest, transparent and always evolving.',
-      prem_tag: 'Lucent Premium', prem_title: 'Put yourself on the map',
-      prem_sub: 'Unlock all features and increase your chances of a real match.',
-      free_name: 'Free', free_always: 'Always free',
-      free_f1: '5 match requests per day', free_f2: '20 profiles per day',
-      free_f3: 'League score & position', free_f4: 'Personality profile', free_f5: 'Real-time chat',
-      free_btn: 'Start for free',
-      prem_badge: '⭐ Most popular', prem_price_per: 'Billed annually — or €8/month',
-      prem_f1: '15 match requests per day', prem_f2: '60 profiles per day',
-      prem_f3: 'Send direct letters', prem_f4: 'Priority in the overview',
-      prem_f5: 'Insights: who rates you highest?',
-      prem_f6: 'Extended data & analyses', prem_f7: 'No ads',
-      prem_btn: 'Start Premium',
+      pers_sub: 'Lucent calculates how well you and another person truly fit — across five personality dimensions, visible in a radar chart with AI analysis.',
+      feat1_title: 'Radar chart (Vibe Map)', feat1_desc: 'An interactive spider web compares your five personality traits with those of the other person — see at a glance where you click and where the challenges lie.',
+      feat2_title: 'AI vibe analysis', feat2_desc: 'One personal AI sentence describes how your personalities connect. Unique to every combination, never generic.',
+      feat3_title: 'Lucent Match Score', feat3_desc: 'A number from 1 to 10 expresses compatibility. Green (strong), purple (good), orange (weak) — so you know what to expect from a match before the first message.',
+      feat4_title: 'Warning flags', feat4_desc: 'Major differences in emotional stability or lifestyle are clearly flagged — honestly, so you can make a conscious choice.',
+      league_tag: 'The League', league_title: 'You\'re playing a game. And you\'re the answer.',
+      league_sub: 'The League is the heart of Lucent — a daily guessing game where your score is determined by real ratings from real people.',
+      league_how_title: 'How the guessing game works',
+      league_step1_title: 'You see a profile', league_step1_desc: 'Every day you see profiles of the opposite gender, similar age — people in your class.',
+      league_step2_title: 'Make a choice', league_step2_desc: 'Does this person have a higher or lower attractiveness score than you? One tap — no endless swiping.',
+      league_step3_title: 'See the result instantly', league_step3_desc: 'Right or wrong? You see their current score and how it has moved in the last 24 hours. Transparent and honest.',
+      league_step4_title: 'Your score moves too', league_step4_desc: 'The more others guess you as "higher", the higher your score. Normalized per cohort — so the comparison is always fair.',
+      league_placeholder: 'Screenshot: League gameplay',
+      league_tiers_title: 'The four leagues', league_tiers_sub: 'Your score determines your League icon — visible to everyone in the People tab.',
+      tier1_name: 'Boat', tier1_desc: 'Just starting out. Your score grows as more people rate you in the League.',
+      tier2_name: 'Bird', tier2_desc: 'Above average. You score higher than most people in your cohort.',
+      tier3_name: 'Ball', tier3_desc: 'Strong profile. You belong to the top of your age group and gender.',
+      tier4_name: 'Fish', tier4_desc: 'Top of the cohort. The highest class in your age group and gender.',
+      data_tag: 'Data & Insights', data_title: 'Understand who finds you attractive',
+      data_sub: 'The Data tab gives you insights you won\'t find anywhere else — not about superficiality, but about real patterns.',
+      data1_title: 'Who rates you highest?', data1_desc: 'See which demographic groups — by age, religion, politics or personality — find you most attractive on average. Broken down and anonymised.',
+      data2_title: 'Your position in the cohort', data2_desc: 'A histogram shows how your score compares to all other users in your age group and gender. Proof that everyone plays by the same fair rules.',
+      data3_title: 'Premium: opposite gender', data3_desc: 'With Lucent Pro you also see insights from the opposite gender — who finds you attractive, and why? An extra layer of self-knowledge for those who really want to understand how they come across.',
+      data_quote: '"Women aged 25–30 who are religious rate you an average of 12% higher than the average" — a real type of insight from the Data tab',
+      data_placeholder: 'Screenshot: Data tab',
+      test_tag: 'Experiences', test_title: 'What users say',
+      test1_quote: 'Finally an app where you honestly find out where you stand. No false hope, no endless swiping in the dark.', test1_name: 'Kevin, 28',
+      test2_quote: 'I knew before the first conversation that we clicked. The radar chart basically said everything I wanted to know.', test2_name: 'Sophie, 25',
+      test3_quote: 'I finally understood who I attracted — and why. The data insights are something I didn\'t expect from any dating app.', test3_name: 'Daan, 31',
+      prem_tag: 'Lucent Pro', prem_title: 'For those who mean it',
+      prem_sub: 'Lucent Pro unlocks all features and increases your chances of a meaningful match — for the price of one coffee per week.',
+      free_name: 'Free', free_sub: '/mo', free_always: 'Always free',
+      free_f1: '20 profiles in People', free_f2: '5 open requests',
+      free_f3: 'League score & icon', free_f4: 'Personality profile & Vibe Map',
+      free_f5: 'Data insights — your own gender', free_btn: 'Start for free',
+      prem_badge: '⭐ Most popular', prem_sub_month: '/mo',
+      prem_price_per: 'or €5.95/mo with 6-month billing',
+      prem_f1: '60 profiles in People', prem_f2: '15 open requests',
+      prem_f3: 'Send direct match (1×/day)', prem_f4: 'Always at the top in People',
+      prem_f5: 'Data insights — opposite gender', prem_f6: 'No ads',
+      prem_btn: 'Start Lucent Pro',
       safety_tag: 'Safety & Trust', safety_title: 'Your safety comes first',
       safety_sub: 'Lucent is built with multiple layers of protection so you can date without worry.',
-      safety1_title: 'AI-verified photos',
-      safety1_desc: 'Every profile photo is automatically moderated by AI before it becomes visible. No fakes, no unwanted content.',
-      safety2_title: 'Privacy protection',
-      safety2_desc: 'Your location is never visible to others. We only show the distance, not your exact position.',
-      safety3_title: 'Block & report',
-      safety3_desc: 'One tap to block or report someone. Our team takes every report seriously and acts quickly.',
-      safety4_title: 'GDPR-compliant',
-      safety4_desc: 'Your data is protected in accordance with European privacy law. Access and deletion always possible.',
-      cta_title: 'Ready for a real match?',
+      safety1_title: 'AI-verified photos', safety1_desc: 'Every profile photo is automatically moderated by AI before it becomes visible. No fake profiles, no inappropriate content.',
+      safety2_title: 'Location forgotten after onboarding', safety2_desc: 'Lucent requests your location once — only to determine your city. After that, your location is never tracked. Only the distance is visible, never your exact position.',
+      safety3_title: 'Block & report', safety3_desc: 'One tap to block or report someone. Our team takes every report seriously and acts quickly. Maximum three reports per day per user, to prevent abuse.',
+      safety4_title: 'GDPR-compliant', safety4_desc: 'Your data is protected in accordance with European privacy law (GDPR). Access, correction and full deletion are always possible via the app settings.',
+      faq_tag: 'Frequently asked questions', faq_title: 'Everything you want to know',
+      faq1_q: 'How does the score work?', faq1_a: 'Other users guess in the daily League game whether you score higher or lower than themselves. Based on those ratings, Lucent calculates your score — normalized by age group and gender, so the comparison is always fair.',
+      faq2_q: 'Can everyone see my score?', faq2_a: 'No. You only see another person\'s score after you\'ve made your guess. Your own score is only visible to yourself — others only see your League icon which indicates which class you\'re in.',
+      faq3_q: 'What is a Lucent Match Score?', faq3_a: 'A number from 1 to 10 indicating how well you and another user match in personality. Based on five dimensions you fill in yourself. The score is visible via the radar chart on a profile page, together with an AI-generated vibe description.',
+      faq4_q: 'Is Lucent for serious relationships?', faq4_a: 'Lucent is primarily designed for people looking for a serious or semi-serious connection. The emphasis on personality compatibility, honest matching and data insights fits that goal. Casual use is less suited to the app.',
+      faq5_q: 'What does Lucent Pro cost?', faq5_a: '€7.95 per month with monthly billing, or €5.95 per month with a six-month subscription. For the price of one coffee per week, you get significantly more chances of a meaningful match.',
+      cta_title: 'Honest dating. Finally.',
       cta_sub: 'Download Lucent and discover who truly fits you — based on who you are, not how you look.',
       cta_btn: '📱 \u00a0Download for Android',
-      footer_brand_desc: 'Dating without swiping. Discover real matches based on personality, values and your position in the League.',
-      footer_app_title: 'App', footer_app_1: 'How it works', footer_app_2: 'Personality',
-      footer_app_3: 'The League', footer_app_4: 'Premium',
-      footer_legal_title: 'Legal', footer_priv: 'Privacy Policy',
-      footer_terms: 'Terms of Service', footer_contact: 'Contact',
-      footer_copy: '© 2026 Lucent. All rights reserved.',
-      footer_priv_link: 'Privacy', footer_terms_link: 'Terms',
+      footer_brand_desc: 'Honest dating based on a real score, personality compatibility and insights you won\'t find anywhere else.',
+      footer_app_title: 'App', footer_app_1: 'How it works', footer_app_2: 'Personality', footer_app_3: 'The League', footer_app_4: 'Premium',
+      footer_legal_title: 'Legal', footer_priv: 'Privacy Policy', footer_terms: 'Terms of Service', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. All rights reserved.', footer_priv_link: 'Privacy', footer_terms_link: 'Terms',
     }
   };
 
