@@ -151,11 +151,16 @@
 
     /* ── HOW IT WORKS ── */
     .how-section { background: var(--bg); }
-    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-    .step-card { background: var(--surface); border-radius: var(--radius-xl); padding: 32px 28px; border: 1px solid var(--border); position: relative; transition: transform .25s, box-shadow .25s; }
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .step-card { background: var(--surface); border-radius: var(--radius-xl); padding: 0; border: 1px solid var(--border); position: relative; transition: transform .25s, box-shadow .25s; overflow: hidden; }
     .step-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(106,90,205,0.1); }
-    .step-number { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dis); margin-bottom: 18px; }
-    .step-icon { width: 52px; height: 52px; border-radius: var(--radius-md); background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; box-shadow: 0 6px 16px rgba(106,90,205,0.25); }
+    .step-visual { width: 100%; background: linear-gradient(135deg, rgba(139,127,217,0.12), rgba(106,90,205,0.06)); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; gap: 10px; padding: 20px; min-height: 160px; }
+    .step-visual-panel { flex: 1; background: rgba(106,90,205,0.08); border: 1.5px dashed rgba(106,90,205,0.3); border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 12px 8px; min-height: 120px; font-size: 11px; font-weight: 700; color: var(--primary); text-align: center; line-height: 1.3; }
+    .step-visual-panel span { font-size: 22px; }
+    .step-visual-stack { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .step-visual-stack .step-visual-panel { min-height: 54px; }
+    .step-body { padding: 24px 24px 28px; }
+    .step-number { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dis); margin-bottom: 10px; }
     .step-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
     .step-desc { font-size: 15px; color: var(--text-sec); line-height: 1.6; }
 
@@ -343,7 +348,7 @@
       <div class="mockup-screen">
         <div class="mockup-topbar">
           <span class="mockup-topbar-title">League</span>
-          <span class="mockup-score-badge">Score: 7.4 🐟</span>
+          <span class="mockup-score-badge">Score: 7.4</span>
         </div>
         <div class="mockup-card">
           <div class="mockup-card-img">
@@ -470,28 +475,70 @@
     </div>
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-number" data-i18n="step1_num">Stap 01</div>
-        <div class="step-icon">🧬</div>
-        <div class="step-title" data-i18n="step1_title">Bouw je profiel</div>
-        <p class="step-desc" data-i18n="step1_desc">Maak een selfie zonder filters en stel vijf persoonlijkheidsdimensies in. Voeg zeven kernwaarden toe — van relatiedoel tot levensstijl. Jij, zoals je echt bent.</p>
+        <div class="step-visual">
+          <div class="step-visual-panel">
+            <span>📸</span>
+            League scherm<br>+ in/uit knoppen
+          </div>
+          <div class="step-visual-panel">
+            <span>✅❌</span>
+            Goed / Fout<br>resultaat
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-number" data-i18n="step1_num">Stap 01</div>
+          <div class="step-title" data-i18n="step1_title">Speel de League</div>
+          <p class="step-desc" data-i18n="step1_desc">Raad dagelijks of anderen hoger of lager scoren dan jij. Je ziet direct of je goed of fout zat — zo bouw je jouw eigen aantrekkelijkheidsscore op.</p>
+        </div>
       </div>
       <div class="step-card">
-        <div class="step-number" data-i18n="step2_num">Stap 02</div>
-        <div class="step-icon">⚡</div>
-        <div class="step-title" data-i18n="step2_title">Speel de League</div>
-        <p class="step-desc" data-i18n="step2_desc">Raad dagelijks of anderen hoger of lager scoren dan jij. Op basis van hoe anderen jou beoordelen bouw je jouw eigen aantrekkelijkheidsscore op — eerlijk en transparant.</p>
+        <div class="step-visual">
+          <div class="step-visual-stack">
+            <div class="step-visual-panel">
+              <span>📸</span>
+              Normaalverdeling persoon A
+            </div>
+            <div class="step-visual-panel">
+              <span>📸</span>
+              Normaalverdeling persoon B
+            </div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-number" data-i18n="step2_num">Stap 02</div>
+          <div class="step-title" data-i18n="step2_title">Word gematched</div>
+          <p class="step-desc" data-i18n="step2_desc">Je wordt gekoppeld aan mensen met een vergelijkbare score. Zo staan beide personen op hetzelfde niveau — eerlijk voor iedereen.</p>
+        </div>
       </div>
       <div class="step-card">
-        <div class="step-number" data-i18n="step3_num">Stap 03</div>
-        <div class="step-icon">🎯</div>
-        <div class="step-title" data-i18n="step3_title">Ontdek je bereik</div>
-        <p class="step-desc" data-i18n="step3_desc">Zie mensen met een vergelijkbare score én een hoge persoonlijkheidscompatibiliteit. Stuur een chatverzoek en zie direct hoe goed jullie bij elkaar passen via de Vibe Map.</p>
+        <div class="step-visual">
+          <div class="step-visual-panel">
+            <span>📸</span>
+            Mensen lijst
+          </div>
+          <div class="step-visual-panel">
+            <span>📸</span>
+            Profiel
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-number" data-i18n="step3_num">Stap 03</div>
+          <div class="step-title" data-i18n="step3_title">Ontdek profielen</div>
+          <p class="step-desc" data-i18n="step3_desc">Blader door mensen in jouw bereik en bekijk hun persoonlijkheidsprofiel. Zie direct de Vibe Map en hoe goed jullie bij elkaar passen.</p>
+        </div>
       </div>
       <div class="step-card">
-        <div class="step-number" data-i18n="step4_num">Stap 04</div>
-        <div class="step-icon">📊</div>
-        <div class="step-title" data-i18n="step4_title">Leer jezelf kennen</div>
-        <p class="step-desc" data-i18n="step4_desc">De Data-tab laat zien welke demografische groepen jou het hoogst beoordelen. Inzichten die je nergens anders krijgt — over uiterlijk én hoe je overkomt.</p>
+        <div class="step-visual">
+          <div class="step-visual-panel" style="flex:none;width:100%;">
+            <span>📸</span>
+            Chat scherm
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-number" data-i18n="step4_num">Stap 04</div>
+          <div class="step-title" data-i18n="step4_title">Start een gesprek</div>
+          <p class="step-desc" data-i18n="step4_desc">Stuur een chatverzoek en begin een echt gesprek. Jullie compatibiliteit is al zichtbaar — zodat je weet wat je aan een match hebt vóór het eerste bericht.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -621,36 +668,6 @@
       </div>
     </div>
 
-    <div style="margin-bottom:32px;">
-      <h3 style="font-size:22px;font-weight:900;color:var(--text);letter-spacing:-0.5px;margin-bottom:8px;text-align:center;" data-i18n="league_tiers_title">De vier leagues</h3>
-      <p style="text-align:center;color:var(--text-sec);font-size:15px;margin-bottom:32px;" data-i18n="league_tiers_sub">Jouw score bepaalt je League-icoon — zichtbaar voor iedereen in de People-tab.</p>
-    </div>
-    <div class="league-grid">
-      <div class="league-card">
-        <span class="league-icon">⛵</span>
-        <div class="league-name" data-i18n="tier1_name">Boot</div>
-        <div class="league-range">&lt; 6.0</div>
-        <p class="league-desc" data-i18n="tier1_desc">Net van start. Je score groeit naarmate meer mensen jou beoordelen in de League.</p>
-      </div>
-      <div class="league-card">
-        <span class="league-icon">🐦</span>
-        <div class="league-name" data-i18n="tier2_name">Vogel</div>
-        <div class="league-range">6.0 – 6.9</div>
-        <p class="league-desc" data-i18n="tier2_desc">Boven gemiddeld. Je scoort hoger dan de meeste mensen in jouw cohort.</p>
-      </div>
-      <div class="league-card">
-        <span class="league-icon">⚽</span>
-        <div class="league-name" data-i18n="tier3_name">Bal</div>
-        <div class="league-range">7.0 – 7.9</div>
-        <p class="league-desc" data-i18n="tier3_desc">Sterk profiel. Je behoort tot de top van jouw leeftijdsgroep en geslacht.</p>
-      </div>
-      <div class="league-card">
-        <span class="league-icon">🐟</span>
-        <div class="league-name" data-i18n="tier4_name">Vis</div>
-        <div class="league-range">8.0+</div>
-        <p class="league-desc" data-i18n="tier4_desc">Top van het cohort. De hoogste klasse in jouw leeftijdsgroep en geslacht.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -733,7 +750,7 @@
         <ul class="pricing-features">
           <li><span class="check">✓</span> <span data-i18n="free_f1">20 profielen in People</span></li>
           <li><span class="check">✓</span> <span data-i18n="free_f2">5 openstaande verzoeken</span></li>
-          <li><span class="check">✓</span> <span data-i18n="free_f3">League score &amp; icoon</span></li>
+          <li><span class="check">✓</span> <span data-i18n="free_f3">League score</span></li>
           <li><span class="check">✓</span> <span data-i18n="free_f4">Persoonlijkheidsprofiel &amp; Vibe Map</span></li>
           <li><span class="check">✓</span> <span data-i18n="free_f5">Data-inzichten eigen geslacht</span></li>
         </ul>
@@ -806,7 +823,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question"><span data-i18n="faq2_q">Ziet iedereen mijn score?</span><span class="faq-chevron">+</span></button>
-        <div class="faq-answer"><p data-i18n="faq2_a">Nee. Je ziet de score van een ander pas nadat je hebt geraden. Je eigen score is alleen voor jouzelf zichtbaar — anderen zien alleen je League-icoon (⛵ / 🐦 / ⚽ / 🐟) dat aangeeft in welke klasse je zit.</p></div>
+        <div class="faq-answer"><p data-i18n="faq2_a">Nee. Je ziet de score van een ander pas nadat je hebt geraden. Je eigen score is alleen voor jouzelf zichtbaar.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question"><span data-i18n="faq3_q">Wat is een Lucent Match Score?</span><span class="faq-chevron">+</span></button>
@@ -910,10 +927,10 @@
       pillar2_title: 'Inzicht', pillar2_desc: 'Zie niet alleen óf iemand aantrekkelijk is, maar ook waarom jullie bij elkaar passen — via een radardiagram, AI-vibe analyse en persoonlijke data-inzichten.',
       pillar3_title: 'Kwaliteit boven kwantiteit', pillar3_desc: 'Minder profielen, betere matches. Jij ziet mensen in jouw bereik — geen hopeloze matches, geen eindeloos scrollen door profielen die toch nergens toe leiden.',
       how_tag: 'Hoe het werkt', how_title: 'In vier stappen naar een echte klik', how_sub: 'Geen eindeloos swipen. Lucent werkt op basis van jouw persoonlijkheid, jouw waarden en een eerlijk scoremodel.',
-      step1_num: 'Stap 01', step1_title: 'Bouw je profiel', step1_desc: 'Maak een selfie zonder filters en stel vijf persoonlijkheidsdimensies in. Voeg zeven kernwaarden toe — van relatiedoel tot levensstijl. Jij, zoals je echt bent.',
-      step2_num: 'Stap 02', step2_title: 'Speel de League', step2_desc: 'Raad dagelijks of anderen hoger of lager scoren dan jij. Op basis van hoe anderen jou beoordelen bouw je jouw eigen aantrekkelijkheidsscore op — eerlijk en transparant.',
-      step3_num: 'Stap 03', step3_title: 'Ontdek je bereik', step3_desc: 'Zie mensen met een vergelijkbare score én een hoge persoonlijkheidscompatibiliteit. Stuur een chatverzoek en zie direct hoe goed jullie bij elkaar passen via de Vibe Map.',
-      step4_num: 'Stap 04', step4_title: 'Leer jezelf kennen', step4_desc: 'De Data-tab laat zien welke demografische groepen jou het hoogst beoordelen. Inzichten die je nergens anders krijgt — over uiterlijk én hoe je overkomt.',
+      step1_num: 'Stap 01', step1_title: 'Speel de League', step1_desc: 'Raad dagelijks of anderen hoger of lager scoren dan jij. Je ziet direct of je goed of fout zat — zo bouw je jouw eigen aantrekkelijkheidsscore op.',
+      step2_num: 'Stap 02', step2_title: 'Word gematched', step2_desc: 'Je wordt gekoppeld aan mensen met een vergelijkbare score. Zo staan beide personen op hetzelfde niveau — eerlijk voor iedereen.',
+      step3_num: 'Stap 03', step3_title: 'Ontdek profielen', step3_desc: 'Blader door mensen in jouw bereik en bekijk hun persoonlijkheidsprofiel. Zie direct de Vibe Map en hoe goed jullie bij elkaar passen.',
+      step4_num: 'Stap 04', step4_title: 'Start een gesprek', step4_desc: 'Stuur een chatverzoek en begin een echt gesprek. Jullie compatibiliteit is al zichtbaar — zodat je weet wat je aan een match hebt vóór het eerste bericht.',
       vibe_profile_title: 'Jouw Vibe Profiel',
       dim1_l: 'Introvert', dim1_r: 'Extravert', dim2_l: 'Op logica', dim2_r: 'Op gevoel',
       dim3_l: 'Structuur', dim3_r: 'Spontaan', dim4_l: 'Voorzichtig', dim4_r: 'Avontuurlijk',
@@ -933,11 +950,6 @@
       league_step3_title: 'Zie direct het resultaat', league_step3_desc: 'Goed of fout? Je ziet hun huidige score en hoe die de afgelopen 24 uur bewogen heeft. Transparant en eerlijk.',
       league_step4_title: 'Jouw score beweegt mee', league_step4_desc: 'Hoe meer anderen jou als "hoger" raden, hoe hoger jouw score. Genormaliseerd per cohort — zodat de vergelijking altijd eerlijk is.',
       league_placeholder: 'Screenshot: League gameplay',
-      league_tiers_title: 'De vier leagues', league_tiers_sub: 'Jouw score bepaalt je League-icoon — zichtbaar voor iedereen in de People-tab.',
-      tier1_name: 'Boot', tier1_desc: 'Net van start. Je score groeit naarmate meer mensen jou beoordelen in de League.',
-      tier2_name: 'Vogel', tier2_desc: 'Boven gemiddeld. Je scoort hoger dan de meeste mensen in jouw cohort.',
-      tier3_name: 'Bal', tier3_desc: 'Sterk profiel. Je behoort tot de top van jouw leeftijdsgroep en geslacht.',
-      tier4_name: 'Vis', tier4_desc: 'Top van het cohort. De hoogste klasse in jouw leeftijdsgroep en geslacht.',
       data_tag: 'Data & Inzichten', data_title: 'Begrijp wie jou aantrekkelijk vindt',
       data_sub: 'De Data-tab geeft je inzichten die je nergens anders krijgt — niet over oppervlakkigheid, maar over echte patronen.',
       data1_title: 'Wie beoordeelt jou het hoogst?', data1_desc: 'Zie welke demografische groepen — op leeftijd, religie, politiek of persoonlijkheid — jou gemiddeld het meest aantrekkelijk vinden. Uitgesplitst en geanonimiseerd.',
@@ -953,7 +965,7 @@
       prem_sub: 'Lucent Pro ontgrendelt alle functies en vergroot je kansen op een betekenisvolle match — voor de prijs van één koffie per week.',
       free_name: 'Gratis', free_sub: '/mnd', free_always: 'Altijd gratis',
       free_f1: '20 profielen in People', free_f2: '5 openstaande verzoeken',
-      free_f3: 'League score & icoon', free_f4: 'Persoonlijkheidsprofiel & Vibe Map',
+      free_f3: 'League score', free_f4: 'Persoonlijkheidsprofiel & Vibe Map',
       free_f5: 'Data-inzichten eigen geslacht', free_btn: 'Begin gratis',
       prem_badge: '⭐ Meest gekozen', prem_sub_month: '/mnd',
       prem_price_per: 'of €5,95/mnd bij halfjaarlijkse betaling',
@@ -969,7 +981,7 @@
       safety4_title: 'AVG/GDPR-compliant', safety4_desc: 'Je gegevens worden beschermd conform de Europese privacywetgeving (AVG). Inzage, correctie en volledige verwijdering zijn altijd mogelijk via de app-instellingen.',
       faq_tag: 'Veelgestelde vragen', faq_title: 'Alles wat je wilt weten',
       faq1_q: 'Hoe werkt de score?', faq1_a: 'Andere gebruikers raden in het dagelijkse League-spel of jij hoger of lager scoort dan henzelf. Op basis van die beoordelingen berekent Lucent jouw score — genormaliseerd per leeftijdsgroep en geslacht, zodat de vergelijking altijd eerlijk is.',
-      faq2_q: 'Ziet iedereen mijn score?', faq2_a: 'Nee. Je ziet de score van een ander pas nadat je hebt geraden. Je eigen score is alleen voor jouzelf zichtbaar — anderen zien alleen je League-icoon dat aangeeft in welke klasse je zit.',
+      faq2_q: 'Ziet iedereen mijn score?', faq2_a: 'Nee. Je ziet de score van een ander pas nadat je hebt geraden. Je eigen score is alleen voor jouzelf zichtbaar.',
       faq3_q: 'Wat is een Lucent Match Score?', faq3_a: 'Een getal van 1 tot 10 dat aangeeft hoe goed jij en een andere gebruiker op persoonlijkheid bij elkaar passen. Gebaseerd op vijf dimensies die je zelf invult. De score is zichtbaar via het radardiagram op een profielpagina, samen met een AI-gegenereerde vibe-beschrijving.',
       faq4_q: 'Is Lucent voor serieuze relaties?', faq4_a: 'Lucent is primair ontworpen voor mensen die op zoek zijn naar een serieuze of semi-serieuze verbinding. De nadruk op persoonlijkheidscompatibiliteit, eerlijke matching en data-inzichten past bij dat doel. Casual gebruik past minder goed bij de app.',
       faq5_q: 'Wat kost Lucent Pro?', faq5_a: '€7,95 per maand bij maandelijkse betaling, of €5,95 per maand bij een halfjaarlijks abonnement. Voor de prijs van één koffie per week krijg je significant meer kansen op een betekenisvolle match.',
@@ -1004,10 +1016,10 @@
       pillar2_title: 'Insight', pillar2_desc: 'See not just whether someone is attractive, but why you\'re a good match — through a radar chart, AI vibe analysis and personal data insights.',
       pillar3_title: 'Quality over quantity', pillar3_desc: 'Fewer profiles, better matches. You see people in your range — no hopeless matches, no endless scrolling through profiles that lead nowhere.',
       how_tag: 'How it works', how_title: 'Four steps to a real connection', how_sub: 'No endless swiping. Lucent works based on your personality, your values and a fair scoring model.',
-      step1_num: 'Step 01', step1_title: 'Build your profile', step1_desc: 'Take a selfie without filters and set five personality dimensions. Add seven core values — from relationship goals to lifestyle. You, as you truly are.',
-      step2_num: 'Step 02', step2_title: 'Play the League', step2_desc: 'Guess daily whether others score higher or lower than you. Based on how others rate you, your own attractiveness score is built — honestly and transparently.',
-      step3_num: 'Step 03', step3_title: 'Discover your range', step3_desc: 'See people with a similar score and high personality compatibility. Send a chat request and immediately see how well you match via the Vibe Map.',
-      step4_num: 'Step 04', step4_title: 'Get to know yourself', step4_desc: 'The Data tab shows which demographic groups rate you highest. Insights you won\'t find anywhere else — about looks and how you come across.',
+      step1_num: 'Step 01', step1_title: 'Play the League', step1_desc: 'Guess daily whether others score higher or lower than you. You see instantly whether you were right or wrong — that\'s how your attractiveness score is built.',
+      step2_num: 'Step 02', step2_title: 'Get matched', step2_desc: 'You are connected with people who have a similar score. Both people start on equal footing — fair for everyone.',
+      step3_num: 'Step 03', step3_title: 'Discover profiles', step3_desc: 'Browse people in your range and view their personality profile. See the Vibe Map and how well you two fit together at a glance.',
+      step4_num: 'Step 04', step4_title: 'Start a conversation', step4_desc: 'Send a chat request and start a real conversation. Your compatibility is already visible — so you know what to expect from a match before the first message.',
       vibe_profile_title: 'Your Vibe Profile',
       dim1_l: 'Introvert', dim1_r: 'Extrovert', dim2_l: 'Logic-driven', dim2_r: 'Feeling-driven',
       dim3_l: 'Structure', dim3_r: 'Spontaneous', dim4_l: 'Cautious', dim4_r: 'Adventurous',
@@ -1027,11 +1039,6 @@
       league_step3_title: 'See the result instantly', league_step3_desc: 'Right or wrong? You see their current score and how it has moved in the last 24 hours. Transparent and honest.',
       league_step4_title: 'Your score moves too', league_step4_desc: 'The more others guess you as "higher", the higher your score. Normalized per cohort — so the comparison is always fair.',
       league_placeholder: 'Screenshot: League gameplay',
-      league_tiers_title: 'The four leagues', league_tiers_sub: 'Your score determines your League icon — visible to everyone in the People tab.',
-      tier1_name: 'Boat', tier1_desc: 'Just starting out. Your score grows as more people rate you in the League.',
-      tier2_name: 'Bird', tier2_desc: 'Above average. You score higher than most people in your cohort.',
-      tier3_name: 'Ball', tier3_desc: 'Strong profile. You belong to the top of your age group and gender.',
-      tier4_name: 'Fish', tier4_desc: 'Top of the cohort. The highest class in your age group and gender.',
       data_tag: 'Data & Insights', data_title: 'Understand who finds you attractive',
       data_sub: 'The Data tab gives you insights you won\'t find anywhere else — not about superficiality, but about real patterns.',
       data1_title: 'Who rates you highest?', data1_desc: 'See which demographic groups — by age, religion, politics or personality — find you most attractive on average. Broken down and anonymised.',
@@ -1047,7 +1054,7 @@
       prem_sub: 'Lucent Pro unlocks all features and increases your chances of a meaningful match — for the price of one coffee per week.',
       free_name: 'Free', free_sub: '/mo', free_always: 'Always free',
       free_f1: '20 profiles in People', free_f2: '5 open requests',
-      free_f3: 'League score & icon', free_f4: 'Personality profile & Vibe Map',
+      free_f3: 'League score', free_f4: 'Personality profile & Vibe Map',
       free_f5: 'Data insights — your own gender', free_btn: 'Start for free',
       prem_badge: '⭐ Most popular', prem_sub_month: '/mo',
       prem_price_per: 'or €5.95/mo with 6-month billing',
@@ -1063,7 +1070,7 @@
       safety4_title: 'GDPR-compliant', safety4_desc: 'Your data is protected in accordance with European privacy law (GDPR). Access, correction and full deletion are always possible via the app settings.',
       faq_tag: 'Frequently asked questions', faq_title: 'Everything you want to know',
       faq1_q: 'How does the score work?', faq1_a: 'Other users guess in the daily League game whether you score higher or lower than themselves. Based on those ratings, Lucent calculates your score — normalized by age group and gender, so the comparison is always fair.',
-      faq2_q: 'Can everyone see my score?', faq2_a: 'No. You only see another person\'s score after you\'ve made your guess. Your own score is only visible to yourself — others only see your League icon which indicates which class you\'re in.',
+      faq2_q: 'Can everyone see my score?', faq2_a: 'No. You only see another person\'s score after you\'ve made your guess. Your own score is only visible to yourself.',
       faq3_q: 'What is a Lucent Match Score?', faq3_a: 'A number from 1 to 10 indicating how well you and another user match in personality. Based on five dimensions you fill in yourself. The score is visible via the radar chart on a profile page, together with an AI-generated vibe description.',
       faq4_q: 'Is Lucent for serious relationships?', faq4_a: 'Lucent is primarily designed for people looking for a serious or semi-serious connection. The emphasis on personality compatibility, honest matching and data insights fits that goal. Casual use is less suited to the app.',
       faq5_q: 'What does Lucent Pro cost?', faq5_a: '€7.95 per month with monthly billing, or €5.95 per month with a six-month subscription. For the price of one coffee per week, you get significantly more chances of a meaningful match.',
