@@ -59,8 +59,8 @@
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh; display: flex; flex-direction: column; align-items: center;
-      justify-content: center; text-align: center; padding: 120px 24px 80px;
+      min-height: auto; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center; padding: 120px 24px 60px;
       position: relative; overflow: hidden;
       background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,127,217,0.18) 0%, transparent 70%), var(--surface);
     }
@@ -159,7 +159,8 @@
     .how-step-desc { font-size: 16px; color: var(--text-sec); line-height: 1.65; }
     .how-img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .how-img-pair img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-    .how-img-single img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .how-img-single { display: flex; justify-content: center; }
+    .how-img-single img { max-height: 480px; width: auto; max-width: 100%; border-radius: var(--radius-xl); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
     .how-img-caption { font-size: 13px; color: var(--text-sec); margin-top: 10px; font-weight: 600; text-align: center; }
     @media (max-width: 600px) { .how-img-pair { grid-template-columns: 1fr; } }
     .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
