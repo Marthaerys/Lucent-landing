@@ -197,6 +197,9 @@
     .league-step-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
     .league-step-desc { font-size: 14px; color: var(--text-sec); line-height: 1.55; }
     .league-mockup-placeholder { border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(139,127,217,0.15), rgba(106,90,205,0.08)); border: 2px dashed rgba(106,90,205,0.25); min-height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--primary); font-weight: 700; font-size: 14px; }
+    .league-mockup-placeholder.has-images { border: none; background: transparent; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; min-height: 0; align-items: center; justify-items: center; }
+    .league-mockup-placeholder.has-images img { max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+    @media (max-width: 600px) { .league-mockup-placeholder.has-images { grid-template-columns: 1fr; } }
     .league-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     @media (max-width: 600px) { .league-grid { grid-template-columns: 1fr; } }
     .league-card { background: var(--surface); border-radius: var(--radius-xl); padding: 28px 24px; border: 1px solid var(--border); text-align: center; transition: transform .25s, box-shadow .25s; }
@@ -220,6 +223,9 @@
     .data-card-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
     .data-quote { border-left: 3px solid var(--primary-light); padding: 18px 22px; color: rgba(255,255,255,0.75); font-style: italic; font-size: 15px; line-height: 1.7; margin: 36px 0; background: rgba(255,255,255,0.04); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
     .data-screenshot-placeholder { border-radius: var(--radius-xl); background: rgba(255,255,255,0.04); border: 2px dashed rgba(139,127,217,0.35); height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--primary-light); font-size: 14px; font-weight: 700; }
+    .data-screenshot-placeholder.has-images { border: none; background: transparent; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: auto; align-items: center; justify-items: center; }
+    .data-screenshot-placeholder.has-images img { max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+    @media (max-width: 600px) { .data-screenshot-placeholder.has-images { grid-template-columns: 1fr; } }
 
     /* ── TESTIMONIALS ── */
     .testimonials-section { background: var(--surface); }
@@ -398,8 +404,7 @@
       <div>
         <div class="phone-frame">
           <div class="phone-screen">
-            <span class="phone-screen-icon">📸</span>
-            <span class="phone-screen-label" data-i18n="screen1_label">Screenshot: League spel</span>
+            <img src="assets/League_correct_guess.png" alt="League guessing game screenshot">
           </div>
         </div>
         <p class="screen-caption" data-i18n="screen1_cap">League</p>
@@ -407,8 +412,7 @@
       <div>
         <div class="phone-frame">
           <div class="phone-screen">
-            <span class="phone-screen-icon">📸</span>
-            <span class="phone-screen-label" data-i18n="screen2_label">Screenshot: Jouw bereik</span>
+            <img src="assets/People.png" alt="People - profielen in jouw bereik">
           </div>
         </div>
         <p class="screen-caption" data-i18n="screen2_cap">People</p>
@@ -425,8 +429,7 @@
       <div>
         <div class="phone-frame">
           <div class="phone-screen">
-            <span class="phone-screen-icon">📸</span>
-            <span class="phone-screen-label" data-i18n="screen4_label">Screenshot: Inzichten</span>
+            <img src="assets/league_distribution_male.png" alt="Data insights screenshot">
           </div>
         </div>
         <p class="screen-caption" data-i18n="screen4_cap">Data</p>
@@ -472,15 +475,9 @@
     </div>
     <div class="steps-grid">
       <div class="step-card">
-        <div class="step-visual">
-          <div class="step-visual-panel">
-            <span>📸</span>
-            League scherm<br>+ in/uit knoppen
-          </div>
-          <div class="step-visual-panel">
-            <span>✅❌</span>
-            Goed / Fout<br>resultaat
-          </div>
+        <div class="step-visual" style="gap:8px;padding:14px;">
+          <img src="assets/League_correct_guess.png" alt="Goed geraden" style="flex:1;max-height:130px;width:auto;border-radius:var(--radius-md);object-fit:contain;box-shadow:0 4px 16px rgba(0,0,0,0.15);">
+          <img src="assets/League_wrong_guess.png" alt="Fout geraden" style="flex:1;max-height:130px;width:auto;border-radius:var(--radius-md);object-fit:contain;box-shadow:0 4px 16px rgba(0,0,0,0.15);">
         </div>
         <div class="step-body">
           <div class="step-number" data-i18n="step1_num">Stap 01</div>
@@ -508,11 +505,8 @@
         </div>
       </div>
       <div class="step-card">
-        <div class="step-visual">
-          <div class="step-visual-panel">
-            <span>📸</span>
-            Mensen lijst
-          </div>
+        <div class="step-visual" style="gap:8px;padding:14px;">
+          <img src="assets/People.png" alt="Profielen in jouw bereik" style="flex:1;max-height:130px;width:auto;border-radius:var(--radius-md);object-fit:contain;box-shadow:0 4px 16px rgba(0,0,0,0.15);">
           <div class="step-visual-panel">
             <span>📸</span>
             Profiel
@@ -525,16 +519,28 @@
         </div>
       </div>
       <div class="step-card">
-        <div class="step-visual">
-          <div class="step-visual-panel" style="flex:none;width:100%;">
-            <span>📸</span>
-            Chat scherm
-          </div>
+        <div class="step-visual" style="padding:14px;">
+          <img src="assets/Chats.png" alt="Chats overzicht" style="max-height:130px;width:auto;border-radius:var(--radius-md);object-fit:contain;box-shadow:0 4px 16px rgba(0,0,0,0.15);">
         </div>
         <div class="step-body">
           <div class="step-number" data-i18n="step4_num">Stap 04</div>
           <div class="step-title" data-i18n="step4_title">Start een gesprek</div>
           <p class="step-desc" data-i18n="step4_desc">Stuur een chatverzoek en begin een echt gesprek. Jullie compatibiliteit is al zichtbaar — zodat je weet wat je aan een match hebt vóór het eerste bericht.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Preview -->
+    <div style="margin-top:72px;text-align:center;">
+      <h3 style="font-size:20px;font-weight:800;color:var(--text);margin-bottom:32px;" data-i18n="chats_preview_title">Jouw matches in chatgespreken</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;">
+        <div style="text-align:center;">
+          <img src="assets/Chats.png" alt="Matches en chats overzicht" style="max-width:100%;height:auto;border-radius:var(--radius-lg);box-shadow:0 8px 32px rgba(0,0,0,0.15);">
+          <p style="font-size:13px;color:var(--text-sec);margin-top:12px;font-weight:600;" data-i18n="chats_matches_label">Jouw matches</p>
+        </div>
+        <div style="text-align:center;">
+          <img src="assets/Chats_conversation.png" alt="Voorbeeld gesprek" style="max-width:100%;height:auto;border-radius:var(--radius-lg);box-shadow:0 8px 32px rgba(0,0,0,0.15);">
+          <p style="font-size:13px;color:var(--text-sec);margin-top:12px;font-weight:600;" data-i18n="chats_convo_label">Voorbeeld gesprek</p>
         </div>
       </div>
     </div>
@@ -659,9 +665,15 @@
         </ul>
       </div>
 
-      <div class="league-mockup-placeholder">
-        <span style="font-size:40px;">📸</span>
-        <span data-i18n="league_placeholder">Screenshot: League gameplay</span>
+      <div class="league-mockup-placeholder has-images">
+        <div style="text-align:center;">
+          <img src="assets/League_correct_guess.png" alt="Correct guess example - League game">
+          <p style="font-size:13px;color:var(--text-sec);margin-top:12px;font-weight:600;" data-i18n="league_guess_correct">Goed geraden ✓</p>
+        </div>
+        <div style="text-align:center;">
+          <img src="assets/League_wrong_guess.png" alt="Wrong guess example - League game">
+          <p style="font-size:13px;color:var(--text-sec);margin-top:12px;font-weight:600;" data-i18n="league_guess_wrong">Fout geraden ✗</p>
+        </div>
       </div>
     </div>
 
@@ -696,9 +708,15 @@
     <div class="data-quote" data-i18n="data_quote">
       "Vrouwen tussen 25 en 30 die religieus zijn beoordelen jou gemiddeld 12% hoger dan het gemiddelde" — een echt type inzicht uit de Data-tab
     </div>
-    <div class="data-screenshot-placeholder">
-      <span style="font-size:40px;">📸</span>
-      <span data-i18n="data_placeholder">Screenshot: Data tab</span>
+    <div class="data-screenshot-placeholder has-images">
+      <div style="text-align:center;">
+        <img src="assets/league_distribution_male.png" alt="Score distribution - mannen">
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:12px;font-weight:600;" data-i18n="data_dist_male">Mannen</p>
+      </div>
+      <div style="text-align:center;">
+        <img src="assets/league_distribution_female.png" alt="Score distribution - vrouwen">
+        <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:12px;font-weight:600;" data-i18n="data_dist_female">Vrouwen</p>
+      </div>
     </div>
   </div>
 </section>
@@ -928,6 +946,7 @@
       step2_num: 'Stap 02', step2_title: 'Word gematched', step2_desc: 'Je wordt gekoppeld aan mensen met een vergelijkbare score. Zo staan beide personen op hetzelfde niveau — eerlijk voor iedereen.',
       step3_num: 'Stap 03', step3_title: 'Ontdek profielen', step3_desc: 'Blader door mensen in jouw bereik en bekijk hun persoonlijkheidsprofiel. Zie direct de Vibe Map en hoe goed jullie bij elkaar passen.',
       step4_num: 'Stap 04', step4_title: 'Start een gesprek', step4_desc: 'Stuur een chatverzoek en begin een echt gesprek. Jullie compatibiliteit is al zichtbaar — zodat je weet wat je aan een match hebt vóór het eerste bericht.',
+      chats_preview_title: 'Jouw matches in chatgespreken', chats_matches_label: 'Jouw matches', chats_convo_label: 'Voorbeeld gesprek',
       vibe_profile_title: 'Jouw Vibe Profiel',
       dim1_l: 'Introvert', dim1_r: 'Extravert', dim2_l: 'Op logica', dim2_r: 'Op gevoel',
       dim3_l: 'Structuur', dim3_r: 'Spontaan', dim4_l: 'Voorzichtig', dim4_r: 'Avontuurlijk',
@@ -947,6 +966,7 @@
       league_step3_title: 'Zie direct het resultaat', league_step3_desc: 'Goed of fout? Je ziet hun huidige score en hoe die de afgelopen 24 uur bewogen heeft. Transparant en eerlijk.',
       league_step4_title: 'Jouw score beweegt mee', league_step4_desc: 'Hoe meer anderen jou als "hoger" raden, hoe hoger jouw score. Genormaliseerd per cohort — zodat de vergelijking altijd eerlijk is.',
       league_placeholder: 'Screenshot: League gameplay',
+      league_guess_correct: 'Goed geraden ✓', league_guess_wrong: 'Fout geraden ✗',
       data_tag: 'Data & Inzichten', data_title: 'Begrijp wie jou aantrekkelijk vindt',
       data_sub: 'De Data-tab geeft je inzichten die je nergens anders krijgt — niet over oppervlakkigheid, maar over echte patronen.',
       data1_title: 'Wie beoordeelt jou het hoogst?', data1_desc: 'Zie welke demografische groepen — op leeftijd, religie, politiek of persoonlijkheid — jou gemiddeld het meest aantrekkelijk vinden. Uitgesplitst en geanonimiseerd.',
@@ -954,6 +974,7 @@
       data3_title: 'Premium: tegengesteld geslacht', data3_desc: 'Met Lucent Pro zie je ook inzichten van het tegenovergestelde geslacht — wie vinden jou aantrekkelijk, en waarom? Een extra laag zelfinzicht voor wie écht wil begrijpen hoe hij of zij overkomt.',
       data_quote: '"Vrouwen tussen 25 en 30 die religieus zijn beoordelen jou gemiddeld 12% hoger dan het gemiddelde" — een echt type inzicht uit de Data-tab',
       data_placeholder: 'Screenshot: Data tab',
+      data_dist_male: 'Mannen', data_dist_female: 'Vrouwen',
       test_tag: 'Ervaringen', test_title: 'Wat gebruikers zeggen',
       test1_quote: 'Eindelijk een app waarbij je eerlijk te weten komt waar je staat. Geen valse hoop, geen eindeloos swipen in het donker.', test1_name: 'Kevin, 28',
       test2_quote: 'Ik wist nog voor het eerste gesprek dat we klikte. De radarkaart zei eigenlijk al alles wat ik wilde weten.', test2_name: 'Sophie, 25',
@@ -1017,6 +1038,7 @@
       step2_num: 'Step 02', step2_title: 'Get matched', step2_desc: 'You are connected with people who have a similar score. Both people start on equal footing — fair for everyone.',
       step3_num: 'Step 03', step3_title: 'Discover profiles', step3_desc: 'Browse people in your range and view their personality profile. See the Vibe Map and how well you two fit together at a glance.',
       step4_num: 'Step 04', step4_title: 'Start a conversation', step4_desc: 'Send a chat request and start a real conversation. Your compatibility is already visible — so you know what to expect from a match before the first message.',
+      chats_preview_title: 'Your matches in chats', chats_matches_label: 'Your matches', chats_convo_label: 'Example conversation',
       vibe_profile_title: 'Your Vibe Profile',
       dim1_l: 'Introvert', dim1_r: 'Extrovert', dim2_l: 'Logic-driven', dim2_r: 'Feeling-driven',
       dim3_l: 'Structure', dim3_r: 'Spontaneous', dim4_l: 'Cautious', dim4_r: 'Adventurous',
@@ -1036,6 +1058,7 @@
       league_step3_title: 'See the result instantly', league_step3_desc: 'Right or wrong? You see their current score and how it has moved in the last 24 hours. Transparent and honest.',
       league_step4_title: 'Your score moves too', league_step4_desc: 'The more others guess you as "higher", the higher your score. Normalized per cohort — so the comparison is always fair.',
       league_placeholder: 'Screenshot: League gameplay',
+      league_guess_correct: 'Correct guess ✓', league_guess_wrong: 'Wrong guess ✗',
       data_tag: 'Data & Insights', data_title: 'Understand who finds you attractive',
       data_sub: 'The Data tab gives you insights you won\'t find anywhere else — not about superficiality, but about real patterns.',
       data1_title: 'Who rates you highest?', data1_desc: 'See which demographic groups — by age, religion, politics or personality — find you most attractive on average. Broken down and anonymised.',
@@ -1043,6 +1066,7 @@
       data3_title: 'Premium: opposite gender', data3_desc: 'With Lucent Pro you also see insights from the opposite gender — who finds you attractive, and why? An extra layer of self-knowledge for those who really want to understand how they come across.',
       data_quote: '"Women aged 25–30 who are religious rate you an average of 12% higher than the average" — a real type of insight from the Data tab',
       data_placeholder: 'Screenshot: Data tab',
+      data_dist_male: 'Men', data_dist_female: 'Women',
       test_tag: 'Experiences', test_title: 'What users say',
       test1_quote: 'Finally an app where you honestly find out where you stand. No false hope, no endless swiping in the dark.', test1_name: 'Kevin, 28',
       test2_quote: 'I knew before the first conversation that we clicked. The radar chart basically said everything I wanted to know.', test2_name: 'Sophie, 25',
