@@ -1,5 +1,5 @@
 GEBRUIKSVOORWAARDEN LUCENT
-Versie 1.0 | Ingangsdatum: [DATUM]
+Versie 1.0 | Ingangsdatum: 01-04-2026
 
 Welkom bij Lucent. Door gebruik te maken van onze app en diensten ga je akkoord met deze
 gebruiksvoorwaarden. Lees ze zorgvuldig door.
@@ -11,8 +11,10 @@ gebruiksvoorwaarden. Lees ze zorgvuldig door.
 Lucent is een datingplatform gebaseerd op persoonlijkheidscompatibiliteit. De dienst wordt
 aangeboden door:
 
-Lucent
-Contactpersoon: Martijn Rutten
+Lucent Dating
+Vestigingsadres: Oder 20, UNIT C2888, 2491DC Den Haag, Nederland
+KVK-nummer: 42031421
+BTW-nummer: <BTW>  (in te vullen vóór go-live)
 E-mailadres: info@lucent.you
 Website: www.lucent.you
 
@@ -43,6 +45,10 @@ Om Lucent te gebruiken moet je:
 4.4 Meld beveiligingsincidenten direct aan info@lucent.you.
 4.5 Wij behouden ons het recht voor om accounts te verwijderen die inactief zijn of in strijd handelen
     met deze voorwaarden.
+4.6 Bij het aanmaken van je profiel kun je optioneel je politieke voorkeur en religieuze overtuiging
+    opgeven. Dit zijn bijzondere categorieën persoonsgegevens in de zin van de AVG. Het invullen is
+    volledig vrijwillig. Door deze gegevens in te vullen en akkoord te gaan met deze voorwaarden geef
+    je uitdrukkelijke toestemming voor de verwerking ervan voor matchingsdoeleinden.
 
 ---
 

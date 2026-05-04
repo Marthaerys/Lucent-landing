@@ -1,0 +1,183 @@
+LUCENT TERMS OF USE
+Version 1.0 | Effective date: 2026-04-01
+
+Welcome to Lucent. By using our app and services you agree to these terms of use. Please read
+them carefully.
+
+---
+
+1. ABOUT LUCENT
+
+Lucent is a dating platform based on personality compatibility. The service is provided by:
+
+Lucent Dating
+Registered address: Oder 20, UNIT C2888, 2491DC The Hague, Netherlands
+Chamber of Commerce no.: 42031421
+VAT no.: <VAT>  (to be filled in before go-live)
+Email: info@lucent.you
+Website: www.lucent.you
+
+---
+
+2. ACCEPTANCE OF TERMS
+
+By creating an account and confirming that you agree to these terms, you enter into an agreement
+with us. If you do not agree, you cannot use Lucent.
+
+---
+
+3. REQUIREMENTS FOR USING LUCENT
+
+To use Lucent you must:
+- Be at least 18 years old
+- Have a valid email address or Google/Apple account
+- Act in accordance with these terms and all applicable laws and regulations
+- Have only one account (multiple accounts are not allowed)
+
+---
+
+4. YOUR ACCOUNT
+
+4.1 You are responsible for the accuracy of the information in your profile.
+4.2 You are responsible for all activities that occur via your account.
+4.3 Never share your login credentials with anyone else.
+4.4 Report security incidents directly to info@lucent.you.
+4.5 We reserve the right to delete accounts that are inactive or in violation of these terms.
+4.6 When creating your profile, you may optionally provide your political orientation and religious
+    beliefs. These are special categories of personal data under the GDPR. Providing this information
+    is entirely voluntary. By filling in these fields and agreeing to these terms, you give explicit
+    consent to the processing of this data for matching purposes.
+
+---
+
+5. CONDUCT RULES
+
+It is not permitted to use Lucent to:
+- Provide false or misleading information in your profile
+- Use other people's photos or information
+- Harass, threaten or bully other users
+- Send unwanted sexual or offensive messages
+- Conduct commercial activities (spam, advertising, escort services, etc.)
+- Approach minors or solicit sexual conversations from them
+- Use the platform for fraud or scams
+- Hack, scrape or manipulate Lucent's technical systems
+- Create fake accounts to influence the score system
+- Post content containing nudity, violence, drugs or weapons
+- Post content that is discriminatory based on race, gender, religion or other characteristics
+
+Violations may lead to a temporary or permanent account ban.
+
+---
+
+6. PROFILE PHOTOS AND CONTENT
+
+6.1 Profile photos are automatically moderated via AI.
+6.2 You must be visibly present in your profile photo.
+6.3 Your photos may not show other people without their consent.
+6.4 In case of repeated violations your account will be temporarily or permanently blocked:
+    - 3 minor violations within 24 hours: 1-hour upload ban
+    - Moderate violation: 24-hour upload ban
+    - Severe violation: 7-day account ban
+6.5 You grant Lucent a non-exclusive licence to use your posted content for the purpose of
+    providing the service.
+
+---
+
+7. SCORE SYSTEM AND MATCHING
+
+7.1 The Lucent score system is based on ratings by other users ("higher/lower"). Scores range from
+    4 to 10.
+7.2 We do not guarantee any specific number of matches or conversations.
+7.3 Manipulation of the score system (e.g. via multiple accounts or coordinated ratings) is
+    prohibited.
+7.4 We reserve the right to adjust the score system at any time.
+
+---
+
+8. PREMIUM SUBSCRIPTION AND PAYMENTS
+
+8.1 Lucent offers a free basic version and a paid premium version.
+8.2 Premium features include more daily match requests, extended insights and sending direct
+    "letters".
+8.3 Subscriptions are processed via the Apple App Store or Google Play Store. Their payment
+    terms apply.
+8.4 Subscriptions automatically renew unless you cancel at least 24 hours before the renewal date.
+8.5 No refunds are provided for partially used subscription periods, unless legally required.
+8.6 Prices may be adjusted. Existing subscribers will be notified at least 30 days in advance.
+
+---
+
+9. REPORTING ABUSE
+
+9.1 If you encounter a user who does not follow these terms, you can report that person via the
+    app.
+9.2 We take all reports seriously and investigate them carefully.
+9.3 Misuse of the report system (false reports) may lead to account actions.
+
+---
+
+10. INTELLECTUAL PROPERTY
+
+10.1 The Lucent app, logo, name and all associated content are the property of Lucent and are
+     protected by copyright and other intellectual property rights.
+10.2 You may not copy, distribute or modify the app or any part of it without our explicit
+     permission.
+10.3 The content you post (photos, bio, messages) remains your property. You grant us a licence
+     to use this content for the purpose of providing the service.
+
+---
+
+11. DISCLAIMERS AND LIABILITY
+
+11.1 Lucent provides the service on an "as is" basis. We make no guarantees about the
+     availability, accuracy or results of the service.
+11.2 We are not liable for:
+     - Meetings between users in the real world
+     - Behaviour of other users
+     - Loss of data due to technical issues
+     - Indirect or consequential damages
+11.3 Our liability is in all cases limited to the amount you have paid us in the past 12 months.
+11.4 Lucent is not a party to meetings or arrangements made via the platform. Users are
+     responsible for their own safety.
+
+---
+
+12. SAFETY ADVICE
+
+We recommend that you:
+- Do not share personal contact details (address, phone number) before you trust the other person
+- Plan first meetings in a public place
+- Inform someone you trust about your plans
+
+---
+
+13. TERMINATION
+
+13.1 You can delete your account at any time via the app.
+13.2 We reserve the right to terminate your account if you breach these terms, without prior
+     notice.
+13.3 In case of serious violations (abuse, fraud, threats) we may report you to the competent
+     authorities.
+
+---
+
+14. CHANGES
+
+We may amend these terms of use at any time. For material changes you will be notified via the
+app or by email. Continued use of Lucent after the effective date of the changes constitutes
+acceptance of the new terms.
+
+---
+
+15. GOVERNING LAW AND DISPUTES
+
+These terms are governed by Dutch law. Any disputes will be submitted to the competent court in
+the Netherlands. As a consumer, you may also use the European ODR platform
+(ec.europa.eu/consumers/odr).
+
+---
+
+16. CONTACT
+
+For questions about these terms of use:
+info@lucent.you
