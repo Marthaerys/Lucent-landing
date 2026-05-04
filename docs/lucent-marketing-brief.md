@@ -119,11 +119,12 @@ Alle foto's worden automatisch gecontroleerd op ongepaste inhoud. Dit houdt de c
 ### Tagline-opties
 
 - *"Meer zichtbaarheid. Meer matches. Meer jij."*
+- *"Daten zonder swipen"*
 - *"Date like you mean it."*
 - *"Weet wie bij je past. Echt."*
 - *"Eerlijk daten. Eindelijk."*
 - *"Jouw score. Jouw match. Jouw inzicht."*
-- *"Minder swipen. Meer betekenis."*
+
 
 ### Positie in de markt
 
