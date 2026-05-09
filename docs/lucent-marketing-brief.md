@@ -145,7 +145,7 @@ Lucent zit tussen twee werelden in:
 ## 5. Kernboodschappen per kanaal
 
 ### Website (hero section)
-**Headline:** *"Weet wat je waard bent. Match met wie past."*
+**Headline:** **
 **Sub:** Lucent combineert een eerlijke aantrekkelijkheidsscore met echte persoonlijkheidscompatibiliteit — zodat je niet swipt in het donker.
 
 ### App Store beschrijving

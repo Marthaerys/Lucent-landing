@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account verwijderen | Lucent</title>
+  <meta name="description" content="Dien een verzoek in om je Lucent-account en bijbehorende gegevens te verwijderen." />
+  <link rel="icon" href="../assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:        #6A5ACD;
+      --primary-dark:   #5846B8;
+      --primary-light:  #8B7FD9;
+      --primary-faint:  #F0EDFA;
+      --bg:             #F3F0F7;
+      --surface:        #FFFFFF;
+      --text:           #2C2C2C;
+      --text-sec:       #666666;
+      --text-dis:       #999999;
+      --border:         #E6E6E6;
+      --success:        #1abc9c;
+      --danger:         #e74c3c;
+      --danger-faint:   #fdf0ef;
+      --radius-sm:      8px;
+      --radius-md:      14px;
+      --radius-lg:      20px;
+      --radius-xl:      28px;
+      --radius-full:    9999px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+    /* ════════════════════════════════
+       NAV
+    ════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,230,230,0.6);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(106,90,205,0.08); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon img { width: 22px; height: 22px; object-fit: contain; }
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-sec);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 700 !important;
+      box-shadow: 0 4px 14px rgba(106,90,205,0.3);
+      transition: transform .2s, box-shadow .2s !important;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(106,90,205,0.4) !important; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+    }
+
+    /* ════════════════════════════════
+       CONTENT
+    ════════════════════════════════ */
+    .content-section {
+      padding: 120px 24px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .content-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .content-meta {
+      font-size: 16px;
+      color: var(--text-sec);
+      margin-bottom: 32px;
+    }
+
+    .content-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    .content-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .content-body p {
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .content-body ul, .content-body ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    .content-body li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .content-body .highlight {
+      background: var(--primary-faint);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary);
+      margin: 20px 0;
+    }
+
+    .content-body .warning {
+      background: var(--danger-faint);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--danger);
+      margin: 20px 0;
+    }
+
+    .content-body .option-block {
+      background: var(--bg);
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      margin: 24px 0;
+    }
+
+    .content-body .option-block h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .content-body a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 24px;
+      margin-top: 80px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 720px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .footer-brand-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+    }
+
+    .footer-links-list li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links-list a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links-list a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; gap: 4px; align-items: center; margin-left: 12px; }
+    .lang-btn {
+      background: none; border: none; font-size: 1.3rem; cursor: pointer;
+      opacity: 0.4; transition: opacity .2s, transform .2s; line-height: 1;
+      padding: 2px;
+    }
+    .lang-btn.active { opacity: 1; transform: scale(1.15); }
+    .lang-btn:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="Lucent home">
+    <span class="nav-logo-text">Lucent</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#hoe-werkt-het" data-i18n="nav_how">Hoe het werkt</a></li>
+    <li><a href="/#persoonlijkheid" data-i18n="nav_personality">Persoonlijkheid</a></li>
+    <li><a href="/#league" data-i18n="nav_league">De League</a></li>
+    <li><a href="/#premium" data-i18n="nav_premium">Premium</a></li>
+    <li><a href="#" class="nav-cta" data-i18n="nav_download">Download de app</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-nl" onclick="setLang('nl')" title="Nederlands">🇳🇱</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════
+     CONTENT
+════════════════════════════════ -->
+<section class="content-section">
+  <div class="content-header">
+    <h1 class="content-title" data-i18n="page_title">Account verwijderen</h1>
+    <div class="content-meta" data-i18n="page_meta">Lucent Dating | info@lucent.you</div>
+  </div>
+
+  <div class="content-body" data-i18n-html="content_body">
+
+    <p>Je kunt je Lucent-account op twee manieren laten verwijderen. Kies de optie die voor jou het beste werkt.</p>
+
+    <div class="option-block">
+      <h3>Optie 1 — Via de app</h3>
+      <ol>
+        <li>Open Lucent en log in</li>
+        <li>Ga naar het <strong>Profiel</strong>-tabblad</li>
+        <li>Tik op <strong>"Account verwijderen"</strong></li>
+        <li>Bevestig je keuze</li>
+      </ol>
+      <p>Je account wordt direct verwijderd.</p>
+    </div>
+
+    <div class="option-block">
+      <h3>Optie 2 — Per e-mail</h3>
+      <p>Heb je geen toegang meer tot de app? Stuur een e-mail naar <a href="mailto:info@lucent.you">info@lucent.you</a> vanaf het e-mailadres dat aan je account is gekoppeld, met als onderwerp <strong>"Verwijdering account"</strong>.</p>
+      <p>Wij verwijderen je account binnen 7 dagen.</p>
+    </div>
+
+    <h2>Wat wordt verwijderd</h2>
+    <ul>
+      <li>Profielgegevens (naam, foto's, bio, leeftijd, locatie)</li>
+      <li>Persoonlijkheidsantwoorden en kernwaarden</li>
+      <li>Berichten en chats</li>
+      <li>Match-geschiedenis</li>
+      <li>Score-data</li>
+    </ul>
+
+    <h2>Wat wordt bewaard</h2>
+    <p>Voor wettelijke verplichtingen (fraudepreventie, abuse-onderzoek) bewaren wij maximaal <strong>90 dagen</strong> geanonimiseerde audit-logs. Deze bevatten geen profielgegevens en zijn niet meer aan jou gekoppeld.</p>
+
+    <h2>Alleen gegevens verwijderen</h2>
+    <p>Wil je bepaalde gegevens laten verwijderen zonder je account op te heffen? Stuur een e-mail naar <a href="mailto:info@lucent.you">info@lucent.you</a> met een omschrijving van welke gegevens je wilt laten verwijderen. Wij behandelen je verzoek binnen 7 dagen.</p>
+
+    <div class="highlight">
+      <strong>Vragen?</strong> Neem contact op via <a href="mailto:info@lucent.you">info@lucent.you</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Lucent</div>
+        <p class="footer-brand-desc" data-i18n="footer_brand_desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer_app_title">App</div>
+        <ul class="footer-links-list">
+          <li><a href="/#hoe-werkt-het" data-i18n="footer_app_1">Hoe het werkt</a></li>
+          <li><a href="/#persoonlijkheid" data-i18n="footer_app_2">Persoonlijkheid</a></li>
+          <li><a href="/#league" data-i18n="footer_app_3">De League</a></li>
+          <li><a href="/#premium" data-i18n="footer_app_4">Premium</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer_legal_title">Juridisch</div>
+        <ul class="footer-links-list">
+          <li><a href="/privacy" data-i18n="footer_priv">Privacyverklaring</a></li>
+          <li><a href="/terms" data-i18n="footer_terms">Gebruiksvoorwaarden</a></li>
+          <li><a href="/delete-account" data-i18n="footer_delete">Account verwijderen</a></li>
+          <li><a href="mailto:info@lucent.you" data-i18n="footer_contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-i18n="footer_copy">© 2026 Lucent. Alle rechten voorbehouden.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="/privacy" data-i18n="footer_priv_link">Privacy</a>
+        <a href="/terms" data-i18n="footer_terms_link">Voorwaarden</a>
+        <a href="mailto:info@lucent.you">info@lucent.you</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ── i18n ──
+  const NL_CONTENT = document.querySelector('[data-i18n-html="content_body"]').innerHTML;
+
+  const TRANSLATIONS = {
+    nl: {
+      nav_how: 'Hoe het werkt', nav_personality: 'Persoonlijkheid',
+      nav_league: 'De League', nav_premium: 'Premium', nav_download: 'Download de app',
+      page_title: 'Account verwijderen', page_meta: 'Lucent Dating | info@lucent.you',
+      footer_brand_desc: 'Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.',
+      footer_app_title: 'App', footer_app_1: 'Hoe het werkt', footer_app_2: 'Persoonlijkheid',
+      footer_app_3: 'De League', footer_app_4: 'Premium',
+      footer_legal_title: 'Juridisch', footer_priv: 'Privacyverklaring',
+      footer_terms: 'Gebruiksvoorwaarden', footer_delete: 'Account verwijderen', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. Alle rechten voorbehouden.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Voorwaarden',
+      content_body: NL_CONTENT,
+    },
+    en: {
+      nav_how: 'How it works', nav_personality: 'Personality',
+      nav_league: 'The League', nav_premium: 'Premium', nav_download: 'Download the app',
+      page_title: 'Delete account', page_meta: 'Lucent Dating | info@lucent.you',
+      footer_brand_desc: 'Dating without swiping. Discover real matches based on personality, values and your position in the League.',
+      footer_app_title: 'App', footer_app_1: 'How it works', footer_app_2: 'Personality',
+      footer_app_3: 'The League', footer_app_4: 'Premium',
+      footer_legal_title: 'Legal', footer_priv: 'Privacy Policy',
+      footer_terms: 'Terms of Service', footer_delete: 'Delete account', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. All rights reserved.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Terms',
+      content_body: `
+    <p>You can delete your Lucent account in two ways. Choose the option that works best for you.</p>
+
+    <div class="option-block">
+      <h3>Option 1 — Via the app</h3>
+      <ol>
+        <li>Open Lucent and log in</li>
+        <li>Go to the <strong>Profile</strong> tab</li>
+        <li>Tap <strong>"Delete account"</strong></li>
+        <li>Confirm your choice</li>
+      </ol>
+      <p>Your account will be deleted immediately.</p>
+    </div>
+
+    <div class="option-block">
+      <h3>Option 2 — By email</h3>
+      <p>No longer have access to the app? Send an email to <a href="mailto:info@lucent.you">info@lucent.you</a> from the email address linked to your account, with the subject line <strong>"Account deletion"</strong>.</p>
+      <p>We will delete your account within 7 days.</p>
+    </div>
+
+    <h2>What gets deleted</h2>
+    <ul>
+      <li>Profile data (name, photos, bio, age, location)</li>
+      <li>Personality answers and core values</li>
+      <li>Messages and chats</li>
+      <li>Match history</li>
+      <li>Score data</li>
+    </ul>
+
+    <h2>What gets retained</h2>
+    <p>To meet legal obligations (fraud prevention, abuse investigation) we retain anonymised audit logs for a maximum of <strong>90 days</strong>. These do not contain any profile data and are no longer linked to you.</p>
+
+    <h2>Delete data only</h2>
+    <p>Would you like certain data deleted without closing your account? Send an email to <a href="mailto:info@lucent.you">info@lucent.you</a> describing which data you would like removed. We will process your request within 7 days.</p>
+
+    <div class="highlight">
+      <strong>Questions?</strong> Contact us at <a href="mailto:info@lucent.you">info@lucent.you</a>
+    </div>
+`,
+    }
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (TRANSLATIONS[lang][key] !== undefined) el.textContent = TRANSLATIONS[lang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (TRANSLATIONS[lang][key] !== undefined) el.innerHTML = TRANSLATIONS[lang][key];
+    });
+    document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('lucent_lang', lang);
+    applyLang(lang);
+  }
+
+  applyLang(localStorage.getItem('lucent_lang') || 'nl');
+</script>
+
+</body>
+</html>
