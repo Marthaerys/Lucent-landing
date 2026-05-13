@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kindveiligheidsnormen | Lucent</title>
+  <meta name="description" content="Lees hoe Lucent minderjarigen beschermt en seksueel misbruik en uitbuiting van kinderen (CSAE) actief tegengaat." />
+  <link rel="icon" href="../assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:        #6A5ACD;
+      --primary-dark:   #5846B8;
+      --primary-light:  #8B7FD9;
+      --primary-faint:  #F0EDFA;
+      --bg:             #F3F0F7;
+      --surface:        #FFFFFF;
+      --text:           #2C2C2C;
+      --text-sec:       #666666;
+      --text-dis:       #999999;
+      --border:         #E6E6E6;
+      --success:        #1abc9c;
+      --radius-sm:      8px;
+      --radius-md:      14px;
+      --radius-lg:      20px;
+      --radius-xl:      28px;
+      --radius-full:    9999px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,230,230,0.6);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(106,90,205,0.08); }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon img { width: 22px; height: 22px; object-fit: contain; }
+    .nav-logo-text { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -0.3px; }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 600; color: var(--text-sec); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 700 !important;
+      box-shadow: 0 4px 14px rgba(106,90,205,0.3);
+      transition: transform .2s, box-shadow .2s !important;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(106,90,205,0.4) !important; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+    }
+
+    /* ── CONTENT ── */
+    .content-section {
+      padding: 120px 24px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .content-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .content-meta {
+      font-size: 16px;
+      color: var(--text-sec);
+      margin-bottom: 32px;
+    }
+
+    .content-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    .content-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .content-body p { margin-bottom: 16px; line-height: 1.7; }
+
+    .content-body ul, .content-body ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+
+    .content-body li { margin-bottom: 8px; line-height: 1.6; }
+
+    .content-body .highlight {
+      background: var(--primary-faint);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--primary);
+      margin: 20px 0;
+    }
+
+    .content-body a { color: var(--primary); }
+    .content-body a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px 24px;
+      margin-top: 80px;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 720px) { .footer-top { grid-template-columns: 1fr; gap: 32px; } }
+
+    .footer-brand-name { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-brand-desc { color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .footer-col-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .footer-links-list { list-style: none; }
+    .footer-links-list li { margin-bottom: 10px; }
+    .footer-links-list a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color .2s; }
+    .footer-links-list a:hover { color: #fff; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-bottom a:hover { color: #fff; }
+
+    @media (max-width: 600px) {
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; gap: 4px; align-items: center; margin-left: 12px; }
+    .lang-btn {
+      background: none; border: none; font-size: 1.3rem; cursor: pointer;
+      opacity: 0.4; transition: opacity .2s, transform .2s; line-height: 1;
+      padding: 2px;
+    }
+    .lang-btn.active { opacity: 1; transform: scale(1.15); }
+    .lang-btn:hover { opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="/" class="nav-logo" aria-label="Lucent home">
+    <span class="nav-logo-text">Lucent</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#hoe-werkt-het" data-i18n="nav_how">Hoe het werkt</a></li>
+    <li><a href="/#persoonlijkheid" data-i18n="nav_personality">Persoonlijkheid</a></li>
+    <li><a href="/#league" data-i18n="nav_league">De League</a></li>
+    <li><a href="/#premium" data-i18n="nav_premium">Premium</a></li>
+    <li><a href="#" class="nav-cta" data-i18n="nav_download">Download de app</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-nl" onclick="setLang('nl')" title="Nederlands">🇳🇱</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
+  </div>
+</nav>
+
+<!-- ── CONTENT ── -->
+<section class="content-section">
+  <div class="content-header">
+    <h1 class="content-title" data-i18n="page_title">Kindveiligheidsnormen</h1>
+    <div class="content-meta" data-i18n="page_meta">Ingangsdatum: 13-mei-2026</div>
+  </div>
+
+  <div class="content-body" data-i18n-html="content_body">
+    <div class="highlight">
+      <strong>Lucent hanteert een nultolerantiebeleid ten aanzien van seksueel misbruik en uitbuiting van kinderen (CSAE). Dit beleid is van toepassing op alle gebruikers, inhoud en communicatie binnen de Lucent-app.</strong>
+    </div>
+
+    <h2>1. LEEFTIJDSVEREISTE</h2>
+    <p>Lucent is uitsluitend bestemd voor personen van 18 jaar en ouder. Bij registratie vragen wij naar je geboortedatum. Accounts van personen jonger dan 18 jaar worden onmiddellijk verwijderd zodra wij hiervan op de hoogte raken.</p>
+
+    <h2>2. VERBODEN INHOUD EN GEDRAG</h2>
+    <p>Het is ten strengste verboden om via Lucent:</p>
+    <ul>
+      <li>Seksueel beeldmateriaal van minderjarigen te delen, te verspreiden of te bezitten (CSAM)</li>
+      <li>Minderjarigen te benaderen voor seksuele doeleinden (grooming)</li>
+      <li>Seksueel expliciete gesprekken te voeren met of over minderjarigen</li>
+      <li>De identiteit of leeftijd van een minderjarige na te bootsen</li>
+      <li>Links of verwijzingen naar CSAE-materiaal te delen</li>
+    </ul>
+    <p>Overtredingen leiden onmiddellijk tot een permanente accountblokkering en worden gemeld bij de bevoegde autoriteiten.</p>
+
+    <h2>3. MODERATIE EN DETECTIE</h2>
+    <p>Wij nemen actieve maatregelen om misbruik te voorkomen en te detecteren:</p>
+    <ul>
+      <li>Alle profielfoto's worden automatisch gecontroleerd via AI-moderatie vóór publicatie</li>
+      <li>Gebruikers kunnen verdacht gedrag en inhoud rechtstreeks rapporteren via de app</li>
+      <li>Meldingen worden beoordeeld door ons team en waar nodig actie ondernomen</li>
+      <li>Ernstige overtredingen worden doorgestuurd naar de relevante autoriteiten, waaronder het NCMEC (National Center for Missing &amp; Exploited Children) waar wettelijk vereist</li>
+    </ul>
+
+    <h2>4. RAPPORTAGE EN CONTACT</h2>
+    <p>Als je verdacht gedrag of inhoud tegenkomt die betrekking heeft op de veiligheid van kinderen, verzoeken wij je dit onmiddellijk te melden:</p>
+    <ul>
+      <li><strong>Via de app:</strong> gebruik de rapporteerfunctie op het profiel of in het gesprek</li>
+      <li><strong>Via e-mail:</strong> <a href="mailto:safety@lucent.you">safety@lucent.you</a></li>
+    </ul>
+    <p>Alle meldingen worden vertrouwelijk behandeld en zo snel mogelijk opgevolgd.</p>
+
+    <h2>5. SAMENWERKING MET AUTORITEITEN</h2>
+    <p>Lucent werkt volledig mee met wetshandhavingsinstanties bij onderzoeken naar CSAE. Wij bewaren de wettelijk vereiste informatie en stellen deze beschikbaar aan bevoegde autoriteiten bij een rechtmatig verzoek.</p>
+
+    <h2>6. UPDATES VAN DIT BELEID</h2>
+    <p>Dit beleid kan worden bijgewerkt om te voldoen aan nieuwe wetgeving of beleidswijzigingen. De meest recente versie is altijd beschikbaar op <a href="/child-safety">lucent.you/child-safety</a>.</p>
+
+    <h2>7. CONTACT</h2>
+    <p>Voor vragen of meldingen met betrekking tot kindveiligheid:<br>
+    <a href="mailto:safety@lucent.you">safety@lucent.you</a></p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Lucent</div>
+        <p class="footer-brand-desc" data-i18n="footer_brand_desc">Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer_app_title">App</div>
+        <ul class="footer-links-list">
+          <li><a href="/#hoe-werkt-het" data-i18n="footer_app_1">Hoe het werkt</a></li>
+          <li><a href="/#persoonlijkheid" data-i18n="footer_app_2">Persoonlijkheid</a></li>
+          <li><a href="/#league" data-i18n="footer_app_3">De League</a></li>
+          <li><a href="/#premium" data-i18n="footer_app_4">Premium</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer_legal_title">Juridisch</div>
+        <ul class="footer-links-list">
+          <li><a href="/privacy" data-i18n="footer_priv">Privacyverklaring</a></li>
+          <li><a href="/terms" data-i18n="footer_terms">Gebruiksvoorwaarden</a></li>
+          <li><a href="/delete-account" data-i18n="footer_delete">Account verwijderen</a></li>
+          <li><a href="/child-safety" data-i18n="footer_child_safety">Kindveiligheid</a></li>
+          <li><a href="mailto:info@lucent.you" data-i18n="footer_contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span data-i18n="footer_copy">© 2026 Lucent. Alle rechten voorbehouden.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="/privacy" data-i18n="footer_priv_link">Privacy</a>
+        <a href="/terms" data-i18n="footer_terms_link">Voorwaarden</a>
+        <a href="mailto:info@lucent.you">info@lucent.you</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ── i18n ──
+  const NL_CONTENT = document.querySelector('[data-i18n-html="content_body"]').innerHTML;
+
+  const TRANSLATIONS = {
+    nl: {
+      nav_how: 'Hoe het werkt', nav_personality: 'Persoonlijkheid',
+      nav_league: 'De League', nav_premium: 'Premium', nav_download: 'Download de app',
+      page_title: 'Kindveiligheidsnormen', page_meta: 'Ingangsdatum: 13-mei-2026',
+      footer_brand_desc: 'Dating zonder swipen. Ontdek echte matches op basis van persoonlijkheid, waarden en jouw positie in de League.',
+      footer_app_title: 'App', footer_app_1: 'Hoe het werkt', footer_app_2: 'Persoonlijkheid',
+      footer_app_3: 'De League', footer_app_4: 'Premium',
+      footer_legal_title: 'Juridisch', footer_priv: 'Privacyverklaring',
+      footer_terms: 'Gebruiksvoorwaarden', footer_delete: 'Account verwijderen',
+      footer_child_safety: 'Kindveiligheid', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. Alle rechten voorbehouden.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Voorwaarden',
+      content_body: NL_CONTENT,
+    },
+    en: {
+      nav_how: 'How it works', nav_personality: 'Personality',
+      nav_league: 'The League', nav_premium: 'Premium', nav_download: 'Download the app',
+      page_title: 'Child Safety Standards', page_meta: 'Effective date: 13-May-2026',
+      footer_brand_desc: 'Dating without swiping. Discover real matches based on personality, values and your position in the League.',
+      footer_app_title: 'App', footer_app_1: 'How it works', footer_app_2: 'Personality',
+      footer_app_3: 'The League', footer_app_4: 'Premium',
+      footer_legal_title: 'Legal', footer_priv: 'Privacy Policy',
+      footer_terms: 'Terms of Service', footer_delete: 'Delete account',
+      footer_child_safety: 'Child Safety', footer_contact: 'Contact',
+      footer_copy: '© 2026 Lucent. All rights reserved.',
+      footer_priv_link: 'Privacy', footer_terms_link: 'Terms',
+      content_body: `
+    <div class="highlight">
+      <strong>Lucent has a zero-tolerance policy towards child sexual abuse and exploitation (CSAE). This policy applies to all users, content and communications within the Lucent app.</strong>
+    </div>
+
+    <h2>1. AGE REQUIREMENT</h2>
+    <p>Lucent is exclusively intended for persons aged 18 and older. We ask for your date of birth during registration. Accounts belonging to persons under 18 will be removed immediately upon discovery.</p>
+
+    <h2>2. PROHIBITED CONTENT AND BEHAVIOUR</h2>
+    <p>It is strictly prohibited to use Lucent to:</p>
+    <ul>
+      <li>Share, distribute or possess child sexual abuse material (CSAM)</li>
+      <li>Approach minors for sexual purposes (grooming)</li>
+      <li>Engage in sexually explicit conversations with or about minors</li>
+      <li>Impersonate the identity or age of a minor</li>
+      <li>Share links or references to CSAE material</li>
+    </ul>
+    <p>Violations will result in an immediate permanent account ban and will be reported to the relevant authorities.</p>
+
+    <h2>3. MODERATION AND DETECTION</h2>
+    <p>We take active measures to prevent and detect abuse:</p>
+    <ul>
+      <li>All profile photos are automatically reviewed via AI moderation before publication</li>
+      <li>Users can report suspicious behaviour and content directly through the app</li>
+      <li>Reports are reviewed by our team and action is taken where necessary</li>
+      <li>Serious violations are referred to the relevant authorities, including the NCMEC (National Center for Missing &amp; Exploited Children) where legally required</li>
+    </ul>
+
+    <h2>4. REPORTING AND CONTACT</h2>
+    <p>If you encounter suspicious behaviour or content related to child safety, we urge you to report it immediately:</p>
+    <ul>
+      <li><strong>Via the app:</strong> use the report feature on the profile or in the conversation</li>
+      <li><strong>Via email:</strong> <a href="mailto:safety@lucent.you">safety@lucent.you</a></li>
+    </ul>
+    <p>All reports are treated confidentially and followed up as quickly as possible.</p>
+
+    <h2>5. COOPERATION WITH AUTHORITIES</h2>
+    <p>Lucent cooperates fully with law enforcement agencies in investigations into CSAE. We retain legally required information and make it available to competent authorities upon a lawful request.</p>
+
+    <h2>6. UPDATES TO THIS POLICY</h2>
+    <p>This policy may be updated to comply with new legislation or policy changes. The most recent version is always available at <a href="/child-safety">lucent.you/child-safety</a>.</p>
+
+    <h2>7. CONTACT</h2>
+    <p>For questions or reports regarding child safety:<br>
+    <a href="mailto:safety@lucent.you">safety@lucent.you</a></p>
+      `,
+    },
+  };
+
+  function applyTranslations(lang) {
+    document.documentElement.lang = lang;
+    const t = TRANSLATIONS[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      if (t[el.dataset.i18n]) el.textContent = t[el.dataset.i18n];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      if (t[el.dataset.i18nHtml]) el.innerHTML = t[el.dataset.i18nHtml];
+    });
+    document.getElementById('btn-nl').classList.toggle('active', lang === 'nl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('lucent_lang', lang);
+    applyTranslations(lang);
+  }
+
+  const savedLang = localStorage.getItem('lucent_lang') || 'nl';
+  applyTranslations(savedLang);
+  if (savedLang === 'en') {
+    document.getElementById('btn-nl').classList.remove('active');
+    document.getElementById('btn-en').classList.add('active');
+  }
+</script>
+</body>
+</html>
